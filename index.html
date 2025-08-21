@@ -56,6 +56,19 @@
 
         <!-- Right Side: Navigation Links -->
         <div class="hidden lg:flex items-center space-x-8 order-3">
+          <!-- Language Switch -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
+              <i class="fas fa-globe"></i>
+              <span>EN</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Hindi</a>
+            </div>
+          </div>
           <a
             href="#"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
@@ -105,7 +118,14 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <div class="lg:hidden order-3">
+        <div class="lg:hidden order-3 flex items-center space-x-4">
+          <!-- Mobile Language Switch -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition">
+              <i class="fas fa-globe"></i>
+              <span class="text-sm">EN</span>
+            </button>
+          </div>
           <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
             <i class="fas fa-bars text-xl"></i>
           </button>
@@ -157,6 +177,15 @@
               <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Bulldozers</a>
               <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Cranes</a>
               <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Forklifts</a>
+            </div>
+          </div>
+          <!-- Mobile Language Options -->
+          <div class="py-2 border-t border-gray-200">
+            <p class="text-[#3d2d29] font-medium py-2">Language</p>
+            <div class="ml-4 space-y-2">
+              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">English</a>
+              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Tamil</a>
+              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Hindi</a>
             </div>
           </div>
         </div>
