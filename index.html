@@ -56,15 +56,6 @@
 
         <!-- Right Side: Navigation Links -->
         <div class="hidden lg:flex items-center space-x-8 order-3">
-          <!-- Language Switch -->
-          <div class="relative group">
-            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
-              <i class="fas fa-globe"></i>
-              <span>EN</span>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            
-          </div>
           <a
             href="#"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
@@ -78,12 +69,18 @@
             href="category.html"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
             >Category</a>
-
-          <div
-            class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
-            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
-            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
-            
+          <!-- Language Switch moved to end -->
+          <div class="relative group">
+            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
+              <i class="fas fa-globe"></i>
+              <span>EN</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div
+              class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
+              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
+            </div>
           </div>
         </div>
 
@@ -164,9 +161,9 @@
   </nav>
 
   <!-- Industrial Images Showcase Section -->
-  <section class="w-full h-screen px-0 py-0 relative shadow-lg shadow-black/60">
+  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/60" style="height: calc(100vh - 3cm);">
     <!-- Dimming Overlay with Caption -->
-    <div class="absolute inset-0 bg-black/40 z-20 rounded-xl flex items-center justify-center pointer-events-none">
+    <div class="absolute inset-0 bg-black/20 z-20 rounded-xl flex items-center justify-center pointer-events-none">
       <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
         <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-400">Discover Premium Machinery</h2>
         <p class="text-sm md:text-base opacity-90 mb-3">Explore our extensive collection</p>
@@ -176,7 +173,7 @@
       </div>
     </div>
 
-    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-1 h-full w-full transition-all duration-500 ease-in-out relative z-10">
+    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-0 h-full w-full transition-all duration-500 ease-in-out relative z-10">
       <!-- Container 1 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
