@@ -2,71 +2,149 @@
 let currentSlide = 1;
 const totalSlides = 3;
 
-// Container sets for different slides
+// Container sets for different slides - Updated for 5 containers (7x2 grid)
 const containerSets = [
-    // Slide 1 - 4 containers (4x1 grid) - Simplified layout
+    // Slide 1 - Heavy Construction (5 containers)
     `
-      <!-- Container 1 - Large hero (spans 2x1) -->
-      <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative hero-container">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
+      <!-- Container 1 - Large hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
           <h3 class="text-2xl font-bold mb-2">Heavy Machinery Solutions</h3>
-          <p class="text-base opacity-90">Professional construction equipment</p>
+          <p class="text-base opacity-90">Professional construction equipment for all your needs</p>
         </div>
       </div>
-      <!-- Container 2 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-blue-600 text-white px-3 py-2 rounded font-semibold text-sm">Excavators</div>
+      <!-- Container 2 - Medium (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Excavators</h4>
+          <p class="text-sm opacity-80">Heavy duty excavation</p>
+        </div>
       </div>
-      <!-- Container 3 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-orange-600 text-white px-3 py-1 rounded font-semibold text-sm">Dump Trucks</div>
+      <!-- Container 3 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Dump Trucks</h4>
+          <p class="text-sm opacity-80">Material transport</p>
+        </div>
+      </div>
+      <!-- Container 4 - Medium tall (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Crane Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Cranes</h4>
+          <p class="text-sm opacity-80">Lifting solutions</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Bulldozers</h4>
+          <p class="text-sm opacity-80">Earth moving</p>
+        </div>
       </div>
     `,
-    // Slide 2 - Mining & Extraction (4 containers) - Simplified layout
+    // Slide 2 - Mining & Extraction (5 containers)
     `
-      <!-- Container 1 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+      <!-- Container 1 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-purple-700 text-white px-3 py-2 rounded font-semibold text-sm">Drilling</div>
-      </div>
-      <!-- Container 2 - Large mining hero (spans 2x1) -->
-      <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative hero-container">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
-          <h3 class="text-2xl font-bold mb-2">Mining & Extraction</h3>
-          <p class="text-base opacity-90">Advanced mining solutions</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Drilling Equipment</h4>
+          <p class="text-sm opacity-80">Precision drilling</p>
         </div>
       </div>
-      <!-- Container 3 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+      <!-- Container 2 - Large mining hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-2xl font-bold mb-2">Mining & Extraction</h3>
+          <p class="text-base opacity-90">Advanced mining solutions and equipment</p>
+        </div>
+      </div>
+      <!-- Container 3 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Heavy Machinery" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-red-600 text-white px-3 py-2 rounded font-semibold text-sm">Heavy Machinery</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Heavy Machinery</h4>
+          <p class="text-sm opacity-80">Industrial grade</p>
+        </div>
+      </div>
+      <!-- Container 4 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Mining Trucks" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Mining Trucks</h4>
+          <p class="text-sm opacity-80">Heavy haulage</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Loaders" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Loaders</h4>
+          <p class="text-sm opacity-80">Material handling</p>
+        </div>
       </div>
     `,
-    // Slide 3 - Technology & Automation (4 containers) - Simplified layout
+    // Slide 3 - Technology & Automation (5 containers)
     `
-      <!-- Container 1 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+      <!-- Container 1 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=600&h=400&fit=crop" alt="Warehouse Operations" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-indigo-600 text-white px-3 py-1 rounded font-semibold text-sm">Warehouse</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Warehouse Automation</h4>
+          <p class="text-sm opacity-80">Smart logistics</p>
+        </div>
       </div>
-      <!-- Container 2 - Single -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+      <!-- Container 2 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Specialized Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-teal-600 text-white px-3 py-1 rounded font-semibold text-sm">Specialized</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Specialized Equipment</h4>
+          <p class="text-sm opacity-80">Custom solutions</p>
+        </div>
       </div>
-      <!-- Container 3 - Large hero (spans 2x1) -->
-      <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative hero-container">
+      <!-- Container 3 - Large hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop" alt="Advanced Technology" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
           <h3 class="text-2xl font-bold mb-2">Smart Technology</h3>
-          <p class="text-base opacity-90">AI-powered machinery</p>
+          <p class="text-base opacity-90">AI-powered machinery and automation</p>
+        </div>
+      </div>
+      <!-- Container 4 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Robotic Systems" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Robotic Systems</h4>
+          <p class="text-sm opacity-80">Automated precision</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="IoT Machinery" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">IoT Machinery</h4>
+          <p class="text-sm opacity-80">Connected equipment</p>
         </div>
       </div>
     `
