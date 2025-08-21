@@ -4,41 +4,51 @@ const totalSlides = 3;
 
 // Container sets for different slides
 const containerSets = [
-    // Slide 1 - 6 containers (3x2 grid) - Enlarged
+    // Slide 1 - 8 containers (4x2 grid) - No blank spaces
     `
       <!-- Container 1 - Large hero (spans 2x2) -->
       <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-2xl bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=800&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-4xl font-bold mb-3">Heavy Machinery Solutions</h3>
-          <p class="text-xl opacity-90">Professional construction equipment</p>
+          <h3 class="text-3xl font-bold mb-3">Heavy Machinery Solutions</h3>
+          <p class="text-lg opacity-90">Professional construction equipment</p>
         </div>
       </div>
       <!-- Container 2 - Tall vertical -->
       <div class="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-blue-600 text-white px-4 py-2 rounded font-semibold text-sm">Excavators</div>
+        <div class="absolute bottom-6 left-6 bg-blue-600 text-white px-3 py-2 rounded font-semibold text-sm">Excavators</div>
       </div>
-      <!-- Container 3 - Wide horizontal -->
+      <!-- Container 3 - Tall vertical -->
+      <div class="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=800&fit=crop" alt="Tower Crane" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-purple-600 text-white px-3 py-2 rounded font-semibold text-sm">Tower Cranes</div>
+      </div>
+      <!-- Container 4 - Wide horizontal -->
       <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
         <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&h=400&fit=crop" alt="Industrial Site" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-yellow-500 text-black px-4 py-2 rounded font-semibold text-sm">Mining Equipment</div>
-      </div>
-      <!-- Container 4 - Square -->
-      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
-        <div class="absolute bottom-5 left-5 text-white text-sm font-semibold">Bulldozers</div>
+        <div class="absolute bottom-5 left-5 bg-yellow-500 text-black px-3 py-2 rounded font-semibold text-sm">Mining Equipment</div>
       </div>
       <!-- Container 5 - Square -->
       <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
-        <div class="absolute bottom-5 left-5 bg-orange-600 text-white px-3 py-2 rounded font-semibold text-sm">Dump Trucks</div>
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Bulldozers</div>
       </div>
       <!-- Container 6 - Square -->
       <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-orange-600 text-white px-3 py-1 rounded font-semibold text-sm">Dump Trucks</div>
+      </div>
+      <!-- Container 7 - Square -->
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&q=80" alt="Crane Operations" class="w-full h-full object-cover" />
-        <div class="absolute bottom-5 left-5 text-white text-sm font-semibold">Cranes</div>
+        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Cranes</div>
+      </div>
+      <!-- Container 8 - Square -->
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=600&h=400&fit=crop" alt="Forklift Operations" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-green-600 text-white px-3 py-1 rounded font-semibold text-sm">Forklifts</div>
       </div>
     `,
     // Slide 2 - Mining & Extraction (6 containers) - Enlarged
