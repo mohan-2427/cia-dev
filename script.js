@@ -80,6 +80,10 @@ const containerSets = [
       </div>
       <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
+        <button id="prevBtn" class="inline-block bg-white/90 rounded-full shadow-lg z-10 transition-all duration-300 absolute left-2 top-1/2 transform -translate-y-1/2 p-3">
+          <i class="fas fa-chevron-left text-xl"></i>
+          <span class="block w-3 h-3 bg-white/60 rounded-full absolute ripple-animation"></span>
+        </button>
         <div class="absolute bottom-4 left-4 bg-blue-800 text-white px-4 py-2 rounded font-semibold text-sm">Heavy Excavators</div>
       </div>
       <div class="col-span-1 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative">
