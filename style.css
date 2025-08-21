@@ -369,11 +369,17 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+  .w-full.min-h-screen {
+    width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   #heroCarousel {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: auto;
-    min-height: 400px;
+    height: 50vh !important;
+    min-height: 350px !important;
     gap: 4px;
   }
 
@@ -411,12 +417,6 @@ footer a:hover {
 
   #heroCarousel p {
     font-size: 0.75rem;
-  }
-
-  /* Mobile hero section spacing */
-  .max-w-\[1180px\] {
-    margin-left: 1rem;
-    margin-right: 1rem;
   }
 }
 
