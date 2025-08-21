@@ -386,6 +386,26 @@ img:not([src]) {
   }
 }
 
+/* Carousel dots styling */
+.carousel-dot.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+.carousel-dot:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation arrows styling */
+#prevBtn, #nextBtn {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+#prevBtn:hover, #nextBtn:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* Smooth transitions for all interactive elements */
 * {
   transition: all 0.3s ease;
