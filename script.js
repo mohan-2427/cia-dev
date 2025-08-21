@@ -1,5 +1,5 @@
 // Hero Carousel functionality
-let currentSlide = 0;
+let currentSlide = 1;
 const totalSlides = 3;
 
 // Container sets for different slides
