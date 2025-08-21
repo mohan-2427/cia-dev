@@ -784,13 +784,21 @@ img:not([src]) {
 .announcement-popup-container {
   position: fixed;
   right: 2.5rem;
-  bottom: 2.5rem;
+  bottom: 6rem; /* Moved higher to avoid footer overlap */
   left: auto;
   transform: none;
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Ensure announcement doesn't overlap footer on small screens */
+@media (max-width: 768px) {
+  .announcement-popup-container {
+    bottom: 8rem; /* More space on mobile */
+    right: 1rem;
+  }
 }
 .announcement-popup {
   background: #FFF9E5;
