@@ -494,8 +494,36 @@ img:not([src]) {
 }
 
 .hero-container:hover {
-  transform: scale(1.02);
-  z-index: 5;
+  transform: scale(1.08);
+  z-index: 25;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Remove overlay on hover for specific containers */
+#heroCarousel > div:hover .absolute.inset-0.bg-gradient-to-t {
+  opacity: 0.3;
+}
+
+/* Hero container hover effects - remove overlay and pop out */
+#heroCarousel > div {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+#heroCarousel > div:hover {
+  transform: scale(1.08) translateZ(0);
+  z-index: 25;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+#heroCarousel > div:hover .absolute.inset-0 {
+  background: transparent !important;
+}
+
+/* Keep text visible on hover */
+#heroCarousel > div:hover .absolute.bottom-8,
+#heroCarousel > div:hover .absolute.bottom-4 {
+  z-index: 30;
 }
 
 /* Container animation stagger */
