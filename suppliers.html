@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
     <!-- Navbar -->
     <nav class="bg-white border-b border-[#bba99a] fixed-header">
         <div class="container mx-auto px-4">
@@ -37,45 +37,25 @@
 
                 <!-- Right Side: Navigation Links -->
                 <div class="hidden lg:flex items-center space-x-8 order-3">
-                    <!-- Language Switch -->
-                    <div class="relative group">
-                        <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
-                            <i class="fas fa-globe"></i>
-                            <span>EN</span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Hindi</a>
-                        </div>
-                    </div>
                     <a href="index.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">Home</a>
                     <a href="about.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">About Us</a>
                     <a href="category.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">Category</a>
-                    <!-- Dropdown -->
-                    <div class="relative group">
-                        <button class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">
-                            Products
-                        </button>
-                        <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-48 rounded shadow-lg z-50 border border-[#e5e5e5]">
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Excavators</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Bulldozers</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Cranes</a>
-                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Forklifts</a>
-                        </div>
-                    </div>
+                    <!-- Language Toggle moved to end -->
+                    <button id="languageToggle" class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-3 py-2 rounded-lg border border-gray-300 hover:border-yellow-500">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-5 h-5">
+                        <span id="currentLang" class="font-semibold">EN</span>
+                        <span class="text-xs">→</span>
+                        <span id="nextLang" class="text-xs opacity-70">தமிழ்</span>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden order-3 flex items-center space-x-4">
                     <!-- Mobile Language Switch -->
-                    <div class="relative group">
-                        <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition">
-                            <i class="fas fa-globe"></i>
-                            <span class="text-sm">EN</span>
-                        </button>
-                    </div>
+                    <button id="mobileLanguageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition px-2 py-1 rounded border border-gray-300">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
+                        <span id="mobileLang" class="text-sm font-semibold">EN</span>
+                    </button>
                     <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
@@ -141,12 +121,8 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image_600x300 01.png" alt="CAT Equipment Solutions warehouse" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <i class="fas fa-star mr-1"></i> Premium
-                        </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -200,9 +176,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image3_600x300 02.png" alt="Komatsu Parts India service center" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -256,12 +230,8 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image4_600x300 03.png" alt="JCB Machinery Ltd equipment yard" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <i class="fas fa-star mr-1"></i> Premium
-                        </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -315,9 +285,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image_600x300 01.png" alt="Volvo Construction Equipment India" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -373,9 +341,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image3_600x300 02.png" alt="Mahindra Construction Equipment warehouse" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -431,12 +397,8 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image4_600x300 03.png" alt="Tata Hitachi Construction Machinery" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <i class="fas fa-star mr-1"></i> Premium
-                        </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -492,9 +454,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image_1920x1080.png" alt="L&T Construction Equipment warehouse" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -550,9 +510,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image_600x300 01.png" alt="Ashok Leyland Construction Equipment" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -608,9 +566,7 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image3_600x300 02.png" alt="Escorts Construction Equipment service center" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -666,12 +622,8 @@
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
                         <img src="Images/resized_image4_600x300 03.png" alt="Sany Heavy Industries equipment yard" class="w-full h-48 object-cover" />
-                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            <i class="fas fa-star mr-1"></i> Premium
-                        </div>
-                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                            Verified
-                        </div>
+
+
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
@@ -827,6 +779,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- Announcement Button & Bar -->
+    <div class="announcement-popup-container">
+        <button class="announcement-btn" id="announcementBtn" title="Show Announcement">
+            <span class="announcement-btn-icon">📢</span>
+            <span class="announcement-btn-label">Announcement</span>
+        </button>
+        <div class="announcement-bar" id="announcementBar">
+            <span class="announcement-text">
+                <ul class="announcement-list">
+                    <li>🏢 CIA MachineryHub now offers verified supplier badges</li>
+                    <li>🎉 Exclusive deals available for registered users</li>
+                    <li>🤝 Contact us for partnership opportunities</li>
+                </ul>
+            </span>
+            <div class="announcement-footer">
+                <span>Learn more at <a href="announcement.html">View All Announcements</a></span>
+            </div>
+            <button class="announcement-close" id="announcementClose" title="Close">&times;</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

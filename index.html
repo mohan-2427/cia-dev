@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-50">
+<body class="bg-white">
   <!-- Navbar -->
   <nav class="bg-white border-b border-[#bba99a] fixed-header">
     <div class="container mx-auto px-4">
@@ -56,15 +56,6 @@
 
         <!-- Right Side: Navigation Links -->
         <div class="hidden lg:flex items-center space-x-8 order-3">
-          <!-- Language Switch -->
-          <div class="relative group">
-            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
-              <i class="fas fa-globe"></i>
-              <span>EN</span>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            
-          </div>
           <a
             href="#"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
@@ -78,24 +69,22 @@
             href="category.html"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
             >Category</a>
-
-          <div
-            class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
-            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
-            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
-            
-          </div>
+          <!-- Language Toggle moved to end -->
+          <button id="languageToggle" class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-3 py-2 rounded-lg border border-gray-300 hover:border-yellow-500">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-5 h-5">
+            <span id="currentLang" class="font-semibold">EN</span>
+            <span class="text-xs">→</span>
+            <span id="nextLang" class="text-xs opacity-70">தமிழ்</span>
+          </button>
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="lg:hidden order-3 flex items-center space-x-4">
           <!-- Mobile Language Switch -->
-          <div class="relative group">
-            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition">
-              <i class="fas fa-globe"></i>
-              <span class="text-sm">EN</span>
-            </button>
-          </div>
+          <button id="mobileLanguageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition px-2 py-1 rounded border border-gray-300">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
+            <span id="mobileLang" class="text-sm font-semibold">EN</span>
+          </button>
           <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
             <i class="fas fa-bars text-xl"></i>
           </button>
@@ -164,9 +153,9 @@
   </nav>
 
   <!-- Industrial Images Showcase Section -->
-  <section class="w-full h-screen px-0 py-0 relative shadow-lg shadow-black/60">
+  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/60" style="height: calc(100vh - 3cm);">
     <!-- Dimming Overlay with Caption -->
-    <div class="absolute inset-0 bg-black/40 z-20 rounded-xl flex items-center justify-center pointer-events-none">
+    <div class="absolute inset-0 z-20 rounded-xl flex items-center justify-center pointer-events-none" style="background-color: rgba(136, 178, 233, 0.2);">
       <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
         <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-400">Discover Premium Machinery</h2>
         <p class="text-sm md:text-base opacity-90 mb-3">Explore our extensive collection</p>
@@ -176,7 +165,7 @@
       </div>
     </div>
 
-    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-1 h-full w-full transition-all duration-500 ease-in-out relative z-10">
+    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-0 h-full w-full transition-all duration-500 ease-in-out relative z-10">
       <!-- Container 1 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
@@ -366,11 +355,6 @@
               alt="Large industrial warehouse filled with various construction machinery including excavators and bulldozers"
               class="w-full h-48 object-cover rounded-t-lg"
             />
-            <div
-              class="absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold inline-flex items-center"
-            >
-              <i class="fas fa-check mr-1"></i> Premium Supplier
-            </div>
           </div>
           <div class="p-6">
             <div class="flex items-center mb-4">
@@ -406,15 +390,7 @@
             <div
               class="flex justify-between items-center pt-4 border-t border-gray-200"
             >
-              <div class="flex items-center text-blue-600 font-medium">
-                <i class="fas fa-phone-alt mr-2"></i>
-                <span>+91 98765 43210</span>
-              </div>
-              <button
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
-              >
-                Contact Now
-              </button>
+  
             </div>
           </div>
         </div>
@@ -462,15 +438,7 @@
             <div
               class="flex justify-between items-center pt-4 border-t border-gray-200"
             >
-              <div class="flex items-center text-blue-600 font-medium">
-                <i class="fas fa-phone-alt mr-2"></i>
-                <span>+91 87654 32109</span>
-              </div>
-              <button
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
-              >
-                Contact Now
-              </button>
+  
             </div>
           </div>
         </div>
@@ -483,11 +451,6 @@
               alt="JCB equipment yard with multiple machines lined up ready for sale"
               class="w-full h-48 object-cover rounded-t-lg"
             />
-            <div
-              class="absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold inline-flex items-center"
-            >
-              <i class="fas fa-check mr-1"></i> Verified
-            </div>
           </div>
           <div class="p-6">
             <div class="flex items-center mb-4">
@@ -523,15 +486,7 @@
             <div
               class="flex justify-between items-center pt-4 border-t border-gray-200"
             >
-              <div class="flex items-center text-blue-600 font-medium">
-                <i class="fas fa-phone-alt mr-2"></i>
-                <span>+91 76543 21098</span>
-              </div>
-              <button
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
-              >
-                Contact Now
-              </button>
+  
             </div>
           </div>
         </div>
@@ -632,12 +587,12 @@
           <div class="relative">
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-4">
-                <img src="Images/resized_image_600x300 01.png" alt="Heavy machinery warehouse" class="rounded-xl shadow-lg w-full h-48 object-cover">
-                <img src="Images/resized_image3_600x300 02.png" alt="Construction equipment" class="rounded-xl shadow-lg w-full h-32 object-cover">
+                <img src="Images/resized_image_600x300 01.png" alt="Heavy machinery warehouse" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="Images/resized_image3_600x300 02.png" alt="Construction equipment" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
               </div>
               <div class="space-y-4 pt-8">
-                <img src="Images/resized_image4_600x300 03.png" alt="Industrial equipment yard" class="rounded-xl shadow-lg w-full h-32 object-cover">
-                <img src="Images/resized_image_1920x1080.png" alt="Machinery operations" class="rounded-xl shadow-lg w-full h-48 object-cover">
+                <img src="Images/resized_image4_600x300 03.png" alt="Industrial equipment yard" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="Images/resized_image_1920x1080.png" alt="Machinery operations" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
               </div>
             </div>
             <!-- Floating Stats -->
@@ -785,7 +740,7 @@
     <div class="announcement-bar" id="announcementBar">
       <span class="announcement-text">
         <ul class="announcement-list">
-          <li>���� CIA MachineryHub now offers verified supplier badges</li>
+          <li>🏢 CIA MachineryHub now offers verified supplier badges</li>
           <li>🎉 Exclusive deals available for registered users</li>
           <li>🤝 Contact us for partnership opportunities</li>
         </ul>

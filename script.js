@@ -155,12 +155,26 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
+        // Prevent page jumping by preserving scroll position
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        // Store body scroll behavior temporarily
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
 
         // Update content after brief delay
         setTimeout(() => {
             carousel.innerHTML = containerSets[currentSlide];
+
+            // Force scroll position to stay the same
+            requestAnimationFrame(() => {
+                window.scrollTo(scrollLeft, scrollTop);
+                document.body.style.overflow = originalOverflow;
+            });
 
             // Remove transitioning class
             setTimeout(() => {
@@ -213,11 +227,43 @@ function prevSlide() {
     updateCarousel();
 }
 
+// Language Toggle Functionality
+let currentLanguage = 'EN';
+
+function toggleLanguage() {
+    const currentLangEl = document.getElementById('currentLang');
+    const nextLangEl = document.getElementById('nextLang');
+    const mobileLangEl = document.getElementById('mobileLang');
+
+    if (currentLanguage === 'EN') {
+        currentLanguage = 'TM';
+        if (currentLangEl) currentLangEl.textContent = 'தமிழ்';
+        if (nextLangEl) nextLangEl.textContent = 'EN';
+        if (mobileLangEl) mobileLangEl.textContent = 'தமிழ்';
+    } else {
+        currentLanguage = 'EN';
+        if (currentLangEl) currentLangEl.textContent = 'EN';
+        if (nextLangEl) nextLangEl.textContent = 'தமிழ்';
+        if (mobileLangEl) mobileLangEl.textContent = 'EN';
+    }
+}
+
 // Smooth scrolling and animations
 document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize carousel
     updateCarousel();
+
+    // Language Toggle Event Listeners
+    const languageToggle = document.getElementById('languageToggle');
+    const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+
+    if (languageToggle) {
+        languageToggle.addEventListener('click', toggleLanguage);
+    }
+    if (mobileLanguageToggle) {
+        mobileLanguageToggle.addEventListener('click', toggleLanguage);
+    }
 
 
     // Dot navigation
@@ -487,6 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
             announcementBtn.style.display = 'flex';
         });
     }
+
 });
 
 // Add smooth page transitions
