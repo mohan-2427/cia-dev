@@ -78,39 +78,41 @@ const containerSets = [
         <div class="absolute bottom-3 left-3 bg-green-700 text-white px-2 py-1 rounded font-semibold text-xs">Material Handling</div>
       </div>
     `,
-    // Slide 3 - Another layout
+    // Slide 3 - Technology & Automation (6 containers)
     `
-      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
-        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=600&h=600&fit=crop" alt="Warehouse Operations" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
-          <h3 class="text-2xl font-bold mb-2">Warehouse Solutions</h3>
-          <p class="text-base opacity-90">Efficient material handling</p>
-        </div>
-      </div>
-      <div class="col-span-3 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&h=300&fit=crop" alt="Industrial Complex" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-indigo-600 text-white px-4 py-2 rounded font-semibold text-sm">Industrial Complex</div>
-      </div>
+      <!-- Container 1 - Warehouse operations -->
       <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=600&fit=crop" alt="Specialized Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-teal-600 text-white px-4 py-2 rounded font-semibold text-sm">Specialized</div>
+        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=400&h=600&fit=crop" alt="Warehouse Operations" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-indigo-600 text-white px-3 py-1 rounded font-semibold text-xs">Warehouse Solutions</div>
       </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop" alt="Precision Machinery" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-pink-600 text-white px-4 py-2 rounded font-semibold text-sm">Precision Tools</div>
-      </div>
+      <!-- Container 2 - Smart technology hero -->
       <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=600&fit=crop" alt="Advanced Technology" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
         <div class="absolute bottom-6 left-6 text-white">
           <h3 class="text-2xl font-bold mb-2">Smart Technology</h3>
           <p class="text-base opacity-90">AI-powered machinery</p>
         </div>
       </div>
+      <!-- Container 3 - Specialized equipment -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=300&fit=crop" alt="Specialized Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-teal-600 text-white px-2 py-1 rounded font-semibold text-xs">Specialized</div>
+      </div>
+      <!-- Container 4 - Precision tools -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Precision Machinery" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-pink-600 text-white px-2 py-1 rounded font-semibold text-xs">Precision Tools</div>
+      </div>
+      <!-- Container 5 - Automation -->
       <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=300&fit=crop" alt="Automation" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-cyan-600 text-white px-3 py-1 rounded font-semibold text-xs">Automation</div>
+        <div class="absolute bottom-3 left-3 bg-cyan-600 text-white px-2 py-1 rounded font-semibold text-xs">Automation</div>
+      </div>
+      <!-- Container 6 - Industrial complex -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400&h=300&fit=crop" alt="Industrial Complex" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-gray-600 text-white px-2 py-1 rounded font-semibold text-xs">Industrial Complex</div>
       </div>
     `
 ];
