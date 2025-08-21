@@ -510,6 +510,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Announcement popup logic
+    const announcementBtn = document.getElementById('announcementBtn');
+    const announcementBar = document.getElementById('announcementBar');
+    const announcementClose = document.getElementById('announcementClose');
+
+    if (announcementBtn && announcementBar && announcementClose) {
+        announcementBtn.addEventListener('click', function() {
+            announcementBar.classList.add('active');
+            announcementBtn.style.display = 'none';
+        });
+        announcementClose.addEventListener('click', function() {
+            announcementBar.classList.remove('active');
+            announcementBtn.style.display = 'flex';
+        });
+    }
 
 });
 
