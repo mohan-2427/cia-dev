@@ -108,8 +108,16 @@
   </nav>
 
   <!-- Industrial Images Showcase Section -->
-  <section class="container mx-auto px-4 py-12">
-    <div class="grid grid-cols-5 grid-rows-4 gap-4 h-[603px]">
+  <section class="container mx-auto px-4 py-12 relative">
+    <!-- Navigation Arrows -->
+    <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black rounded-full p-3 shadow-lg z-10 transition-all duration-300 hover:scale-110">
+      <i class="fas fa-chevron-left text-xl"></i>
+    </button>
+    <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black rounded-full p-3 shadow-lg z-10 transition-all duration-300 hover:scale-110">
+      <i class="fas fa-chevron-right text-xl"></i>
+    </button>
+
+    <div id="heroCarousel" class="grid grid-cols-5 grid-rows-4 gap-4 h-[603px] transition-all duration-500 ease-in-out">
       <!-- Container 1 - Large hero (spans 2x3) -->
       <div class="col-span-2 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
