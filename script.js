@@ -62,7 +62,13 @@ const containerSets = [
     `
       <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="flex flex-row">
+          <button id="nextBtn" class="flex bg-white rounded-full shadow-lg z-10 transition-all duration-300 hover:scale-110 absolute right-2 top-1/2 transform -translate-y-1/2 flex-col justify-start items-start p-3">
+            <i class="fas fa-chevron-right text-xl"></i>
+            <span class="block w-3 h-3 bg-white/60 rounded-full absolute ripple-animation"></span>
+          </button>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        </div>
         <div class="absolute bottom-8 left-8 text-white">
           <h3 class="text-3xl font-bold mb-3">Mining & Extraction</h3>
           <p class="text-lg opacity-90">Advanced mining solutions</p>
