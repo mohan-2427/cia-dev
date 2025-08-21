@@ -122,18 +122,31 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
-        carousel.innerHTML = containerSets[currentSlide];
+        // Add transitioning class for smooth animation
+        carousel.classList.add('transitioning');
 
-        // Update dots
+        // Update content after brief delay
+        setTimeout(() => {
+            carousel.innerHTML = containerSets[currentSlide];
+
+            // Remove transitioning class
+            setTimeout(() => {
+                carousel.classList.remove('transitioning');
+            }, 50);
+        }, 200);
+
+        // Update dots with animation
         dots.forEach((dot, index) => {
             if (index === currentSlide) {
                 dot.classList.add('active');
                 dot.classList.remove('bg-gray-300');
                 dot.classList.add('bg-yellow-500');
+                dot.style.transform = 'scale(1.2)';
             } else {
                 dot.classList.remove('active');
                 dot.classList.remove('bg-yellow-500');
                 dot.classList.add('bg-gray-300');
+                dot.style.transform = 'scale(1)';
             }
         });
     }
