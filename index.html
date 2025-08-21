@@ -139,15 +139,6 @@
               id="mobileProductsBtn"
               class="text-[#3d2d29] hover:text-yellow-700 font-medium transition flex items-center justify-between w-full"
             >
-              Products
-              <i class="fas fa-chevron-down text-sm"></i>
-            </button>
-            <div id="mobileProductsMenu" class="hidden mt-2 ml-4 space-y-2">
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Excavators</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Bulldozers</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Cranes</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Forklifts</a>
-            </div>
           </div>
           <!-- Mobile Language Options -->
           <div class="py-2 border-t border-gray-200">
@@ -164,7 +155,7 @@
   </nav>
 
   <!-- Industrial Images Showcase Section -->
-  <section class="w-full h-screen px-0 py-0 relative shadow-lg shadow-black/60" style="margin-top: 0;">
+  <section class="w-full min-h-screen px-4 md:px-8 py-6 pb-24 relative shadow-lg shadow-black/60" style="margin-top: 80px;">
     <!-- Dimming Overlay with Caption -->
     <div class="absolute inset-0 bg-black/40 z-20 rounded-xl flex items-center justify-center pointer-events-none">
       <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
@@ -176,7 +167,7 @@
       </div>
     </div>
 
-    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-1 h-full w-full transition-all duration-500 ease-in-out relative z-10">
+    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-2 h-[70vh] min-h-[500px] max-w-full transition-all duration-500 ease-in-out relative z-10">
       <!-- Container 1 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
