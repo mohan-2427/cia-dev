@@ -41,41 +41,41 @@ const containerSets = [
         <div class="absolute bottom-5 left-5 text-white text-sm font-semibold">Cranes</div>
       </div>
     `,
-    // Slide 2 - Mining & Extraction (6 containers)
+    // Slide 2 - Mining & Extraction (6 containers) - Enlarged
     `
       <!-- Container 1 - Large mining hero -->
-      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
+      <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-2xl bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
-          <h3 class="text-2xl font-bold mb-2">Mining & Extraction</h3>
-          <p class="text-base opacity-90">Advanced mining solutions</p>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-4xl font-bold mb-3">Mining & Extraction</h3>
+          <p class="text-xl opacity-90">Advanced mining solutions</p>
         </div>
       </div>
       <!-- Container 2 - Drilling equipment -->
-      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=400&h=800&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-purple-700 text-white px-3 py-1 rounded font-semibold text-xs">Drilling</div>
+      <div class="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=800&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-purple-700 text-white px-4 py-2 rounded font-semibold text-sm">Drilling</div>
       </div>
       <!-- Container 3 - Quarry equipment -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400&h=300&fit=crop" alt="Quarry Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-3 left-3 bg-red-600 text-white px-2 py-1 rounded font-semibold text-xs">Quarry Equipment</div>
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=400&fit=crop" alt="Quarry Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-5 left-5 bg-red-600 text-white px-3 py-2 rounded font-semibold text-sm">Quarry Equipment</div>
       </div>
       <!-- Container 4 - Heavy excavators -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
-        <div class="absolute bottom-3 left-3 bg-blue-800 text-white px-2 py-1 rounded font-semibold text-xs">Heavy Excavators</div>
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
+        <div class="absolute bottom-5 left-5 bg-blue-800 text-white px-3 py-2 rounded font-semibold text-sm">Heavy Excavators</div>
       </div>
       <!-- Container 5 - Transport -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=300&fit=crop" alt="Transport Vehicles" class="w-full h-full object-cover" />
-        <div class="absolute bottom-3 left-3 bg-orange-700 text-white px-2 py-1 rounded font-semibold text-xs">Transport</div>
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Transport Vehicles" class="w-full h-full object-cover" />
+        <div class="absolute bottom-5 left-5 bg-orange-700 text-white px-3 py-2 rounded font-semibold text-sm">Transport</div>
       </div>
       <!-- Container 6 - Material handling -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop" alt="Material Handling" class="w-full h-full object-cover" />
-        <div class="absolute bottom-3 left-3 bg-green-700 text-white px-2 py-1 rounded font-semibold text-xs">Material Handling</div>
+      <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-2xl bg-black relative">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=400&fit=crop" alt="Material Handling" class="w-full h-full object-cover" />
+        <div class="absolute bottom-5 left-5 bg-green-700 text-white px-3 py-2 rounded font-semibold text-sm">Material Handling</div>
       </div>
     `,
     // Slide 3 - Technology & Automation (6 containers)
