@@ -157,6 +157,11 @@ function updateCarousel() {
     if (carousel) {
         // Prevent page jumping by preserving scroll position
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        // Store body scroll behavior temporarily
+        const originalOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
 
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
@@ -165,8 +170,11 @@ function updateCarousel() {
         setTimeout(() => {
             carousel.innerHTML = containerSets[currentSlide];
 
-            // Restore scroll position to prevent jumping
-            window.scrollTo(0, scrollTop);
+            // Force scroll position to stay the same
+            requestAnimationFrame(() => {
+                window.scrollTo(scrollLeft, scrollTop);
+                document.body.style.overflow = originalOverflow;
+            });
 
             // Remove transitioning class
             setTimeout(() => {
