@@ -421,10 +421,16 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+  .w-full.min-h-screen {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   #heroCarousel {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 180px);
-    height: auto;
+    height: auto !important;
+    min-height: 900px !important;
     gap: 8px;
   }
 
@@ -446,13 +452,6 @@ footer a:hover {
   /* Adjust category grid for mobile */
   .grid-cols-2 {
     grid-template-columns: 1fr;
-  }
-
-  /* Mobile hero section full width */
-  .max-w-\[1180px\] {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    max-width: calc(100vw - 1rem);
   }
 
   /* Adjust hero text for very small screens */
