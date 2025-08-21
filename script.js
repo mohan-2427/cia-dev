@@ -219,34 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize carousel
     updateCarousel();
 
-    // Arrow navigation
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBottomBtn = document.getElementById('prevBottomBtn');
-    const nextBottomBtn = document.getElementById('nextBottomBtn');
-
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            prevSlide();
-        });
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextSlide();
-        });
-    }
-
-    // Bottom arrow navigation
-    if (prevBottomBtn && nextBottomBtn) {
-        prevBottomBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            prevSlide();
-        });
-        nextBottomBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextSlide();
-        });
-    }
 
     // Dot navigation
     const dots = document.querySelectorAll('.carousel-dot');
