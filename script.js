@@ -222,6 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Arrow navigation
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const prevBottomBtn = document.getElementById('prevBottomBtn');
+    const nextBottomBtn = document.getElementById('nextBottomBtn');
 
     if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', (e) => {
@@ -229,6 +231,18 @@ document.addEventListener('DOMContentLoaded', function() {
             prevSlide();
         });
         nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+        });
+    }
+
+    // Bottom arrow navigation
+    if (prevBottomBtn && nextBottomBtn) {
+        prevBottomBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+        });
+        nextBottomBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             nextSlide();
         });
