@@ -41,45 +41,41 @@ const containerSets = [
         <div class="absolute bottom-3 left-3 text-white text-xs font-semibold">Cranes</div>
       </div>
     `,
-    // Slide 2 - Different layout
+    // Slide 2 - Mining & Extraction (6 containers)
     `
-      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+      <!-- Container 1 - Large mining hero -->
+      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
-        <div class="flex flex-row">
-          <button id="nextBtn" class="flex bg-white rounded-full shadow-lg z-10 transition-all duration-300 hover:scale-110 absolute right-2 top-1/2 transform -translate-y-1/2 flex-col justify-start items-start p-3">
-            <i class="fas fa-chevron-right text-xl"></i>
-            <span class="block w-3 h-3 bg-white/60 rounded-full absolute ripple-animation"></span>
-          </button>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        </div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-3xl font-bold mb-3">Mining & Extraction</h3>
-          <p class="text-lg opacity-90">Advanced mining solutions</p>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <h3 class="text-2xl font-bold mb-2">Mining & Extraction</h3>
+          <p class="text-base opacity-90">Advanced mining solutions</p>
         </div>
       </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=300&fit=crop" alt="Quarry Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-red-600 text-white px-4 py-2 rounded font-semibold text-sm">Quarry Equipment</div>
-      </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
-        <button id="prevBtn" class="inline-block bg-white/90 rounded-full shadow-lg z-10 transition-all duration-300 absolute left-2 top-1/2 transform -translate-y-1/2 p-3">
-          <i class="fas fa-chevron-left text-xl"></i>
-          <span class="block w-3 h-3 bg-white/60 rounded-full absolute ripple-animation"></span>
-        </button>
-        <div class="absolute bottom-4 left-4 bg-blue-800 text-white px-4 py-2 rounded font-semibold text-sm">Heavy Excavators</div>
-      </div>
-      <div class="col-span-1 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative">
+      <!-- Container 2 - Drilling equipment -->
+      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=400&h=800&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-purple-700 text-white px-4 py-2 rounded font-semibold text-sm">Drilling</div>
+        <div class="absolute bottom-4 left-4 bg-purple-700 text-white px-3 py-1 rounded font-semibold text-xs">Drilling</div>
       </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=300&fit=crop" alt="Transport Vehicles" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-orange-700 text-white px-4 py-2 rounded font-semibold text-sm">Transport</div>
+      <!-- Container 3 - Quarry equipment -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400&h=300&fit=crop" alt="Quarry Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-red-600 text-white px-2 py-1 rounded font-semibold text-xs">Quarry Equipment</div>
       </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=300&fit=crop" alt="Material Handling" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-green-700 text-white px-4 py-2 rounded font-semibold text-sm">Material Handling</div>
+      <!-- Container 4 - Heavy excavators -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-blue-800 text-white px-2 py-1 rounded font-semibold text-xs">Heavy Excavators</div>
+      </div>
+      <!-- Container 5 - Transport -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=300&fit=crop" alt="Transport Vehicles" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-orange-700 text-white px-2 py-1 rounded font-semibold text-xs">Transport</div>
+      </div>
+      <!-- Container 6 - Material handling -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop" alt="Material Handling" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-green-700 text-white px-2 py-1 rounded font-semibold text-xs">Material Handling</div>
       </div>
     `,
     // Slide 3 - Another layout
