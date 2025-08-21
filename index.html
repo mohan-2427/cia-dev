@@ -69,30 +69,22 @@
             href="category.html"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
             >Category</a>
-          <!-- Language Switch moved to end -->
-          <div class="relative group">
-            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
-              <i class="fas fa-globe"></i>
-              <span>EN</span>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            <div
-              class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
-              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
-              <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
-            </div>
-          </div>
+          <!-- Language Toggle moved to end -->
+          <button id="languageToggle" class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-3 py-2 rounded-lg border border-gray-300 hover:border-yellow-500">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-5 h-5">
+            <span id="currentLang" class="font-semibold">EN</span>
+            <span class="text-xs">→</span>
+            <span id="nextLang" class="text-xs opacity-70">தமிழ்</span>
+          </button>
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="lg:hidden order-3 flex items-center space-x-4">
           <!-- Mobile Language Switch -->
-          <div class="relative group">
-            <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition">
-              <i class="fas fa-globe"></i>
-              <span class="text-sm">EN</span>
-            </button>
-          </div>
+          <button id="mobileLanguageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition px-2 py-1 rounded border border-gray-300">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
+            <span id="mobileLang" class="text-sm font-semibold">EN</span>
+          </button>
           <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
             <i class="fas fa-bars text-xl"></i>
           </button>
