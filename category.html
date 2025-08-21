@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - CIA MachineryHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-[#bba99a] fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Left Side: Search + Login -->
+                <div class="flex items-center space-x-4 order-1">
+                    <!-- Login Button -->
+                    <a href="login.html" class="flex items-center space-x-2 text-[#3d2d29] px-4 py-2 rounded hover:bg-gray-200 transition font-medium">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                    <!-- Search Bar -->
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="Search categories..." class="w-64 py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md focus:outline-none pr-10">
+                        <button class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800" title="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Center: Logo -->
+                <a href="index.html" class="flex items-center space-x-2 order-2 mx-auto">
+                    <img src="Images/CIA logo.png" alt="MachineryHub logo" class="h-10 rounded-lg logo-black-filter">
+                    <span class="text-2xl font-bold text-black">CIA<span class="text-yellow-700">Matrix</span></span>
+                </a>
+
+                <!-- Right Side: Navigation Links -->
+                <div class="hidden lg:flex items-center space-x-8 order-3">
+                    <a href="index.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">Home</a>
+                    <a href="about.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">About Us</a>
+                    <a href="category.html" class="text-yellow-700 hover:text-yellow-700 font-medium transition">Category</a>
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">
+                            Products
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-48 rounded shadow-lg z-50 border border-[#e5e5e5]">
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Excavators</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Bulldozers</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Cranes</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Forklifts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Machinery Categories</h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+                Find the perfect equipment for your construction, mining, and industrial needs
+            </p>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="bg-white py-4 border-b">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-yellow-600">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-1"></i>
+                            <span class="ml-1 text-sm font-medium text-yellow-600 md:ml-2">Categories</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="bg-white py-6 border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-gray-600">Showing all machinery categories</p>
+                </div>
+                <div class="flex space-x-4">
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        <option>Sort by: Popular</option>
+                        <option>Sort by: Name A-Z</option>
+                        <option>Sort by: Name Z-A</option>
+                        <option>Sort by: Most Products</option>
+                    </select>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors duration-300">
+                        <i class="fas fa-filter mr-2"></i>
+                        Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Excavators -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-excavator text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Excavators</h3>
+                    <p class="text-gray-500 text-sm mb-3">15,200+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Heavy-duty excavation equipment for construction and mining</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Bulldozers -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-bullhorn text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Bulldozers</h3>
+                    <p class="text-gray-500 text-sm mb-3">8,750+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Powerful earth-moving and construction equipment</p>
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Cranes -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-crane text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Cranes</h3>
+                    <p class="text-gray-500 text-sm mb-3">6,300+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Heavy lifting and material handling solutions</p>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Forklifts -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-forklift text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Forklifts</h3>
+                    <p class="text-gray-500 text-sm mb-3">9,450+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Warehouse and material handling equipment</p>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Loaders -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-truck-loading text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Loaders</h3>
+                    <p class="text-gray-500 text-sm mb-3">12,300+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Front-end loaders and wheel loaders</p>
+                    <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Dump Trucks -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-truck-monster text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Dump Trucks</h3>
+                    <p class="text-gray-500 text-sm mb-3">7,800+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Heavy-duty material transport vehicles</p>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Concrete Pumps -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-pump-soap text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Concrete Pumps</h3>
+                    <p class="text-gray-500 text-sm mb-3">5,200+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Concrete pumping and placement equipment</p>
+                    <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Attachments -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-tools text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Attachments</h3>
+                    <p class="text-gray-500 text-sm mb-3">18,900+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Buckets, hammers, and specialized attachments</p>
+                    <button class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Mining Equipment -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-gem text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Mining Equipment</h3>
+                    <p class="text-gray-500 text-sm mb-3">4,100+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Specialized mining and extraction equipment</p>
+                    <button class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Road Construction -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-road text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Road Construction</h3>
+                    <p class="text-gray-500 text-sm mb-3">3,600+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Pavers, compactors, and road building equipment</p>
+                    <button class="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Agricultural Equipment -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-lime-400 to-lime-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-tractor text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Agricultural Equipment</h3>
+                    <p class="text-gray-500 text-sm mb-3">8,900+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Tractors, harvesters, and farm machinery</p>
+                    <button class="bg-lime-500 hover:bg-lime-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+                <!-- Material Handling -->
+                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group">
+                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-dolly text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Material Handling</h3>
+                    <p class="text-gray-500 text-sm mb-3">6,700+ Products</p>
+                    <p class="text-gray-600 text-sm mb-4">Conveyors, hoists, and handling systems</p>
+                    <button class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
+                        View Products
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-12 bg-yellow-500 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+            <p class="text-xl mb-6 opacity-90">Contact our experts to help you find the perfect machinery for your needs</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-white text-yellow-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300">
+                    <i class="fas fa-phone mr-2"></i>
+                    Call Us: +91 12345 67890
+                </button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-yellow-600 px-8 py-3 rounded-full font-semibold transition-all duration-300">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Support
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-800 pt-8 pb-6 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="Images/CIA logo.png" alt="CIA MachineryHub logo" class="h-8 w-8 mr-2 rounded-lg">
+                        <div>
+                            <span class="text-lg font-bold">CIA</span>
+                            <span class="text-lg font-bold text-yellow-600">Matrix</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                        India's premier heavy equipment marketplace connecting buyers and sellers since 2010.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-sm">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-sm">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-sm">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-gray-800">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-sm">Home</a></li>
+                        <li><a href="about.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-sm">About Us</a></li>
+                        <li><a href="category.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-sm">Categories</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-sm">Suppliers</a></li>
+                        <li><a href="login.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-sm">Login</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-gray-800">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start text-sm">
+                            <i class="fas fa-map-marker-alt text-yellow-600 mr-2 mt-0.5"></i>
+                            <span class="text-gray-600">MachineryHub Tower, Mumbai, India</span>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-phone-alt text-yellow-600 mr-2"></i>
+                            <a href="tel:+911234567890" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">+91 12345 67890</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-envelope text-yellow-600 mr-2"></i>
+                            <a href="mailto:contact@machineryhub.com" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">contact@machineryhub.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-300 mt-6 pt-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-500 text-sm mb-2 md:mb-0">
+                        <p>© 2025 CIA MachineryHub. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-4 text-sm">
+                        <a href="#" class="text-gray-500 hover:text-yellow-600 transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-yellow-600 transition-colors duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-yellow-600 transition-colors duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
