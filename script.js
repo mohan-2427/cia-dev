@@ -4,58 +4,41 @@ const totalSlides = 3;
 
 // Container sets for different slides
 const containerSets = [
-    // Slide 1 - Current containers
+    // Slide 1 - 6 containers (3x2 grid)
     `
-      <!-- Container 1 - Large hero (spans 2x3) -->
-      <div class="col-span-2 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+      <!-- Container 1 - Large hero (spans 2x2) -->
+      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-3xl font-bold mb-3">Heavy Machinery Solutions</h3>
-          <p class="text-lg opacity-90">Professional construction equipment</p>
+        <div class="absolute bottom-6 left-6 text-white">
+          <h3 class="text-2xl font-bold mb-2">Heavy Machinery Solutions</h3>
+          <p class="text-base opacity-90">Professional construction equipment</p>
         </div>
       </div>
+      <!-- Container 2 - Tall vertical -->
       <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=600&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-blue-600 text-white px-4 py-2 rounded font-semibold text-sm">Excavators</div>
+        <div class="absolute bottom-4 left-4 bg-blue-600 text-white px-3 py-1 rounded font-semibold text-xs">Excavators</div>
       </div>
+      <!-- Container 3 - Wide horizontal -->
       <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=300&fit=crop" alt="Industrial Site" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-yellow-500 text-black px-4 py-2 rounded font-semibold text-sm">Mining Equipment</div>
-        <div class="absolute bottom-3 left-6 text-white font-bold text-base drop-shadow">Advanced Mining Solutions</div>
+        <div class="absolute bottom-3 left-4 bg-yellow-500 text-black px-3 py-1 rounded font-semibold text-xs">Mining Equipment</div>
       </div>
+      <!-- Container 4 - Square -->
       <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=300&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Bulldozers</div>
+        <div class="absolute bottom-3 left-3 text-white text-xs font-semibold">Bulldozers</div>
       </div>
-      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=600&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">Dump Trucks</div>
+      <!-- Container 5 - Square -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=300&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-orange-600 text-white px-2 py-1 rounded font-semibold text-xs">Dump Trucks</div>
       </div>
+      <!-- Container 6 - Square -->
       <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&q=80" alt="Crane Operations" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Cranes</div>
-      </div>
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=400&h=300&fit=crop" alt="Forklift" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Forklifts</div>
-      </div>
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=300&fit=crop" alt="Loader Fleet" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-green-600 text-white px-4 py-2 rounded font-semibold text-sm">Loader Fleet</div>
-        <div class="absolute bottom-1 left-4 text-white font-bold text-sm drop-shadow">Material Handling</div>
-      </div>
-      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=600&fit=crop" alt="Construction Site Overview" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent w-full h-auto flex-grow"></div>
-        <div class="absolute bottom-6 left-6 text-white">
-          <h3 class="text-2xl font-bold mb-2">Construction Excellence</h3>
-          <p class="text-base opacity-90">Complete project solutions</p>
-        </div>
-      </div>
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
-        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=400&h=300&fit=crop" alt="Tower Crane" class="w-full h-full object-cover" />
-        <div class="absolute bottom-4 left-4 bg-purple-600 text-white px-3 py-1 rounded font-semibold text-xs">Tower Cranes</div>
+        <div class="absolute bottom-3 left-3 text-white text-xs font-semibold">Cranes</div>
       </div>
     `,
     // Slide 2 - Different layout
