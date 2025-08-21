@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suppliers — CIA MachineryHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-[#bba99a] fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <!-- Left Side: Search + Login -->
+                <div class="flex items-center space-x-4 order-1">
+                    <!-- Login Button -->
+                    <a href="login.html" class="flex items-center space-x-2 text-[#3d2d29] px-4 py-2 rounded hover:bg-gray-200 transition font-medium">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                    <!-- Search Bar -->
+                    <div class="relative hidden md:block">
+                        <input type="text" placeholder="Search suppliers..." class="w-64 py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md rounded-full focus:outline-none pr-10 shadow-md search-box" />
+                        <button class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800" title="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Center: Logo -->
+                <a href="index.html" class="flex items-center space-x-2 order-2 mx-auto">
+                    <img src="Images/CIA logo.png" alt="MachineryHub logo" class="h-10 rounded-lg logo-black-filter" />
+                    <span class="text-2xl font-bold text-black">CIA<span class="text-yellow-700">Matrix</span></span>
+                </a>
+
+                <!-- Right Side: Navigation Links -->
+                <div class="hidden lg:flex items-center space-x-8 order-3">
+                    <!-- Language Switch -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition">
+                            <i class="fas fa-globe"></i>
+                            <span>EN</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-32 rounded shadow-lg z-50 border border-[#e5e5e5]">
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">English</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Tamil</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Hindi</a>
+                        </div>
+                    </div>
+                    <a href="index.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">Home</a>
+                    <a href="about.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">About Us</a>
+                    <a href="category.html" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">Category</a>
+                    <!-- Dropdown -->
+                    <div class="relative group">
+                        <button class="text-[#3d2d29] hover:text-yellow-700 font-medium transition">
+                            Products
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-48 rounded shadow-lg z-50 border border-[#e5e5e5]">
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Excavators</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Bulldozers</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Cranes</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Forklifts</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden order-3 flex items-center space-x-4">
+                    <!-- Mobile Language Switch -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition">
+                            <i class="fas fa-globe"></i>
+                            <span class="text-sm">EN</span>
+                        </button>
+                    </div>
+                    <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-24">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <i class="fas fa-handshake text-6xl mb-6 opacity-90"></i>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    Trusted Suppliers
+                </h1>
+                <p class="text-xl md:text-2xl opacity-90 leading-relaxed">
+                    Connect with verified machinery suppliers across India offering quality equipment and reliable service
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="bg-white py-6 border-b shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <p class="text-gray-600">Showing <span class="font-semibold">10</span> verified suppliers</p>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>All Locations</option>
+                        <option>Mumbai</option>
+                        <option>Delhi</option>
+                        <option>Bengaluru</option>
+                        <option>Chennai</option>
+                        <option>Pune</option>
+                    </select>
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>All Categories</option>
+                        <option>Excavators</option>
+                        <option>Bulldozers</option>
+                        <option>Cranes</option>
+                        <option>Forklifts</option>
+                    </select>
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Sort by Rating</option>
+                        <option>Highest Rated</option>
+                        <option>Most Reviews</option>
+                        <option>Newest</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suppliers Grid -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Supplier 1 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image_600x300 01.png" alt="CAT Equipment Solutions warehouse" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-star mr-1"></i> Premium
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="Images/resized_image_1920x1080.png" alt="CAT Equipment Solutions logo" class="w-12 h-12 rounded-lg object-cover border-2 border-gray-200 shadow-sm" />
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="cat-equipment-solutions.html">CAT Equipment Solutions</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.8 (76 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Authorized dealer for Caterpillar construction and mining equipment with 25+ years of experience
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">124 Industrial Park, Mumbai, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Excavators, Bulldozers, Wheel Loaders</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-clock mr-2 text-orange-500"></i>
+                                <span>24/7 Service Support</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 98765 43210</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 2 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image3_600x300 02.png" alt="Komatsu Parts India service center" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="Images/Company logo 2.png" alt="Komatsu Parts India logo" class="w-12 h-12 rounded-lg object-cover border-2 border-gray-200 shadow-sm" />
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="komatsu-parts-india.html">Komatsu Parts India</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.2 (54 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Specialized in Komatsu excavators, dozers and genuine spare parts with nationwide support
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">78 Service Road, Delhi, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Komatsu Excavators, Spare Parts</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-shipping-fast mr-2 text-orange-500"></i>
+                                <span>Nationwide Delivery</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 87654 32109</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 3 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image4_600x300 03.png" alt="JCB Machinery Ltd equipment yard" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-star mr-1"></i> Premium
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="Images/Companuy logo 3.png" alt="JCB Machinery Ltd logo" class="w-12 h-12 rounded-lg object-cover border-2 border-gray-200 shadow-sm" />
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="jcb-machinery-ltd.html">JCB Machinery Ltd.</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">5.0 (128 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Leading distributor of JCB backhoe loaders, telehandlers and compactors since 1992
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">32 Heavy Industrial Area, Bengaluru, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>JCB Backhoe Loaders, Telehandlers</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-award mr-2 text-orange-500"></i>
+                                <span>ISO 9001:2015 Certified</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 76543 21098</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 4 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image_600x300 01.png" alt="Volvo Construction Equipment India" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">V</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="volvo-construction-equipment.html">Volvo Construction Equipment India</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.7 (92 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Premium Volvo construction equipment with advanced technology and superior fuel efficiency
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">156 Tech Park, Chennai, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Volvo Excavators, Wheel Loaders</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-leaf mr-2 text-orange-500"></i>
+                                <span>Eco-Friendly Technology</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 65432 10987</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 5 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image3_600x300 02.png" alt="Mahindra Construction Equipment warehouse" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">M</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="mahindra-construction-equipment.html">Mahindra Construction Equipment</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.1 (67 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Trusted Indian brand offering cost-effective earthmoving and road construction equipment
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">89 Industrial Zone, Pune, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Earthmovers, Road Equipment</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-rupee-sign mr-2 text-orange-500"></i>
+                                <span>Cost-Effective Solutions</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 54321 09876</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 6 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image4_600x300 03.png" alt="Tata Hitachi Construction Machinery" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-star mr-1"></i> Premium
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-800 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">TH</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="tata-hitachi-construction.html">Tata Hitachi Construction Machinery</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.6 (115 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Joint venture excellence combining Tata's reliability with Hitachi's technology innovation
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">234 Business Park, Gurgaon, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Excavators, Dumpers, Cranes</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-cogs mr-2 text-orange-500"></i>
+                                <span>Advanced Technology</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 43210 98765</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 7 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image_1920x1080.png" alt="L&T Construction Equipment warehouse" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gray-700 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">L&T</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="lt-construction-equipment.html">L&T Construction Equipment</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.3 (83 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Engineering excellence in construction equipment with comprehensive after-sales support
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">678 Engineering Complex, Coimbatore, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Heavy Equipment, Engineering Solutions</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-wrench mr-2 text-orange-500"></i>
+                                <span>Comprehensive After-sales</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 32109 87654</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 8 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image_600x300 01.png" alt="Ashok Leyland Construction Equipment" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">AL</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="ashok-leyland-construction.html">Ashok Leyland Construction Equipment</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.0 (58 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Heavy-duty trucks and construction vehicles with robust performance and reliability
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">345 Auto Hub, Hosur, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-truck mr-2 text-green-500"></i>
+                                <span>Heavy Trucks, Construction Vehicles</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-shield-alt mr-2 text-orange-500"></i>
+                                <span>Robust Performance</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 21098 76543</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 9 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image3_600x300 02.png" alt="Escorts Construction Equipment service center" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">E</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="escorts-construction-equipment.html">Escorts Construction Equipment</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.1 (45 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Versatile construction and agricultural equipment with focus on rural and urban development
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">567 Rural Development Zone, Faridabad, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Tractors, Agricultural Equipment</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-seedling mr-2 text-orange-500"></i>
+                                <span>Rural Development Focus</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 10987 65432</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplier 10 -->
+                <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="relative">
+                        <img src="Images/resized_image4_600x300 03.png" alt="Sany Heavy Industries equipment yard" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fas fa-star mr-1"></i> Premium
+                        </div>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            Verified
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-700 rounded-lg flex items-center justify-center">
+                                <span class="text-white font-bold text-lg">S</span>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
+                                    <a href="sany-heavy-industries.html">Sany Heavy Industries India</a>
+                                </h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-500 text-sm ml-2">4.5 (89 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Global leader in construction machinery with innovative technology and competitive pricing
+                        </p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                            <span class="text-sm">890 Global Tech Park, Pune, India</span>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-tools mr-2 text-green-500"></i>
+                                <span>Excavators, Cranes, Concrete Equipment</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-globe mr-2 text-orange-500"></i>
+                                <span>Global Technology Leader</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+                            <div class="flex items-center text-blue-600 font-medium text-sm">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                <span>+91 09876 54321</span>
+                            </div>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                                Contact Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Load More Suppliers
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Become a Verified Supplier
+                </h2>
+                <p class="text-xl mb-8 opacity-90 leading-relaxed">
+                    Join our network of trusted suppliers and reach thousands of potential customers across India
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Apply as Supplier
+                    </button>
+                    <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all duration-300">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-800 py-4 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Company Info -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-2">
+                        <img src="Images/CIA logo.png" alt="CIA MachineryHub logo" class="h-6 w-6 mr-2 rounded-lg" />
+                        <div>
+                            <span class="text-sm font-bold">CIA</span>
+                            <span class="text-sm font-bold text-yellow-600">Matrix</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center md:justify-start space-x-2">
+                        <a href="#" class="w-6 h-6 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-xs">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-6 h-6 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-xs">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-6 h-6 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-xs">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-6 h-6 bg-gray-300 hover:bg-yellow-500 text-gray-700 hover:text-white rounded-full flex items-center justify-center transition-all duration-300 text-xs">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="text-center">
+                    <h4 class="text-sm font-bold mb-2 text-gray-800">Quick Links</h4>
+                    <div class="flex justify-center space-x-4">
+                        <a href="index.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-xs">Home</a>
+                        <a href="about.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-xs">About Us</a>
+                        <a href="#" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-xs">Products</a>
+                        <a href="category.html" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300 text-xs">Category</a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="text-center md:text-right">
+                    <h4 class="text-sm font-bold mb-2 text-gray-800">Contact Info</h4>
+                    <div class="flex flex-col md:flex-row md:justify-end items-center gap-2">
+                        <div class="space-y-1">
+                            <div class="flex items-center justify-center md:justify-end text-xs">
+                                <i class="fas fa-map-marker-alt text-yellow-600 mr-1"></i>
+                                <span class="text-gray-600">Mumbai, India</span>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-end text-xs">
+                                <i class="fas fa-phone-alt text-yellow-600 mr-1"></i>
+                                <a href="tel:+911234567890" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">+91 12345 67890</a>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-end text-xs">
+                                <i class="fas fa-envelope text-yellow-600 mr-1"></i>
+                                <a href="mailto:contact@machineryhub.com" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">contact@cia.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-300 mt-3 pt-2">
+                <div class="text-center">
+                    <div class="text-gray-500 text-xs">
+                        <p>© 2025 CIA. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
