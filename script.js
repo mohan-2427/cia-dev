@@ -1,5 +1,189 @@
+// Hero Carousel functionality
+let currentSlide = 0;
+const totalSlides = 3;
+
+// Container sets for different slides
+const containerSets = [
+    // Slide 1 - Current containers
+    `
+      <!-- Container 1 - Large hero (spans 2x3) -->
+      <div class="col-span-2 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-3xl font-bold mb-3">Heavy Machinery Solutions</h3>
+          <p class="text-lg opacity-90">Professional construction equipment</p>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=600&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-blue-600 text-white px-4 py-2 rounded font-semibold text-sm">Excavators</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=300&fit=crop" alt="Industrial Site" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-yellow-500 text-black px-4 py-2 rounded font-semibold text-sm">Mining Equipment</div>
+        <div class="absolute bottom-3 left-6 text-white font-bold text-base drop-shadow">Advanced Mining Solutions</div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=300&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Bulldozers</div>
+      </div>
+      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=600&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">Dump Trucks</div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&q=80" alt="Crane Operations" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Cranes</div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=400&h=300&fit=crop" alt="Forklift" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 text-white text-sm font-semibold">Forklifts</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=300&fit=crop" alt="Loader Fleet" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-green-600 text-white px-4 py-2 rounded font-semibold text-sm">Loader Fleet</div>
+        <div class="absolute bottom-1 left-4 text-white font-bold text-sm drop-shadow">Material Handling</div>
+      </div>
+      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=600&fit=crop" alt="Construction Site Overview" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <h3 class="text-2xl font-bold mb-2">Construction Excellence</h3>
+          <p class="text-base opacity-90">Complete project solutions</p>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=400&h=300&fit=crop" alt="Tower Crane" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-purple-600 text-white px-3 py-1 rounded font-semibold text-xs">Tower Cranes</div>
+      </div>
+    `,
+    // Slide 2 - Different layout
+    `
+      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&h=600&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-3xl font-bold mb-3">Mining & Extraction</h3>
+          <p class="text-lg opacity-90">Advanced mining solutions</p>
+        </div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=600&h=300&fit=crop" alt="Quarry Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-red-600 text-white px-4 py-2 rounded font-semibold text-sm">Quarry Equipment</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop" alt="Heavy Excavators" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-blue-800 text-white px-4 py-2 rounded font-semibold text-sm">Heavy Excavators</div>
+      </div>
+      <div class="col-span-1 row-span-3 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=400&h=800&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-purple-700 text-white px-4 py-2 rounded font-semibold text-sm">Drilling</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=300&fit=crop" alt="Transport Vehicles" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-orange-700 text-white px-4 py-2 rounded font-semibold text-sm">Transport</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&h=300&fit=crop" alt="Material Handling" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-green-700 text-white px-4 py-2 rounded font-semibold text-sm">Material Handling</div>
+      </div>
+    `,
+    // Slide 3 - Another layout
+    `
+      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=600&h=600&fit=crop" alt="Warehouse Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <h3 class="text-2xl font-bold mb-2">Warehouse Solutions</h3>
+          <p class="text-base opacity-90">Efficient material handling</p>
+        </div>
+      </div>
+      <div class="col-span-3 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&h=300&fit=crop" alt="Industrial Complex" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-indigo-600 text-white px-4 py-2 rounded font-semibold text-sm">Industrial Complex</div>
+      </div>
+      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=600&fit=crop" alt="Specialized Equipment" class="w-full h-full object-cover" />
+        <div class="absolute bottom-6 left-6 bg-teal-600 text-white px-4 py-2 rounded font-semibold text-sm">Specialized</div>
+      </div>
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=300&fit=crop" alt="Precision Machinery" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-pink-600 text-white px-4 py-2 rounded font-semibold text-sm">Precision Tools</div>
+      </div>
+      <div class="col-span-2 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=600&fit=crop" alt="Advanced Technology" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <h3 class="text-2xl font-bold mb-2">Smart Technology</h3>
+          <p class="text-base opacity-90">AI-powered machinery</p>
+        </div>
+      </div>
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=300&fit=crop" alt="Automation" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-cyan-600 text-white px-3 py-1 rounded font-semibold text-xs">Automation</div>
+      </div>
+    `
+];
+
+function updateCarousel() {
+    const carousel = document.getElementById('heroCarousel');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    if (carousel) {
+        carousel.innerHTML = containerSets[currentSlide];
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+                dot.classList.remove('bg-gray-300');
+                dot.classList.add('bg-yellow-500');
+            } else {
+                dot.classList.remove('active');
+                dot.classList.remove('bg-yellow-500');
+                dot.classList.add('bg-gray-300');
+            }
+        });
+    }
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
 // Smooth scrolling and animations
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Initialize carousel
+    updateCarousel();
+
+    // Arrow navigation
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+    }
+
+    // Dot navigation
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateCarousel();
+        });
+    });
+
+    // Auto-play carousel (optional)
+    setInterval(nextSlide, 8000);
     
     // Animate elements on scroll
     const observerOptions = {
