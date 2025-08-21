@@ -108,49 +108,69 @@
   </nav>
 
   <!-- Industrial Images Showcase Section -->
-  <section class="container mx-auto px-2 py-8 relative">
-    <div id="heroCarousel" class="grid grid-cols-4 grid-rows-1 gap-2 h-[400px] transition-all duration-500 ease-in-out">
-      <!-- Container 1 - Large hero (spans 2x1) -->
-      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container">
+  <section class="max-w-[1168px] mx-auto px-2 py-8 relative">
+    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-2 h-[400px] transition-all duration-500 ease-in-out">
+      <!-- Container 1 - Large hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent w-full h-auto flex-grow"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
           <h3 class="text-2xl font-bold mb-2">Heavy Machinery Solutions</h3>
-          <p class="text-base opacity-90">Professional construction equipment</p>
+          <p class="text-base opacity-90">Professional construction equipment for all your needs</p>
         </div>
       </div>
 
-      <!-- Container 2 - Single -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+      <!-- Container 2 - Medium (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-blue-600 text-white px-4 py-2 rounded font-semibold text-sm">Excavators</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Excavators</h4>
+          <p class="text-sm opacity-80">Heavy duty excavation</p>
+        </div>
       </div>
 
-      <!-- Container 3 - Single -->
-      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+      <!-- Container 3 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
-        <div class="absolute bottom-6 left-6 bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">Dump Trucks</div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Dump Trucks</h4>
+          <p class="text-sm opacity-80">Material transport</p>
+        </div>
+      </div>
+
+      <!-- Container 4 - Medium tall (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Crane Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Cranes</h4>
+          <p class="text-sm opacity-80">Lifting solutions</p>
+        </div>
+      </div>
+
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Bulldozers</h4>
+          <p class="text-sm opacity-80">Earth moving</p>
+        </div>
       </div>
     </div>
 
-    <!-- Navigation Arrows - Centered -->
-    <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/95 hover:bg-white text-black rounded-full p-4 shadow-xl z-20 transition-all duration-300 hover:scale-110 hover:shadow-2xl">
-      <i class="fas fa-chevron-left text-2xl"></i>
-    </button>
-    <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/95 hover:bg-white text-black rounded-full p-4 shadow-xl z-20 transition-all duration-300 hover:scale-110 hover:shadow-2xl">
-      <i class="fas fa-chevron-right text-2xl"></i>
-    </button>
-
     <!-- Carousel Indicators -->
-    <div class="flex justify-center mt-6 space-x-2">
+    <div class="flex justify-center mt-12 space-x-2">
       <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="0"></button>
-      <button class="carousel-dot active w-3 h-3 rounded-full bg-yellow-500 transition-all duration-300" data-slide="1"></button>
+      <button class="carousel-dot active w-3 h-3 rounded-full bg-yellow-500 transition-all duration-300 scale-125 shadow-lg shadow-yellow-500/50" data-slide="1"></button>
       <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="2"></button>
     </div>
   </section>
 
   <!-- Categories Section -->
-  <section class="py-16 container mx-auto px-4">
+  <section class="py-16 max-w-[1081px] mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold mb-4 text-gray-800">
         Browse Machinery Categories
@@ -162,96 +182,96 @@
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6  text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-blue-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-excavator text-2xl"></i>
+          <i class="fas fa-excavator text-2xl text-blue-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Excavators</h3>
         <p class="text-gray-500 text-sm">15,200+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-orange-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-bullhorn text-2xl"></i>
+          <i class="fas fa-bullhorn text-2xl text-orange-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Bulldozers</h3>
         <p class="text-gray-500 text-sm">8,750+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-yellow-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-crane text-2xl"></i>
+          <i class="fas fa-crane text-2xl text-yellow-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Cranes</h3>
         <p class="text-gray-500 text-sm">6,300+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-red-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-forklift text-2xl"></i>
+          <i class="fas fa-forklift text-2xl text-red-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Forklifts</h3>
         <p class="text-gray-500 text-sm">9,450+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-purple-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-conveyor-belt text-2xl"></i>
+          <i class="fas fa-truck-loading text-2xl text-purple-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Loaders</h3>
         <p class="text-gray-500 text-sm">12,300+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-green-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-truck-monster text-2xl"></i>
+          <i class="fas fa-truck-monster text-2xl text-green-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Dump Trucks</h3>
         <p class="text-gray-500 text-sm">7,800+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-indigo-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-water text-2xl"></i>
+          <i class="fas fa-pump-soap text-2xl text-indigo-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Concrete Pumps</h3>
         <p class="text-gray-500 text-sm">5,200+ Products</p>
       </a>
       <a
         href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
       >
         <div
-          class="category-icon bg-white text-pink-600 mx-auto"
+          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
         >
-          <i class="fas fa-tools text-2xl"></i>
+          <i class="fas fa-tools text-2xl text-pink-600"></i>
         </div>
         <h3 class="font-semibold text-lg mb-1">Attachments</h3>
         <p class="text-gray-500 text-sm">18,900+ Products</p>
