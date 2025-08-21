@@ -437,7 +437,7 @@ footer a:hover {
   }
 
   /* Mobile hero section full width */
-  .max-w-\[1168px\] {
+  .max-w-\[1180px\] {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     max-width: calc(100vw - 1rem);
