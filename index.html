@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CIA - Coimbatore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white border-b border-[#bba99a] fixed-header">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <!-- Left Side: Search + Login -->
+        <div class="flex items-center space-x-4 order-1">
+          <!-- Login Button -->
+          <a
+            href="login.html"
+            class="flex items-center space-x-2 text-[#3d2d29] px-4 py-2 rounded hover:bg-gray-200 transition font-medium"
+          >
+            <i class="fas fa-user"></i>
+            <span>Login</span>
+          </a>
+          <!-- Search Bar -->
+          <div class="relative hidden md:block">
+            <input
+              type="text"
+              placeholder="Search..!!"
+              class="w-64 py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md rounded-full focus:outline-none pr-10 shadow-md search-box"
+            />
+            <button
+              class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800"
+              title="Search"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Center: Logo -->
+        <a href="#" class="flex items-center space-x-2 order-2 mx-auto">
+          <img
+            src="Images/CIA logo.png"
+            alt="MachineryHub logo"
+            class="h-10 rounded-lg logo-black-filter"
+          />
+          <span class="text-2xl font-bold text-black"
+            >CIA<span class="text-yellow-700">Matrix</span></span
+          >
+        </a>
+
+        <!-- Right Side: Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-8 order-3">
+          <a
+            href="#"
+            class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
+            >Home</a>
+          <a
+            href="#"
+            class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
+            >category</a>
+
+          <!-- Dropdown -->
+          <div class="relative group">
+            <button
+              class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
+            >
+              Products
+            </button>
+            <div
+              class="absolute hidden group-hover:block bg-white text-[#3d2d29] mt-2 py-2 w-48 rounded shadow-lg z-50 border border-[#e5e5e5]"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 hover:bg-yellow-100"
+                >Excavators</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 hover:bg-yellow-100"
+                >Bulldozers</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 hover:bg-yellow-100"
+                >Cranes</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 hover:bg-yellow-100"
+                >Forklifts</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Industrial Images Showcase Section -->
+  <section class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-3 grid-rows-2 gap-6">
+      <!-- Large left image (spans 2 rows) -->
+      <div class="col-span-1 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="Images/industry1.jpg" alt="Steel Factory" class="w-full h-full object-cover" />
+      </div>
+      <!-- Top middle image -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="Images/industry2.jpg" alt="Food Packaging" class="w-full h-full object-cover" />
+      </div>
+      <!-- Top right image with overlay -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="Images/industry3.jpg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute bottom-4 left-4 bg-yellow-500 text-white px-3 py-1 rounded font-semibold text-xs">Plastic</div>
+        <div class="absolute bottom-2 left-4 text-white font-bold text-lg drop-shadow">Plastic Manufacturing</div>
+      </div>
+      <!-- Bottom middle image -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="Images/industry4.jpg" alt="Foundry" class="w-full h-full object-cover" />
+      </div>
+      <!-- Bottom right image -->
+      <div class="col-span-1 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative">
+        <img src="Images/industry5.jpg" alt="Plastic Products" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="py-16 container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4 text-gray-800">
+        Browse Machinery Categories
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Find the perfect equipment for your construction or mining needs
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6  text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-blue-600 mx-auto"
+        >
+          <i class="fas fa-excavator text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Excavators</h3>
+        <p class="text-gray-500 text-sm">15,200+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-orange-600 mx-auto"
+        >
+          <i class="fas fa-bullhorn text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Bulldozers</h3>
+        <p class="text-gray-500 text-sm">8,750+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-yellow-600 mx-auto"
+        >
+          <i class="fas fa-crane text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Cranes</h3>
+        <p class="text-gray-500 text-sm">6,300+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-red-600 mx-auto"
+        >
+          <i class="fas fa-forklift text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Forklifts</h3>
+        <p class="text-gray-500 text-sm">9,450+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-purple-600 mx-auto"
+        >
+          <i class="fas fa-conveyor-belt text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Loaders</h3>
+        <p class="text-gray-500 text-sm">12,300+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-green-600 mx-auto"
+        >
+          <i class="fas fa-truck-monster text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Dump Trucks</h3>
+        <p class="text-gray-500 text-sm">7,800+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-indigo-600 mx-auto"
+        >
+          <i class="fas fa-water text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Concrete Pumps</h3>
+        <p class="text-gray-500 text-sm">5,200+ Products</p>
+      </a>
+      <a
+        href="#"
+        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover"
+      >
+        <div
+          class="category-icon bg-white text-pink-600 mx-auto"
+        >
+          <i class="fas fa-tools text-2xl"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-1">Attachments</h3>
+        <p class="text-gray-500 text-sm">18,900+ Products</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured Suppliers -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">
+          Featured Machinery Suppliers
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Trusted suppliers with verified inventory and excellent service ratings
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Supplier 1 -->
+        <div class="supplier-card bg-[#FFF9E5] p-0 rounded-20g shadow-md">
+          <div class="relative">
+            <img
+              src="Images/resized_image_600x300 01.png"
+              alt="Large industrial warehouse filled with various construction machinery including excavators and bulldozers"
+              class="w-full h-48 object-cover rounded-t-lg"
+            />
+            <div
+              class="absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold inline-flex items-center"
+            >
+              <i class="fas fa-check mr-1"></i> Premium Supplier
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img
+                src="Images/resized_image_1920x1080.png"
+                alt="CAT Equipment Solutions logo with yellow and black branding"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+              />
+              <div class="ml-4">
+                <h3 class="font-bold text-lg">CAT Equipment Solutions</h3>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span class="text-gray-500 text-sm ml-2">4.8 (76 reviews)</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Authorized dealer for Caterpillar construction and mining equipment
+              with 25+ years of experience
+            </p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <span>124 Industrial Park, Mumbai, India</span>
+            </div>
+            <div
+              class="flex justify-between items-center pt-4 border-t border-gray-200"
+            >
+              <div class="flex items-center text-blue-600 font-medium">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>+91 98765 43210</span>
+              </div>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
+              >
+                Contact Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supplier 2 -->
+        <div class="supplier-card bg-[#FFF9E5] p-0 rounded-20g shadow-md">
+          <div class="relative">
+            <img
+              src="Images/resized_image3_600x300 02.png"
+              alt="Komatsu heavy equipment service center with technicians working on machinery"
+              class="w-full h-48 object-cover rounded-t-lg"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img
+                src="Images/Company logo 2.png"
+                alt="Komatsu Parts India logo in white and red colors"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+              />
+              <div class="ml-4">
+                <h3 class="font-bold text-lg">Komatsu Parts India</h3>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                  <span class="text-gray-500 text-sm ml-2">4.2 (54 reviews)</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Specialized in Komatsu excavators, dozers and genuine spare parts
+              with nationwide support
+            </p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <span>78 Service Road, Delhi, India</span>
+            </div>
+            <div
+              class="flex justify-between items-center pt-4 border-t border-gray-200"
+            >
+              <div class="flex items-center text-blue-600 font-medium">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>+91 87654 32109</span>
+              </div>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
+              >
+                Contact Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supplier 3 -->
+        <div class="supplier-card bg-[#FFF9E5] p-0 rounded-20g shadow-md">
+          <div class="relative">
+            <img
+              src="Images/resized_image4_600x300 03.png"
+              alt="JCB equipment yard with multiple machines lined up ready for sale"
+              class="w-full h-48 object-cover rounded-t-lg"
+            />
+            <div
+              class="absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-xs font-bold inline-flex items-center"
+            >
+              <i class="fas fa-check mr-1"></i> Verified
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-4">
+              <img
+                src="Images/Companuy logo 3.png"
+                alt="JCB Machinery Ltd. logo with yellow and black colors"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+              />
+              <div class="ml-4">
+                <h3 class="font-bold text-lg">JCB Machinery Ltd.</h3>
+                <div class="flex items-center mt-1">
+                  <div class="flex text-yellow-400">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <span class="text-gray-500 text-sm ml-2">5.0 (128 reviews)</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Leading distributor of JCB backhoe loaders, telehandlers and
+              compactors since 1992
+            </p>
+            <div class="flex items-center text-gray-500 mb-4">
+              <i class="fas fa-map-marker-alt mr-2"></i>
+              <span>32 Heavy Industrial Area, Bengaluru, India</span>
+            </div>
+            <div
+              class="flex justify-between items-center pt-4 border-t border-gray-200"
+            >
+              <div class="flex items-center text-blue-600 font-medium">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>+91 76543 21098</span>
+              </div>
+              <button
+                class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition"
+              >
+                Contact Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <div class="relative inline-block group"></div>
+        <a
+          href="#"
+          class="inline-block bg-[#FFF9E5] text-black-600 font-semibold px-6 py-3 rounded-lg border border-blue-600 hover:bg-blue-50 transition shadow-lg group-hover:shadow-2xl"
+        >
+          View All Suppliers <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        <div
+          class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white text-gray-800 text-sm rounded-lg shadow-xl border border-blue-200 px-4 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50"
+        >
+          Click to see the complete list of trusted machinery suppliers.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 text-black" style="background-color: #ffffff">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          List Your Machinery Business With Us
+        </h2>
+        <p class="text-lg mb-8">
+          Join thousands of heavy equipment suppliers reaching customers across
+          India and globally
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#"
+            class="bg-transparent border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-800 transition"
+            >Get Started</a
+          >
+          <a
+            href="#"
+            class="bg-transparent border-2 border-black px-8 py-4 rounded-full font-bold hover:bg-white hover:text-blue-800 transition"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-gray-900 text-white pt-6 pb-6">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <div class="flex items-center mb-2">
+            <img
+              src="Images/CIA logo.png"
+              alt="Small MachineryHub logo in footer"
+              class="h-8 mr-2 rounded-lg"
+            />
+            <span class="text-lg font-bold"
+              >Machinery<span class="text-yellow-400">Hub</span></span
+            >
+          </div>
+          <p class="text-gray-400 mb-3">
+            India's premier heavy equipment marketplace connecting buyers and
+            sellers since 2010.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-black hover:text-yellow-400 transition"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              class="text-black hover:text-yellow-400 transition"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="#"
+              class="text-black hover:text-yellow-400 transition"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="#"
+              class="text-black hover:text-yellow-400 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <ul class="flex space-x-6">
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-400 transition"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-400 transition"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-400 transition"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-400 transition"
+                >Suppliers</a
+              >
+            </li>
+            <!--
+            <li>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-yellow-400 transition"
+                >Contact</a
+              >
+            </li>
+            -->
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt text-black mr-3"></i>
+              <span class="text-gray-400">MachineryHub Tower, Mumbai, India</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt text-black mr-3"></i>
+              <span class="text-gray-400">+91 12345 67890</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-black mr-3"></i>
+              <span class="text-gray-400">contact@machineryhub.com</span>
+            </li>
+            <li>
+              <div class="mt-0.5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.1234567890123!2d72.8777!3d19.076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63b1234567%3A0x123456789abcdef!2sMachineryHub%20Tower%2C%20Mumbai%2C%20India!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                  width="50%"
+                  height="150"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-4 pt-4 text-center text-gray-400 text-sm">
+        <p>© 2025 MachineryHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Announcement Button & Bar -->
+  <div class="announcement-popup-container">
+    <button class="announcement-btn" id="announcementBtn" title="Show Announcement">
+      <span class="announcement-btn-icon">📢</span>
+      <span class="announcement-btn-label">Announcement</span>
+    </button>
+    <div class="announcement-bar" id="announcementBar">
+      <span class="announcement-text">
+        <ul class="announcement-list">
+          <li>🚧 CIA MachineryHub now offers verified supplier badges</li>
+          <li>🎉 Exclusive deals available for registered users</li>
+          <li>🤝 Contact us for partnership opportunities</li>
+        </ul>
+      </span>
+      <div class="announcement-footer">
+        <span>Learn more at <a href="https://ciamachineryhub.com" target="_blank" rel="noopener">ciamachineryhub.com</a></span>
+      </div>
+      <button class="announcement-close" id="announcementClose" title="Close">&times;</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
