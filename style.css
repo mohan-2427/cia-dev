@@ -361,13 +361,14 @@ footer a:hover {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     height: auto;
-    min-height: 500px;
-    gap: 8px;
+    min-height: 400px;
+    gap: 4px;
   }
 
   #heroCarousel > div:nth-child(1) {
     grid-column: span 2;
     grid-row: span 1;
+    min-height: 200px;
   }
 
   #heroCarousel > div:nth-child(2),
@@ -376,6 +377,7 @@ footer a:hover {
   #heroCarousel > div:nth-child(5) {
     grid-column: span 1;
     grid-row: span 1;
+    min-height: 150px;
   }
 
   .card-hover:hover {
@@ -388,24 +390,30 @@ footer a:hover {
 
   /* Adjust font sizes for mobile */
   #heroCarousel h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   #heroCarousel h4 {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 
   #heroCarousel p {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
+  }
+
+  /* Mobile hero section spacing */
+  .max-w-\[1168px\] {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   #heroCarousel {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 200px);
+    grid-template-rows: repeat(5, 180px);
     height: auto;
-    gap: 12px;
+    gap: 8px;
   }
 
   #heroCarousel > div {
@@ -426,6 +434,37 @@ footer a:hover {
   /* Adjust category grid for mobile */
   .grid-cols-2 {
     grid-template-columns: 1fr;
+  }
+
+  /* Mobile hero section full width */
+  .max-w-\[1168px\] {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    max-width: calc(100vw - 1rem);
+  }
+
+  /* Adjust hero text for very small screens */
+  #heroCarousel h3 {
+    font-size: 1rem;
+  }
+
+  #heroCarousel h4 {
+    font-size: 0.75rem;
+  }
+
+  #heroCarousel p {
+    font-size: 0.625rem;
+  }
+
+  /* Mobile hero overlay text positioning */
+  #heroCarousel .absolute.bottom-8 {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  #heroCarousel .absolute.bottom-4 {
+    bottom: 0.5rem;
+    left: 0.5rem;
   }
 }
 
@@ -562,20 +601,61 @@ img:not([src]) {
 }
 
 /* Navigation arrows styling */
-#prevBtn, #nextBtn {
+#prevBtn, #nextBtn, #prevBottomBtn, #nextBottomBtn {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   transform: scale(1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#prevBtn:hover, #nextBtn:hover {
+#prevBtn:hover, #nextBtn:hover, #prevBottomBtn:hover, #nextBottomBtn:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
 }
 
-#prevBtn:active, #nextBtn:active {
+#prevBtn:active, #nextBtn:active, #prevBottomBtn:active, #nextBottomBtn:active {
   transform: scale(0.95);
+}
+
+/* Map container styling */
+.map-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  display: block;
+  width: 80px;
+  height: 60px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+/* Mobile menu styles */
+#mobileMenu {
+  transition: all 0.3s ease;
+}
+
+#mobileMenu.show {
+  display: block;
+}
+
+#mobileProductsMenu {
+  transition: all 0.3s ease;
+}
+
+#mobileProductsMenu.show {
+  display: block !important;
+}
+
+/* Mobile menu button animation */
+#mobileMenuBtn {
+  transition: transform 0.3s ease;
+}
+
+#mobileMenuBtn.active {
+  transform: rotate(90deg);
 }
 
 /* Smooth transitions for all interactive elements */

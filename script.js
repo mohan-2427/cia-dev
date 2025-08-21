@@ -219,20 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize carousel
     updateCarousel();
 
-    // Arrow navigation
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            prevSlide();
-        });
-        nextBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            nextSlide();
-        });
-    }
 
     // Dot navigation
     const dots = document.querySelectorAll('.carousel-dot');
@@ -451,6 +437,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+    const mobileProductsMenu = document.getElementById('mobileProductsMenu');
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.classList.toggle('active');
+        });
+    }
+
+    if (mobileProductsBtn && mobileProductsMenu) {
+        mobileProductsBtn.addEventListener('click', function() {
+            mobileProductsMenu.classList.toggle('hidden');
+            const icon = mobileProductsBtn.querySelector('i');
+            if (mobileProductsMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        });
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (mobileMenu && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+            mobileMenuBtn.classList.remove('active');
+        }
+    });
+
     // Announcement popup logic
     const announcementBtn = document.getElementById('announcementBtn');
     const announcementBar = document.getElementById('announcementBar');
