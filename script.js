@@ -155,12 +155,18 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
+        // Prevent page jumping by preserving scroll position
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
 
         // Update content after brief delay
         setTimeout(() => {
             carousel.innerHTML = containerSets[currentSlide];
+
+            // Restore scroll position to prevent jumping
+            window.scrollTo(0, scrollTop);
 
             // Remove transitioning class
             setTimeout(() => {
