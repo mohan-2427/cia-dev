@@ -153,11 +153,29 @@ function updateCarousel() {
 }
 
 function nextSlide() {
+    // Add click animation to button
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            nextBtn.style.transform = 'scale(1.1)';
+        }, 100);
+    }
+
     currentSlide = (currentSlide + 1) % totalSlides;
     updateCarousel();
 }
 
 function prevSlide() {
+    // Add click animation to button
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            prevBtn.style.transform = 'scale(1.1)';
+        }, 100);
+    }
+
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     updateCarousel();
 }
