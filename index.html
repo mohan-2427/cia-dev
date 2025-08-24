@@ -760,5 +760,16 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Scroll to categories section when Browse Catalog button is clicked
+    document.getElementById('browseBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const categoriesSection = document.getElementById('categories');
+      categoriesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  </script>
 </body>
 </html>
