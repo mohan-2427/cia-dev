@@ -125,31 +125,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Mission Container specific styling */
-        .mission-container {
-            background: linear-gradient(135deg, #FFF9E5, #FFF9E5); /* Changed to bright yellow */
-            border-radius: 1.5rem; /* Rounded corners */
-            padding: 3rem; /* Ample padding */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger shadow */
-            border: 1px solid rgba(253, 230, 138, 0.5); /* Subtle border */
-            position: relative;
-            overflow: hidden;
-        }
-        .mission-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(223, 223, 223, 0.1) 0%, rgba(255,255,255,0) 70%);
-            animation: rotateLight 10s linear infinite;
-            opacity: 0.5;
-        }
-        @keyframes rotateLight {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-white">
@@ -320,19 +295,15 @@
     <section id="mission" class="py-16 bg-gradient-to-br from-yellow-50 to-orange-50">
         <div class="container mx-auto px-4">
             <div class="bg-white rounded-xl shadow-lg p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
-
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                <div class="w-full">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Mission</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-gray-700 leading-relaxed mb-4 text-lg">
                             The Chinnavedampatti Industrial Association (CIA), established in 2019, is dedicated to advancing Coimbatore's industrial sector, particularly in Chinnavedampatti. We focus on empowering micro and small industries by facilitating access to government benefits and promoting sustainable growth.
                         </p>
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="text-gray-700 leading-relaxed text-lg">
                             Our initiatives encompass industrial development, skill development workshops, technological advancements, and fostering inter-industry collaborations. We connect members to development programs and trade opportunities while representing MSME interests with industry bodies and government agencies.
                         </p>
-                    </div>
-                    <div>
-                        <img src="Images/resized_image4_600x300 03.png" alt="Mission Image" class="rounded-xl shadow-xl w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
@@ -383,37 +354,38 @@
     <!-- Our Story Section -->
     <section class="py-16 bg-white overflow-hidden">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8">Our Story</h2>
+            <div class="w-full">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Story</h2>
+                <div class="max-w-full mx-auto">
+                    <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                        Under the leadership of President Mr. N. DevaKumar, CIA represents various industrial sectors including robotics and automation, motors and pumps, corrugated box manufacturing, packaging solutions, kitchen equipment and food machinery, steel doors and safety lockers, printing machinery, CNC job works, metal and steel fabrication, and laser cutting and sheet bending.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed text-lg mb-8">
+                        The association is committed to community engagement through initiatives like implementing CCTV surveillance for enhanced security, organizing annual flag hoisting ceremonies, and participating in disaster relief efforts such as the Kerala Flood Fund arrangements. We help member companies become more resilient, innovative and ready for new markets.
+                    </p>
 
-                <p class="text-gray-700 leading-relaxed text-lg mb-6">
-                    Under the leadership of President Mr. N. DevaKumar, CIA represents various industrial sectors including robotics and automation, motors and pumps, corrugated box manufacturing, packaging solutions, kitchen equipment and food machinery, steel doors and safety lockers, printing machinery, CNC job works, metal and steel fabrication, and laser cutting and sheet bending.
-                </p>
-                <p class="text-gray-700 leading-relaxed text-lg mb-8">
-                    The association is committed to community engagement through initiatives like implementing CCTV surveillance for enhanced security, organizing annual flag hoisting ceremonies, and participating in disaster relief efforts such as the Kerala Flood Fund arrangements. We help member companies become more resilient, innovative and ready for new markets.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">500+</h3>
+                            <p class="text-gray-700">Member Companies</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">500+</h3>
-                        <p class="text-gray-700">Member Companies</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">8+</h3>
+                            <p class="text-gray-700">Industrial Sectors</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">8+</h3>
-                        <p class="text-gray-700">Industrial Sectors</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">2019</h3>
+                            <p class="text-gray-700">Established</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">2019</h3>
-                        <p class="text-gray-700">Established</p>
                     </div>
                 </div>
             </div>
