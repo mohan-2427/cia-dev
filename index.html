@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CIA - Coimbatore</title>
+    <title>CIA Innovation Hub - Coimbatore</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -43,11 +43,10 @@
         </div>
 
         <!-- Center: Logo - Added margin -->
-        <a href="index.html" class="flex items-center space-x-4 order-2 mx-auto px-8"
- 
+        <a href="index.html" class="flex items-center space-x-4 order-2 mx-auto px-8">
           <img
             src="Images/CIA logo.png"
-            alt="MachineryHub logo"
+            alt="CIA MachineryHub logo"
             class="h-10 rounded-lg logo-black-filter"
           />
           <span class="text-2xl font-bold text-black"
@@ -156,9 +155,9 @@
     <!-- Dimming Overlay with Caption -->
     <div class="absolute inset-0 z-20 rounded-xl flex items-center justify-center pointer-events-none" style="background-color: rgba(136, 178, 233, 0.2);">
       <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
-        <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-100">Discover Premium Machinery</h2>
-        <p class="text-sm md:text-base opacity-90 mb-3">Explore our extensive collection</p>
-        <button class="bg-yellow-400 hover:bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 pointer-events-auto text-sm">
+        <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-100">Discover Industrial Excellence</h2>
+        <p class="text-sm md:text-base opacity-90 mb-3">Explore our diverse industrial sectors</p>
+        <button id="browseBtn" class="bg-yellow-400 hover:bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 pointer-events-auto text-sm">
           Browse Catalog
         </button>
       </div>
@@ -170,8 +169,8 @@
         <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-2xl font-bold mb-2">Heavy Machinery Solutions</h3>
-          <p class="text-base opacity-90">Professional construction equipment for all your needs</p>
+          <h3 class="text-2xl font-bold mb-2">Industrial Excellence</h3>
+          <p class="text-base opacity-90">Connecting industries and fostering growth in Coimbatore's manufacturing sector</p>
         </div>
       </div>
 
@@ -180,8 +179,8 @@
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Engineering</h4><!--
-          <p class="text-sm opacity-80">Heavy duty excavation</p>-->
+          <h4 class="text-lg font-bold">Electrical</h4>
+          <p class="text-sm opacity-80">Power solutions & equipment</p>
         </div>
       </div>
 
@@ -190,8 +189,8 @@
         <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Dump Trucks</h4><!--
-          <p class="text-sm opacity-80">Material transport</p>-->
+          <h4 class="text-lg font-bold">Plastic</h4>
+          <p class="text-sm opacity-80">Manufacturing & molding</p>
         </div>
       </div>
 
@@ -200,8 +199,8 @@
         <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Crane Operations" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Cranes</h4>
-          <p class="text-sm opacity-80">Lifting solutions</p>
+          <h4 class="text-lg font-bold">Textile</h4>
+          <p class="text-sm opacity-80">Fabric & garment industry</p>
         </div>
       </div>
 
@@ -210,8 +209,8 @@
         <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Bulldozers</h4>
-          <p class="text-sm opacity-80">Earth moving</p>
+          <h4 class="text-lg font-bold">Automation</h4>
+          <p class="text-sm opacity-80">Smart manufacturing</p>
         </div>
       </div>
     </div>
@@ -228,108 +227,117 @@
   <section class="py-12 max-w-[1081px] mx-auto px-4">
     <div class="text-center mb-8">
       <h2 class="text-3xl font-bold mb-4 text-gray-800">
-        Browse Machinery Categories
+        Browse Industrial Categories
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        Find the perfect equipment for your construction or mining needs
+        Explore our diverse manufacturing and industrial sectors in Coimbatore
       </p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="categories">
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-excavator text-2xl text-blue-600"></i>
+          <i class="fas fa-bolt text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Engineering</h3><!--
-        <p class="text-gray-500 text-sm">15,200+ Products</p>-->
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Electrical</h3>
+        <p class="text-gray-600 text-sm">Power & Control Systems</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-bullhorn text-2xl text-orange-600"></i>
+          <i class="fas fa-recycle text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Production</h3>
-        <p class="text-gray-500 text-sm">8,750+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Plastic</h3>
+        <p class="text-gray-600 text-sm">Manufacturing & Molding</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-crane text-2xl text-yellow-600"></i>
+          <i class="fas fa-cut text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Packing</h3>
-        <p class="text-gray-500 text-sm">6,300+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Textile</h3>
+        <p class="text-gray-600 text-sm">Fabric & Garment Industry</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-forklift text-2xl text-red-600"></i>
+          <i class="fas fa-robot text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Metal</h3>
-        <p class="text-gray-500 text-sm">9,450+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Automation</h3>
+        <p class="text-gray-600 text-sm">Smart Manufacturing</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-truck-loading text-2xl text-purple-600"></i>
+          <i class="fas fa-utensils text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Loaders</h3>
-        <p class="text-gray-500 text-sm">12,300+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Kitchen</h3>
+        <p class="text-gray-600 text-sm">Commercial Equipment</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-red-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-truck-monster text-2xl text-green-600"></i>
+          <i class="fas fa-box text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Dump Trucks</h3>
-        <p class="text-gray-500 text-sm">7,800+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Packing</h3>
+        <p class="text-gray-600 text-sm">Packaging Solutions</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-pump-soap text-2xl text-indigo-600"></i>
+          <i class="fas fa-industry text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Concrete Pumps</h3>
-        <p class="text-gray-500 text-sm">5,200+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Production</h3>
+        <p class="text-gray-600 text-sm">Manufacturing Systems</p>
       </a>
       <a
-        href="#"
-        class="bg-[#FFF9E5] rounded-xl shadow-md p-6 text-center card-hover group"
+        href="category.html"
+        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
       >
         <div
-          class="category-icon-circle w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md group-hover:shadow-lg transition-all duration-300"
+          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
         >
-          <i class="fas fa-tools text-2xl text-pink-600"></i>
+          <i class="fas fa-cogs text-2xl text-white"></i>
         </div>
-        <h3 class="font-semibold text-lg mb-1">Attachments</h3>
-        <p class="text-gray-500 text-sm">18,900+ Products</p>
+        <h3 class="font-semibold text-lg mb-1 text-gray-800">Engineering</h3>
+        <p class="text-gray-600 text-sm">Technical Solutions</p>
+      </a>
+    </div>
+    <!-- View More Button -->
+    <div class="text-center mt-8">
+      <a
+        href="category.html"
+        class="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold px-8 py-3 rounded-full hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+      >
+        View All Categories <i class="fas fa-arrow-right ml-2"></i>
       </a>
     </div>
   </section>
@@ -339,10 +347,10 @@
     <div class="container mx-auto px-4">
       <div class="text-center mb-8">
         <h2 class="text-3xl font-bold mb-4 text-gray-800">
-          Featured Machinery Suppliers
+          Featured Incubated Companies
         </h2>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          Trusted suppliers with verified inventory and excellent service ratings
+          Innovative startups and companies nurtured by our incubation program
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -752,6 +760,16 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Scroll to categories section when Browse Catalog button is clicked
+    document.getElementById('browseBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const categoriesSection = document.getElementById('categories');
+      categoriesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  </script>
 </body>
 </html>
-

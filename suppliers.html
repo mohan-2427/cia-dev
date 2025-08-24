@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Suppliers — CIA MachineryHub</title>
+    <title>Incubated Companies — CIA Innovation Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
@@ -151,12 +151,12 @@
     <section class="bg-gradient-to-r from-blue-500 to-blue-700 text-white py-24">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto">
-                <i class="fas fa-handshake text-6xl mb-6 opacity-90"></i>
+                <i class="fas fa-rocket text-6xl mb-6 opacity-90"></i>
                 <h1 class="text-4xl md:text-5xl font-bold mb-6">
-                    Trusted Suppliers
+                    Incubated Companies
                 </h1>
                 <p class="text-xl md:text-2xl opacity-90 leading-relaxed">
-                    Connect with verified machinery suppliers across India offering quality equipment and reliable service
+                    Discover innovative startups and companies nurtured by CIA Innovation Hub across various industries
                 </p>
             </div>
         </div>
@@ -167,29 +167,31 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
-                    <p class="text-gray-600">Showing <span class="font-semibold">10</span> verified suppliers</p>
+                    <p class="text-gray-600">Showing <span class="font-semibold">10</span> incubated companies</p>
                 </div>
                 <div class="flex flex-wrap gap-4">
                     <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option>All Locations</option>
-                        <option>Mumbai</option>
-                        <option>Delhi</option>
-                        <option>Bengaluru</option>
+                        <option>Coimbatore</option>
                         <option>Chennai</option>
+                        <option>Bengaluru</option>
+                        <option>Mumbai</option>
                         <option>Pune</option>
                     </select>
                     <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>All Categories</option>
-                        <option>Excavators</option>
-                        <option>Bulldozers</option>
-                        <option>Cranes</option>
-                        <option>Forklifts</option>
+                        <option>All Sectors</option>
+                        <option>Technology</option>
+                        <option>HealthTech</option>
+                        <option>FinTech</option>
+                        <option>CleanTech</option>
+                        <option>EdTech</option>
                     </select>
                     <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Sort by Rating</option>
-                        <option>Highest Rated</option>
-                        <option>Most Reviews</option>
-                        <option>Newest</option>
+                        <option>Sort by Stage</option>
+                        <option>Early Stage</option>
+                        <option>Growth Stage</option>
+                        <option>Seed Stage</option>
+                        <option>Series A+</option>
                     </select>
                 </div>
             </div>
@@ -200,110 +202,105 @@
     <section class="py-16">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Supplier 1 -->
+                <!-- Company 1 - Template for Excel Data -->
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
-                        <img src="Images/resized_image_600x300 01.png" alt="CAT Equipment Solutions warehouse" class="w-full h-48 object-cover" />
-
-
+                        <img src="Images/resized_image_600x300 01.png" alt="Company office building" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                            Active
+                        </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <img src="Images/resized_image_1920x1080.png" alt="CAT Equipment Solutions logo" class="w-12 h-12 rounded-lg object-cover border-2 border-gray-200 shadow-sm" />
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                                T1
+                            </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
-                                    <a href="cat-equipment-solutions.html">CAT Equipment Solutions</a>
+                                    [Company Name from Sheet1]
                                 </h3>
+                                <p class="text-sm text-gray-500 font-medium">Founded by: [Founder Name from Sheet1]</p>
                                 <div class="flex items-center mt-1">
-                                    <div class="flex text-yellow-400">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <span class="text-gray-500 text-sm ml-2">4.8 (76 reviews)</span>
+                                    <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-semibold">Technology</span>
                                 </div>
                             </div>
                         </div>
                         <p class="text-gray-600 mb-4 text-sm">
-                            Authorized dealer for Caterpillar construction and mining equipment with 25+ years of experience
+                            [Product Description from Sheet1 - About their product and services offered]
                         </p>
                         <div class="flex items-center text-gray-500 mb-4">
                             <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
-                            <span class="text-sm">124 Industrial Park, Mumbai, India</span>
+                            <span class="text-sm">[Address from Sheet1]</span>
                         </div>
                         <div class="space-y-2 mb-4">
                             <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-tools mr-2 text-green-500"></i>
-                                <span>Excavators, Bulldozers, Wheel Loaders</span>
+                                <i class="fas fa-industry mr-2 text-green-500"></i>
+                                <span>[Product Category from Sheet1]</span>
                             </div>
                             <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-clock mr-2 text-orange-500"></i>
-                                <span>24/7 Service Support</span>
+                                <i class="fas fa-calendar mr-2 text-orange-500"></i>
+                                <span>Incubated: 2023</span>
                             </div>
                         </div>
                         <div class="flex justify-between items-center pt-4 border-t border-gray-200">
                             <div class="flex items-center text-blue-600 font-medium text-sm">
                                 <i class="fas fa-phone-alt mr-2"></i>
-                                <span>+91 98765 43210</span>
+                                <span>[Contact Details from Sheet1]</span>
                             </div>
                             <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                                Contact Now
+                                Learn More
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Supplier 2 -->
+                <!-- Company 2 - Template for Excel Data -->
                 <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                     <div class="relative">
-                        <img src="Images/resized_image3_600x300 02.png" alt="Komatsu Parts India service center" class="w-full h-48 object-cover" />
-
+                        <img src="Images/resized_image3_600x300 02.png" alt="Company workspace" class="w-full h-48 object-cover" />
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                            Growing
+                        </div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <img src="Images/Company logo 2.png" alt="Komatsu Parts India logo" class="w-12 h-12 rounded-lg object-cover border-2 border-gray-200 shadow-sm" />
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                                H2
+                            </div>
                             <div class="ml-4">
                                 <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
-                                    <a href="komatsu-parts-india.html">Komatsu Parts India</a>
+                                    [Company Name from Sheet1]
                                 </h3>
+                                <p class="text-sm text-gray-500 font-medium">Founded by: [Founder Name from Sheet1]</p>
                                 <div class="flex items-center mt-1">
-                                    <div class="flex text-yellow-400">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                    <span class="text-gray-500 text-sm ml-2">4.2 (54 reviews)</span>
+                                    <span class="bg-green-100 text-green-600 px-2 py-1 rounded text-xs font-semibold">HealthTech</span>
                                 </div>
                             </div>
                         </div>
                         <p class="text-gray-600 mb-4 text-sm">
-                            Specialized in Komatsu excavators, dozers and genuine spare parts with nationwide support
+                            [Product Description from Sheet1 - About their healthcare/biotech solutions and innovations]
                         </p>
                         <div class="flex items-center text-gray-500 mb-4">
                             <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
-                            <span class="text-sm">78 Service Road, Delhi, India</span>
+                            <span class="text-sm">[Address from Sheet1]</span>
                         </div>
                         <div class="space-y-2 mb-4">
                             <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-tools mr-2 text-green-500"></i>
-                                <span>Komatsu Excavators, Spare Parts</span>
+                                <i class="fas fa-heartbeat mr-2 text-green-500"></i>
+                                <span>[Product Category from Sheet1]</span>
                             </div>
                             <div class="flex items-center text-sm text-gray-600">
-                                <i class="fas fa-shipping-fast mr-2 text-orange-500"></i>
-                                <span>Nationwide Delivery</span>
+                                <i class="fas fa-calendar mr-2 text-orange-500"></i>
+                                <span>Incubated: 2022</span>
                             </div>
                         </div>
                         <div class="flex justify-between items-center pt-4 border-t border-gray-200">
                             <div class="flex items-center text-blue-600 font-medium text-sm">
                                 <i class="fas fa-phone-alt mr-2"></i>
-                                <span>+91 87654 32109</span>
+                                <span>[Contact Details from Sheet1]</span>
                             </div>
                             <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                                Contact Now
+                                Learn More
                             </button>
                         </div>
                     </div>
@@ -773,14 +770,14 @@
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                    Become a Verified Supplier
+                    Join Our Incubation Program
                 </h2>
                 <p class="text-xl mb-8 opacity-90 leading-relaxed">
-                    Join our network of trusted suppliers and reach thousands of potential customers across India
+                    Transform your innovative idea into a successful business with our comprehensive incubation support
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                        Apply as Supplier
+                        Apply for Incubation
                     </button>
                     <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all duration-300">
                         Learn More
