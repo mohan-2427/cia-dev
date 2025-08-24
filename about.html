@@ -275,15 +275,15 @@
                 An industry-led forum in Coimbatore that empowers MSMEs through networking, capability building and collective action.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="#mission" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-100 hover:text-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-bounce">
+                <a href="#mission" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-100 hover:text-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                     Explore Our Mission
                 </a>
                 <a href="#team" class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl">
                     Meet Our Team
                 </a>
             </div>
-            <div class="mt-12 scroll-indicator">
-                <a href="#mission" class="text-white animate-bounce">
+            <div class="mt-12">
+                <a href="#mission" class="text-gray-600 hover:text-yellow-700 transition-colors duration-300">
                     <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
@@ -759,20 +759,27 @@ Coimbatore - 641049, Tamil Nadu, India.</span>
             el.style.animationDelay = `${index * 0.5}s`;
         });
 
-        // Smooth scrolling for nav links
+        // Smooth scrolling for nav links - Fixed to prevent auto scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+                e.stopPropagation();
+
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
+                if(targetId === '#' || !targetId) return;
+
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                    const targetPosition = targetElement.offsetTop - 100;
+                    const currentPosition = window.pageYOffset;
+
+                    // Only scroll if we're not already near the target
+                    if(Math.abs(targetPosition - currentPosition) > 50) {
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
