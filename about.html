@@ -125,31 +125,6 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Mission Container specific styling */
-        .mission-container {
-            background: linear-gradient(135deg, #FFF9E5, #FFF9E5); /* Changed to bright yellow */
-            border-radius: 1.5rem; /* Rounded corners */
-            padding: 3rem; /* Ample padding */
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger shadow */
-            border: 1px solid rgba(253, 230, 138, 0.5); /* Subtle border */
-            position: relative;
-            overflow: hidden;
-        }
-        .mission-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(223, 223, 223, 0.1) 0%, rgba(255,255,255,0) 70%);
-            animation: rotateLight 10s linear infinite;
-            opacity: 0.5;
-        }
-        @keyframes rotateLight {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
     </style>
 </head>
 <body class="bg-white">
@@ -293,23 +268,22 @@
 
 
     <!-- Hero Section with Enhanced Animations -->
-    <section class="relative py-24 md:py-32 text-white hero-animated" style="background: linear-gradient(-45deg, #f59e0b, #fbbf24, #fcd34d, #fde68a);">
-        <div class="absolute inset-0 bg-yellow-900/20"></div>
+    <section class="relative py-24 md:py-32 text-gray-800 bg-white border-b">
         <div class="container mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fadeInDown glow-text" data-aos="fade-down">Chinnavedampatti Industrial Association (CIA)</h1>
-            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 animate-fadeInUp" data-aos="fade-up" data-aos-delay="200">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Chinnavedampatti Industrial Association (CIA)</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
                 An industry-led forum in Coimbatore that empowers MSMEs through networking, capability building and collective action.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-                <a href="#mission" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-100 hover:text-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl animate-bounce">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#mission" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-100 hover:text-yellow-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                     Explore Our Mission
                 </a>
                 <a href="#team" class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-xl">
                     Meet Our Team
                 </a>
             </div>
-            <div class="mt-12 scroll-indicator">
-                <a href="#mission" class="text-white animate-bounce">
+            <div class="mt-12">
+                <a href="#mission" class="text-gray-600 hover:text-yellow-700 transition-colors duration-300">
                     <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
@@ -320,19 +294,15 @@
     <section id="mission" class="py-16 bg-gradient-to-br from-yellow-50 to-orange-50">
         <div class="container mx-auto px-4">
             <div class="bg-white rounded-xl shadow-lg p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h2>
-
-                        <p class="text-gray-700 leading-relaxed mb-4">
+                <div class="w-full">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Our Mission</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <p class="text-gray-700 leading-relaxed mb-4 text-lg">
                             The Chinnavedampatti Industrial Association (CIA), established in 2019, is dedicated to advancing Coimbatore's industrial sector, particularly in Chinnavedampatti. We focus on empowering micro and small industries by facilitating access to government benefits and promoting sustainable growth.
                         </p>
-                        <p class="text-gray-700 leading-relaxed">
+                        <p class="text-gray-700 leading-relaxed text-lg">
                             Our initiatives encompass industrial development, skill development workshops, technological advancements, and fostering inter-industry collaborations. We connect members to development programs and trade opportunities while representing MSME interests with industry bodies and government agencies.
                         </p>
-                    </div>
-                    <div>
-                        <img src="Images/resized_image4_600x300 03.png" alt="Mission Image" class="rounded-xl shadow-xl w-full h-auto object-cover">
                     </div>
                 </div>
             </div>
@@ -349,7 +319,7 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-[#FFF9E5] p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="category-icon bg-white text-blue-600 mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center shadow-lg core-value-icon-bounce">
                         <i class="fas fa-handshake text-3xl transform transition-transform duration-300"></i>
                     </div>
@@ -358,7 +328,7 @@
                         Building lasting relationships through honest dealings and clear information.
                     </p>
                 </div>
-                <div class="bg-[#FFF9E5] p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="300">
                     <div class="category-icon bg-white text-green-600 mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center shadow-lg core-value-icon-bounce">
                         <i class="fas fa-lightbulb text-3xl transform transition-transform duration-300"></i>
                     </div>
@@ -367,7 +337,7 @@
                         Continuously evolving our platform to meet the dynamic needs of the market.
                     </p>
                 </div>
-                <div class="bg-[#FFF9E5] p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="500">
+                <div class="bg-white p-8 rounded-xl shadow-md text-center animated-card" data-aos="flip-left" data-aos-delay="500">
                     <div class="category-icon bg-white text-yellow-600 mx-auto mb-4 w-16 h-16 rounded-full flex items-center justify-center shadow-lg core-value-icon-bounce">
                         <i class="fas fa-users-gear text-3xl transform transition-transform duration-300"></i>
                     </div>
@@ -381,39 +351,40 @@
     </section>
 
     <!-- Our Story Section -->
-    <section class="py-16 bg-white overflow-hidden">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl font-bold text-gray-800 mb-8">Our Story</h2>
+            <div class="w-full">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Story</h2>
+                <div class="max-w-full mx-auto">
+                    <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                        Under the leadership of President Mr. N. DevaKumar, CIA represents various industrial sectors including robotics and automation, motors and pumps, corrugated box manufacturing, packaging solutions, kitchen equipment and food machinery, steel doors and safety lockers, printing machinery, CNC job works, metal and steel fabrication, and laser cutting and sheet bending.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed text-lg mb-8">
+                        The association is committed to community engagement through initiatives like implementing CCTV surveillance for enhanced security, organizing annual flag hoisting ceremonies, and participating in disaster relief efforts such as the Kerala Flood Fund arrangements. We help member companies become more resilient, innovative and ready for new markets.
+                    </p>
 
-                <p class="text-gray-700 leading-relaxed text-lg mb-6">
-                    Under the leadership of President Mr. N. DevaKumar, CIA represents various industrial sectors including robotics and automation, motors and pumps, corrugated box manufacturing, packaging solutions, kitchen equipment and food machinery, steel doors and safety lockers, printing machinery, CNC job works, metal and steel fabrication, and laser cutting and sheet bending.
-                </p>
-                <p class="text-gray-700 leading-relaxed text-lg mb-8">
-                    The association is committed to community engagement through initiatives like implementing CCTV surveillance for enhanced security, organizing annual flag hoisting ceremonies, and participating in disaster relief efforts such as the Kerala Flood Fund arrangements. We help member companies become more resilient, innovative and ready for new markets.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">500+</h3>
+                            <p class="text-gray-700">Member Companies</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">500+</h3>
-                        <p class="text-gray-700">Member Companies</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">8+</h3>
+                            <p class="text-gray-700">Industrial Sectors</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">8+</h3>
-                        <p class="text-gray-700">Industrial Sectors</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-yellow-500 mb-4">
-                            <i class="fas fa-check-circle text-4xl"></i>
+                        <div class="text-center">
+                            <div class="text-yellow-500 mb-4">
+                                <i class="fas fa-check-circle text-4xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">2019</h3>
+                            <p class="text-gray-700">Established</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">2019</h3>
-                        <p class="text-gray-700">Established</p>
                     </div>
                 </div>
             </div>
@@ -421,126 +392,124 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="py-16 bg-white overflow-hidden">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up">
+            <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Gallery</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
                     Glimpses of our activities, events, and industrial achievements over the years
                 </p>
             </div>
 
-            <!-- Masonry-style Gallery Grid with Mixed Sizes -->
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <!-- Large Rectangle - spans 2x2 -->
-                <div class="col-span-2 row-span-2 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/resized_image_600x300 01.png" alt="Annual Industrial Meet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-4 left-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-lg">Annual Industrial Meet</h3>
-                        <p class="text-sm opacity-90">Member networking event</p>
+            <!-- Large Industrial Showcase Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full transition-all duration-400 ease-in-out" style="min-height: 400px;">
+                <!-- Large Featured Image -->
+                <div class="md:col-span-2 lg:col-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 400px;">
+                    <img src="Images/resized_image_600x300 01.png" alt="Annual Industrial Meet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Annual Industrial Meet</h3>
+                        <p class="text-base opacity-90">Member networking and industry collaboration</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/resized_image3_600x300 02.png" alt="Workshop Session" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Workshop</h3>
+                <!-- Medium Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 300px;">
+                    <img src="Images/resized_image3_600x300 02.png" alt="Workshop Session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Technical Workshop</h4>
+                        <p class="text-sm opacity-80">Skill development sessions</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/t1.jpeg" alt="Flag Ceremony" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Flag Ceremony</h3>
+                <!-- Medium Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 300px;">
+                    <img src="Images/t1.jpeg" alt="Flag Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Flag Ceremony</h4>
+                        <p class="text-sm opacity-80">Community events</p>
                     </div>
                 </div>
 
-                <!-- Rectangle - spans 2x1 -->
-                <div class="col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/resized_image4_600x300 03.png" alt="Industrial Exhibition" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-4 left-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-lg">Industrial Exhibition</h3>
-                        <p class="text-sm opacity-90">Product showcase</p>
+                <!-- Wide Image -->
+                <div class="md:col-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 350px;">
+                    <img src="Images/resized_image4_600x300 03.png" alt="Industrial Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Industrial Exhibition</h4>
+                        <p class="text-sm opacity-80">Product showcase</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/t2.jpeg" alt="Technology" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Technology</h3>
+                <!-- Square Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 300px;">
+                    <img src="Images/t2.jpeg" alt="Technology Solutions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Technology Solutions</h4>
+                        <p class="text-sm opacity-80">Innovation hub</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/resized_image_1920x1080.png" alt="Community" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Community</h3>
+                <!-- Square Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 300px;">
+                    <img src="Images/resized_image_1920x1080.png" alt="Community Partnership" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Community Partnership</h4>
+                        <p class="text-sm opacity-80">Building strong industrial networks</p>
                     </div>
                 </div>
 
-                <!-- Rectangle - spans 2x1 -->
-                <div class="col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/t3.jpeg" alt="Manufacturing Process" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-4 left-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-lg">Manufacturing Process</h3>
-                        <p class="text-sm opacity-90">Production facilities</p>
+                <!-- Medium Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 300px;">
+                    <img src="Images/t3.jpeg" alt="Manufacturing Process" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Manufacturing Process</h4>
+                        <p class="text-sm opacity-80">Production facilities</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/t4.jpeg" alt="Industrial Setup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Setup</h3>
+                <!-- Large Featured Image -->
+                <div class="md:col-span-2 lg:col-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 400px;">
+                    <img src="Images/t4.jpeg" alt="Industrial Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-8 left-8 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Industrial Setup</h3>
+                        <p class="text-base opacity-90">Modern infrastructure and facilities</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/Profile pic 1.png" alt="Leadership" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Leadership</h3>
+                <!-- Small Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 250px;">
+                    <img src="Images/Profile pic 1.png" alt="Leadership Team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Leadership</h4>
+                        <p class="text-sm opacity-80">Industry experts</p>
                     </div>
                 </div>
 
-                <!-- Rectangle - spans 2x1 -->
-                <div class="col-span-2 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/Company logo 2.png" alt="Industry Collaboration" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-4 left-4 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-lg">Industry Collaboration</h3>
-                        <p class="text-sm opacity-90">Partnership initiatives</p>
+                <!-- Small Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 250px;">
+                    <img src="Images/Company logo 2.png" alt="Industry Collaboration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Collaboration</h4>
+                        <p class="text-sm opacity-80">Partnership initiatives</p>
                     </div>
                 </div>
 
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/Profile pic 2.png" alt="Team Member" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Team</h3>
-                    </div>
-                </div>
-
-                <!-- Square - spans 1x1 -->
-                <div class="col-span-1 row-span-1 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <img src="Images/Profile pic 3.png" alt="Innovation" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-2 left-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 class="font-semibold text-sm">Innovation</h3>
+                <!-- Small Image -->
+                <div class="rounded-xl overflow-hidden shadow-lg bg-black relative group cursor-pointer" style="min-height: 250px;">
+                    <img src="Images/Profile pic 2.png" alt="Team Excellence" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h4 class="text-lg font-bold">Excellence</h4>
+                        <p class="text-sm opacity-80">Dedicated professionals</p>
                     </div>
                 </div>
             </div>
@@ -548,9 +517,9 @@
     </section>
 
     <!-- Meet the Team Section -->
-    <section id="team" class="py-16 bg-gray-50 overflow-hidden">
+    <section id="team" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12" data-aos="fade-up">
+            <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Meet Our Leadership</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
                     The volunteers and office‑bearers who steer CIA's initiatives.
@@ -558,7 +527,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Team Member 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center animated-card transform hover:scale-105 transition-all duration-500" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
                     <div class="relative mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl team-member-image-spin">
                         <img src="Images/about deva.png" alt="Mr. N. DevaKumar" class="w-full h-full object-cover">
                     </div>
@@ -581,7 +550,7 @@
                 </div>
                 
                 <!-- Team Member 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center animated-card transform hover:scale-105 transition-all duration-500" data-aos="zoom-in-up" data-aos-delay="300">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
                     <div class="relative mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl team-member-image-spin">
                         <img src="Images/Profile pic 1.png" alt="Priya Malhotra" class="w-full h-full object-cover">
                     </div>
@@ -604,7 +573,7 @@
                 </div>
                 
                 <!-- Team Member 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg text-center animated-card transform hover:scale-105 transition-all duration-500" data-aos="zoom-in-up" data-aos-delay="500">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300">
                     <div class="relative mx-auto mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-400 shadow-xl team-member-image-spin">
                         <img src="Images/Profile pic 2.png" alt="Vikram Patel" class="w-full h-full object-cover">
                     </div>
@@ -632,7 +601,7 @@
 
     <!-- Call to Action -->
     <section class="py-16 text-black transform transition-all duration-500 hover:scale-105" style="background-color: #ffffff">
-        <div class="container mx-auto px-4 text-center" data-aos="zoom-in">
+        <div class="container mx-auto px-4 text-center">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-pulse">
                     List Your Machinery Business With Us
@@ -656,7 +625,7 @@
     <footer class="bg-gray-100 text-gray-800 pt-8 pb-6 border-t border-gray-200">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div data-aos="fade-up">
+                <div>
                     <div class="flex items-center mb-4">
                         <img src="Images/CIA logo.png" alt="Small MachineryHub logo in footer" class="h-8 w-8 mr-2 rounded-lg">
                         <span class="text-lg font-bold">CIA<span class="text-yellow-600">Matrix</span></span>
@@ -679,7 +648,7 @@
                         </a>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-800">Quick Links</h4>
                     <ul class="space-y-2">
                         <li>
@@ -709,7 +678,7 @@
                         </li>
                     </ul>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="400">
+                <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-800">Contact Info</h4>
                     <ul class="space-y-2">
                         <li class="flex items-start text-sm">
@@ -729,7 +698,7 @@ Coimbatore - 641049, Tamil Nadu, India.</span>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-300 mt-6 pt-4 text-center text-gray-500 text-sm" data-aos="fade-up" data-aos-delay="600">
+            <div class="border-t border-gray-300 mt-6 pt-4 text-center text-gray-500 text-sm">
                 <p>© 2023 MachineryHub. All rights reserved.</p>
             </div>
         </div>
@@ -747,11 +716,12 @@ Coimbatore - 641049, Tamil Nadu, India.</span>
     
     <!-- Custom JavaScript -->
     <script>
-        // Initialize AOS animation library
+        // Initialize AOS animation library with simplified settings
         AOS.init({
-            duration: 800,
+            duration: 400,
             easing: 'ease-in-out',
-            once: false
+            once: true,
+            disable: 'mobile'
         });
 
         // Scroll to top button functionality
@@ -779,20 +749,27 @@ Coimbatore - 641049, Tamil Nadu, India.</span>
             el.style.animationDelay = `${index * 0.5}s`;
         });
 
-        // Smooth scrolling for nav links
+        // Smooth scrolling for nav links - Fixed to prevent auto scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+                e.stopPropagation();
+
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
+                if(targetId === '#' || !targetId) return;
+
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                    const targetPosition = targetElement.offsetTop - 100;
+                    const currentPosition = window.pageYOffset;
+
+                    // Only scroll if we're not already near the target
+                    if(Math.abs(targetPosition - currentPosition) > 50) {
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });

@@ -155,32 +155,24 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
-        // Prevent page jumping by preserving scroll position
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-        // Store body scroll behavior temporarily
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = 'hidden';
+        // Store current scroll position more reliably
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
 
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
 
-        // Update content after brief delay
-        setTimeout(() => {
-            carousel.innerHTML = containerSets[currentSlide];
+        // Update content immediately without delays
+        carousel.innerHTML = containerSets[currentSlide];
 
-            // Force scroll position to stay the same
-            requestAnimationFrame(() => {
-                window.scrollTo(scrollLeft, scrollTop);
-                document.body.style.overflow = originalOverflow;
-            });
+        // Restore scroll position immediately
+        document.documentElement.scrollTop = scrollTop;
+        document.documentElement.scrollLeft = scrollLeft;
+        document.body.scrollTop = scrollTop;
+        document.body.scrollLeft = scrollLeft;
 
-            // Remove transitioning class
-            setTimeout(() => {
-                carousel.classList.remove('transitioning');
-            }, 50);
-        }, 200);
+        // Remove transitioning class
+        carousel.classList.remove('transitioning');
 
         // Update dots with animation
         dots.forEach((dot, index) => {
@@ -275,8 +267,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Auto-play carousel (optional)
-    setInterval(nextSlide, 8000);
+    // Auto-play carousel with pause on inactive tab to prevent freezing
+    let carouselInterval;
+    let isPageVisible = true;
+
+    function startCarousel() {
+        if (carouselInterval) clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+            if (isPageVisible) {
+                nextSlide();
+            }
+        }, 8000);
+    }
+
+    function stopCarousel() {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+            carouselInterval = null;
+        }
+    }
+
+    // Handle page visibility changes to prevent freezing
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            isPageVisible = false;
+            stopCarousel();
+        } else {
+            isPageVisible = true;
+            startCarousel();
+        }
+    });
+
+    // Start carousel initially
+    startCarousel();
     
     // Animate elements on scroll
     const observerOptions = {
@@ -482,13 +505,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
+    // Throttled parallax effect for hero section to improve performance
+    let ticking = false;
+    function updateParallax() {
         const scrolled = window.pageYOffset;
         const parallax = document.querySelector('.hero-gradient');
         if (parallax) {
             const speed = scrolled * 0.5;
             parallax.style.transform = `translateY(${speed}px)`;
+        }
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
         }
     });
     
