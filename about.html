@@ -716,11 +716,12 @@ Coimbatore - 641049, Tamil Nadu, India.</span>
     
     <!-- Custom JavaScript -->
     <script>
-        // Initialize AOS animation library
+        // Initialize AOS animation library with simplified settings
         AOS.init({
-            duration: 800,
+            duration: 400,
             easing: 'ease-in-out',
-            once: false
+            once: true,
+            disable: 'mobile'
         });
 
         // Scroll to top button functionality
