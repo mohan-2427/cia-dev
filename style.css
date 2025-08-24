@@ -944,3 +944,19 @@ img:not([src]) {
   object-fit: contain;
   border-radius: 5px;
 }
+
+/* Compact language toggle styling */
+#languageToggle {
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+#languageToggle:hover {
+  transform: scale(0.95);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+/* Login button hover effect */
+.rounded-full.border.border-yellow-700:hover {
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}

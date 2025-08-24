@@ -16,12 +16,12 @@
   <nav class="bg-white border-b border-[#bba99a] fixed-header">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between py-4">
-        <!-- Left Side: Search + Login -->
+        <!-- Left Side: Login + Search -->
         <div class="flex items-center space-x-4 order-1">
           <!-- Login Button -->
           <a
             href="login.html"
-            class="flex items-center space-x-2 text-[#3d2d29] px-4 py-2 rounded hover:bg-gray-200 transition font-medium"
+            class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 px-4 py-2  hover:text-white transition font-medium"
           >
             <i class="fas fa-user"></i>
             <span>Login</span>
@@ -31,7 +31,7 @@
             <input
               type="text"
               placeholder="Search..!!"
-              class="w-64 py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md rounded-full focus:outline-none pr-10 shadow-md search-box"
+              class="w-40 py-1 px-2 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md rounded-full focus:outline-none pr-10 shadow-md search-box"
             />
             <button
               class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800"
@@ -42,20 +42,20 @@
           </div>
         </div>
 
-        <!-- Center: Logo -->
-        <a href="#" class="flex items-center space-x-2 order-2 mx-auto">
+        <!-- Center: Logo - Added margin -->
+        <a href="#" class="flex items-center space-x-4 order-2 mx-auto px-8">
           <img
             src="Images/CIA logo.png"
             alt="MachineryHub logo"
             class="h-10 rounded-lg logo-black-filter"
           />
           <span class="text-2xl font-bold text-black"
-            >CIA<span class="text-yellow-700">Matrix</span></span
+            >CIA<span class="text-yellow-700">mezo</span></span
           >
         </a>
 
-        <!-- Right Side: Navigation Links -->
-        <div class="hidden lg:flex items-center space-x-8 order-3">
+        <!-- Right Side: Navigation + Language - Added margin -->
+        <div class="hidden lg:flex items-center space-x-9 order-3 ml-4">
           <a
             href="#"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
@@ -69,12 +69,10 @@
             href="category.html"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
             >Category</a>
-          <!-- Language Toggle moved to end -->
-          <button id="languageToggle" class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-3 py-2 rounded-lg border border-gray-300 hover:border-yellow-500">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-5 h-5">
-            <span id="currentLang" class="font-semibold">EN</span>
-            <span class="text-xs">→</span>
-            <span id="nextLang" class="text-xs opacity-70">தமிழ்</span>
+          <!-- Language Toggle -->
+          <button id="languageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-2 py-1 rounded-lg border border-gray-300 hover:border-yellow-500">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
+            <span id="currentLang" class="text-sm">EN</span>
           </button>
         </div>
 
@@ -101,7 +99,7 @@
             <input
               type="text"
               placeholder="Search..!!"
-              class="w-full py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md focus:outline-none pr-10 search-box"
+              class="w-[70%] mx-auto py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md focus:outline-none pr-10 search-box"
             />
             <button
               class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800"
@@ -755,3 +753,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
