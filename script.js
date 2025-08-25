@@ -155,9 +155,22 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
-        // Store current scroll position more reliably
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+        // Store current scroll position using multiple methods for better compatibility
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+
+        // Prevent scroll jumping by temporarily fixing the body position
+        const bodyStyle = document.body.style;
+        const originalPosition = bodyStyle.position;
+        const originalTop = bodyStyle.top;
+        const originalLeft = bodyStyle.left;
+        const originalWidth = bodyStyle.width;
+
+        // Fix body position to prevent scroll jumping
+        bodyStyle.position = 'fixed';
+        bodyStyle.top = `-${scrollTop}px`;
+        bodyStyle.left = `-${scrollLeft}px`;
+        bodyStyle.width = '100%';
 
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
@@ -165,14 +178,26 @@ function updateCarousel() {
         // Update content immediately without delays
         carousel.innerHTML = containerSets[currentSlide];
 
-        // Restore scroll position immediately
-        document.documentElement.scrollTop = scrollTop;
-        document.documentElement.scrollLeft = scrollLeft;
-        document.body.scrollTop = scrollTop;
-        document.body.scrollLeft = scrollLeft;
+        // Force a reflow to ensure the content is rendered
+        carousel.offsetHeight;
+
+        // Restore body position and scroll
+        bodyStyle.position = originalPosition;
+        bodyStyle.top = originalTop;
+        bodyStyle.left = originalLeft;
+        bodyStyle.width = originalWidth;
+
+        // Restore scroll position using requestAnimationFrame for better timing
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollLeft, scrollTop);
+            document.documentElement.scrollTop = scrollTop;
+            document.documentElement.scrollLeft = scrollLeft;
+        });
 
         // Remove transitioning class
-        carousel.classList.remove('transitioning');
+        setTimeout(() => {
+            carousel.classList.remove('transitioning');
+        }, 50);
 
         // Update dots with animation
         dots.forEach((dot, index) => {
