@@ -52,99 +52,99 @@ const containerSets = [
         </div>
       </div>
     `,
-    // Slide 2 - Mining & Extraction (5 containers)
+    // Slide 2 - Metal Working & Production (5 containers)
     `
       <!-- Container 1 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Drilling Equipment" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/33559313/pexels-photo-33559313.jpeg" alt="Engineering Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Drilling Equipment</h4>
-          <p class="text-sm opacity-80">Precision drilling</p>
+          <h4 class="text-lg font-bold">Engineering</h4>
+          <p class="text-sm opacity-80">Technical solutions</p>
         </div>
       </div>
-      <!-- Container 2 - Large mining hero (spans 3x2) -->
+      <!-- Container 2 - Large metal working hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop" alt="Mining Operations" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg" alt="Metal Working Operations" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-2xl font-bold mb-2">Mining & Extraction</h3>
-          <p class="text-base opacity-90">Advanced mining solutions and equipment</p>
+          <h3 class="text-2xl font-bold mb-2">Metal Working & Production</h3>
+          <p class="text-base opacity-90">Advanced metalworking solutions and production equipment</p>
         </div>
       </div>
       <!-- Container 3 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Heavy Machinery" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/9550574/pexels-photo-9550574.jpeg" alt="Kitchen Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Heavy Machinery</h4>
-          <p class="text-sm opacity-80">Industrial grade</p>
+          <h4 class="text-lg font-bold">Kitchen</h4>
+          <p class="text-sm opacity-80">Commercial equipment</p>
         </div>
       </div>
       <!-- Container 4 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="Mining Trucks" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg" alt="Production Systems" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Mining Trucks</h4>
-          <p class="text-sm opacity-80">Heavy haulage</p>
+          <h4 class="text-lg font-bold">Production</h4>
+          <p class="text-sm opacity-80">Manufacturing systems</p>
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=600&h=400&fit=crop" alt="Loaders" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg" alt="Packaging Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Loaders</h4>
-          <p class="text-sm opacity-80">Material handling</p>
+          <h4 class="text-lg font-bold">Packing</h4>
+          <p class="text-sm opacity-80">Packaging solutions</p>
         </div>
       </div>
     `,
-    // Slide 3 - Technology & Automation (5 containers)
+    // Slide 3 - Advanced Manufacturing (5 containers)
     `
       <!-- Container 1 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=600&h=400&fit=crop" alt="Warehouse Operations" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Warehouse Automation</h4>
-          <p class="text-sm opacity-80">Smart logistics</p>
+          <h4 class="text-lg font-bold">Plastic</h4>
+          <p class="text-sm opacity-80">Manufacturing & molding</p>
         </div>
       </div>
       <!-- Container 2 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Specialized Equipment" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Specialized Equipment</h4>
-          <p class="text-sm opacity-80">Custom solutions</p>
+          <h4 class="text-lg font-bold">Textile</h4>
+          <p class="text-sm opacity-80">Fabric & garment industry</p>
         </div>
       </div>
       <!-- Container 3 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=400&fit=crop" alt="Advanced Technology" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Smart Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-2xl font-bold mb-2">Smart Technology</h3>
-          <p class="text-base opacity-90">AI-powered machinery and automation</p>
+          <h3 class="text-2xl font-bold mb-2">Smart Manufacturing</h3>
+          <p class="text-base opacity-90">AI-powered automation and intelligent manufacturing systems</p>
         </div>
       </div>
       <!-- Container 4 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Robotic Systems" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Systems" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Robotic Systems</h4>
-          <p class="text-sm opacity-80">Automated precision</p>
+          <h4 class="text-lg font-bold">Electrical</h4>
+          <p class="text-sm opacity-80">Power solutions & equipment</p>
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="IoT Machinery" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">IoT Machinery</h4>
-          <p class="text-sm opacity-80">Connected equipment</p>
+          <h4 class="text-lg font-bold">Industrial</h4>
+          <p class="text-sm opacity-80">Heavy equipment solutions</p>
         </div>
       </div>
     `
