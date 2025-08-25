@@ -4,51 +4,51 @@ const totalSlides = 3;
 
 // Container sets for different slides - Updated for 5 containers (7x2 grid)
 const containerSets = [
-    // Slide 1 - Heavy Construction (5 containers)
+    // Slide 1 - Industrial Excellence (5 containers)
     `
       <!-- Container 1 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop" alt="Heavy Construction Equipment" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Excellence" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
-          <h3 class="text-2xl font-bold mb-2">Heavy Machinery Solutions</h3>
-          <p class="text-base opacity-90">Professional construction equipment for all your needs</p>
+          <h3 class="text-2xl font-bold mb-2">Industrial Excellence</h3>
+          <p class="text-base opacity-90">Connecting industries and fostering growth in Coimbatore's manufacturing sector</p>
         </div>
       </div>
       <!-- Container 2 - Medium (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop" alt="Excavator" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Power Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Excavators</h4>
-          <p class="text-sm opacity-80">Heavy duty excavation</p>
+          <h4 class="text-lg font-bold">Electrical</h4>
+          <p class="text-sm opacity-80">Power solutions & equipment</p>
         </div>
       </div>
       <!-- Container 3 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1625213464547-b3d8e19e7d77?w=400&h=400&fit=crop" alt="Dump Truck" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Dump Trucks</h4>
-          <p class="text-sm opacity-80">Material transport</p>
+          <h4 class="text-lg font-bold">Plastic</h4>
+          <p class="text-sm opacity-80">Manufacturing & molding</p>
         </div>
       </div>
       <!-- Container 4 - Medium tall (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1587049633312-d628ae50a8ae?w=600&h=400&fit=crop" alt="Crane Operations" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Cranes</h4>
-          <p class="text-sm opacity-80">Lifting solutions</p>
+          <h4 class="text-lg font-bold">Textile</h4>
+          <p class="text-sm opacity-80">Fabric & garment industry</p>
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
-        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=400&fit=crop" alt="Bulldozer" class="w-full h-full object-cover" />
+        <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Automation Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
-          <h4 class="text-lg font-bold">Bulldozers</h4>
-          <p class="text-sm opacity-80">Earth moving</p>
+          <h4 class="text-lg font-bold">Automation</h4>
+          <p class="text-sm opacity-80">Smart manufacturing</p>
         </div>
       </div>
     `,
