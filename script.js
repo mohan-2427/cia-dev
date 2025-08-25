@@ -1,3 +1,4 @@
+
 // Hero Carousel functionality
 let currentSlide = 1;
 const totalSlides = 3;
@@ -284,6 +285,333 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Start carousel initially
+// Hero Carousel functionality
+let currentSlide = 1;
+const totalSlides = 3;
+
+// Container sets for different slides - Updated for 5 containers (7x2 grid)
+const containerSets = [
+    // Slide 1 - Industrial Excellence (5 containers)
+    `
+      <!-- Container 1 - Large hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+        <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Excellence" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-2xl font-bold mb-2">Industrial Excellence</h3>
+          <p class="text-base opacity-90">Connecting industries and fostering growth in Coimbatore's manufacturing sector</p>
+        </div>
+      </div>
+      <!-- Container 2 - Medium (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Power Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Electrical</h4>
+          <p class="text-sm opacity-80">Power solutions & equipment</p>
+        </div>
+      </div>
+      <!-- Container 3 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Plastic</h4>
+          <p class="text-sm opacity-80">Manufacturing & molding</p>
+        </div>
+      </div>
+      <!-- Container 4 - Medium tall (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Textile</h4>
+          <p class="text-sm opacity-80">Fabric & garment industry</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Automation Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Automation</h4>
+          <p class="text-sm opacity-80">Smart manufacturing</p>
+        </div>
+      </div>
+    `,
+    // Slide 2 - Metal Working & Production (5 containers)
+    `
+      <!-- Container 1 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/33559313/pexels-photo-33559313.jpeg" alt="Engineering Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Engineering</h4>
+          <p class="text-sm opacity-80">Technical solutions</p>
+        </div>
+      </div>
+      <!-- Container 2 - Large metal working hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+        <img src="https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg" alt="Metal Working Operations" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-2xl font-bold mb-2">Metal Working & Production</h3>
+          <p class="text-base opacity-90">Advanced metalworking solutions and production equipment</p>
+        </div>
+      </div>
+      <!-- Container 3 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/9550574/pexels-photo-9550574.jpeg" alt="Kitchen Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Kitchen</h4>
+          <p class="text-sm opacity-80">Commercial equipment</p>
+        </div>
+      </div>
+      <!-- Container 4 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg" alt="Production Systems" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Production</h4>
+          <p class="text-sm opacity-80">Manufacturing systems</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg" alt="Packaging Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Packing</h4>
+          <p class="text-sm opacity-80">Packaging solutions</p>
+        </div>
+      </div>
+    `,
+    // Slide 3 - Advanced Manufacturing (5 containers)
+    `
+      <!-- Container 1 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Plastic</h4>
+          <p class="text-sm opacity-80">Manufacturing & molding</p>
+        </div>
+      </div>
+      <!-- Container 2 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Textile</h4>
+          <p class="text-sm opacity-80">Fabric & garment industry</p>
+        </div>
+      </div>
+      <!-- Container 3 - Large hero (spans 3x2) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+        <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Smart Manufacturing" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-2xl font-bold mb-2">Smart Manufacturing</h3>
+          <p class="text-base opacity-90">AI-powered automation and intelligent manufacturing systems</p>
+        </div>
+      </div>
+      <!-- Container 4 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Systems" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Electrical</h4>
+          <p class="text-sm opacity-80">Power solutions & equipment</p>
+        </div>
+      </div>
+      <!-- Container 5 - Small (spans 2x1) -->
+      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+        <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Equipment" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
+        <div class="absolute bottom-4 left-4 text-white">
+          <h4 class="text-lg font-bold">Industrial</h4>
+          <p class="text-sm opacity-80">Heavy equipment solutions</p>
+        </div>
+      </div>
+    `
+];
+
+function updateCarousel() {
+    const carousel = document.getElementById('heroCarousel');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    if (carousel) {
+        // Store current scroll position using multiple methods for better compatibility
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+
+        // Prevent scroll jumping by temporarily fixing the body position
+        const bodyStyle = document.body.style;
+        const originalPosition = bodyStyle.position;
+        const originalTop = bodyStyle.top;
+        const originalLeft = bodyStyle.left;
+        const originalWidth = bodyStyle.width;
+
+        // Fix body position to prevent scroll jumping
+        bodyStyle.position = 'fixed';
+        bodyStyle.top = `-${scrollTop}px`;
+        bodyStyle.left = `-${scrollLeft}px`;
+        bodyStyle.width = '100%';
+
+        // Add transitioning class for smooth animation
+        carousel.classList.add('transitioning');
+
+        // Update content immediately without delays
+        carousel.innerHTML = containerSets[currentSlide];
+
+        // Force a reflow to ensure the content is rendered
+        carousel.offsetHeight;
+
+        // Restore body position and scroll
+        bodyStyle.position = originalPosition;
+        bodyStyle.top = originalTop;
+        bodyStyle.left = originalLeft;
+        bodyStyle.width = originalWidth;
+
+        // Restore scroll position using requestAnimationFrame for better timing
+        requestAnimationFrame(() => {
+            window.scrollTo(scrollLeft, scrollTop);
+            document.documentElement.scrollTop = scrollTop;
+            document.documentElement.scrollLeft = scrollLeft;
+        });
+
+        // Remove transitioning class
+        setTimeout(() => {
+            carousel.classList.remove('transitioning');
+        }, 50);
+
+        // Update dots with animation
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+                dot.classList.remove('bg-gray-300');
+                dot.classList.add('bg-yellow-500');
+                dot.style.transform = 'scale(1.2)';
+            } else {
+                dot.classList.remove('active');
+                dot.classList.remove('bg-yellow-500');
+                dot.classList.add('bg-gray-300');
+                dot.style.transform = 'scale(1)';
+            }
+        });
+    }
+}
+
+function nextSlide() {
+    // Add click animation to button
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            nextBtn.style.transform = 'scale(1.1)';
+        }, 100);
+    }
+
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
+
+function prevSlide() {
+    // Add click animation to button
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            prevBtn.style.transform = 'scale(1.1)';
+        }, 100);
+    }
+
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+// Language Toggle Functionality
+let currentLanguage = 'EN';
+
+function toggleLanguage() {
+    const currentLangEl = document.getElementById('currentLang');
+    const nextLangEl = document.getElementById('nextLang');
+    const mobileLangEl = document.getElementById('mobileLang');
+
+    if (currentLanguage === 'EN') {
+        currentLanguage = 'TM';
+        if (currentLangEl) currentLangEl.textContent = 'தமிழ்';
+        if (nextLangEl) nextLangEl.textContent = 'EN';
+        if (mobileLangEl) mobileLangEl.textContent = 'தமிழ்';
+    } else {
+        currentLanguage = 'EN';
+        if (currentLangEl) currentLangEl.textContent = 'EN';
+        if (nextLangEl) nextLangEl.textContent = 'தமிழ்';
+        if (mobileLangEl) mobileLangEl.textContent = 'EN';
+    }
+}
+
+// Smooth scrolling and animations
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Initialize carousel
+    updateCarousel();
+
+    // Language Toggle Event Listeners
+    const languageToggle = document.getElementById('languageToggle');
+    const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+
+    if (languageToggle) {
+        languageToggle.addEventListener('click', toggleLanguage);
+    }
+    if (mobileLanguageToggle) {
+        mobileLanguageToggle.addEventListener('click', toggleLanguage);
+    }
+
+
+    // Dot navigation
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateCarousel();
+        });
+    });
+
+    // Auto-play carousel with pause on inactive tab to prevent freezing
+    let carouselInterval;
+    let isPageVisible = true;
+
+    function startCarousel() {
+        if (carouselInterval) clearInterval(carouselInterval);
+        carouselInterval = setInterval(() => {
+            if (isPageVisible) {
+                nextSlide();
+            }
+        }, 8000);
+    }
+
+    function stopCarousel() {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+            carouselInterval = null;
+        }
+    }
+
+    // Handle page visibility changes to prevent freezing
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            isPageVisible = false;
+            stopCarousel();
+        } else {
+            isPageVisible = true;
+            startCarousel();
+        }
+    });
+
+    // Start carousel initially
+
     startCarousel();
     
     // Animate elements on scroll
