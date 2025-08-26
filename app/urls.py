@@ -26,4 +26,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),  # Changed from login to login_view
     path('signup/', views.signup, name='signup'),  # Changed from signup to signup_view
     path('suppliers/', views.suppliers, name='suppliers'),
+    #path("suppliers/", views.suppliers_list, name="suppliers_list"),
+
+
 ]
