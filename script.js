@@ -155,22 +155,16 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
-        // Store current scroll position
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
-        
+
         // Update content with smooth transition
         setTimeout(() => {
             carousel.innerHTML = containerSets[currentSlide];
-            
+
             // Force reflow to ensure content is rendered
             carousel.offsetHeight;
-            
-            // Restore scroll position
-            window.scrollTo(0, scrollTop);
-            
+
             carousel.classList.remove('transitioning');
         }, 150);
 
