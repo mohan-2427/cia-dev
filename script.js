@@ -155,6 +155,10 @@ function updateCarousel() {
     const dots = document.querySelectorAll('.carousel-dot');
 
     if (carousel) {
+        // Prevent any scroll behavior during transition
+        const preventScroll = (e) => e.preventDefault();
+        window.addEventListener('scroll', preventScroll, { passive: false });
+
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
 
@@ -166,6 +170,11 @@ function updateCarousel() {
             carousel.offsetHeight;
 
             carousel.classList.remove('transitioning');
+
+            // Re-enable scroll after transition
+            setTimeout(() => {
+                window.removeEventListener('scroll', preventScroll);
+            }, 50);
         }, 150);
 
         // Update dots with animation
