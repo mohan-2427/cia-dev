@@ -162,20 +162,21 @@ function updateCarousel() {
         // Add transitioning class for smooth animation
         carousel.classList.add('transitioning');
 
-        // Update content with smooth transition
+        // Update content immediately for faster transitions
+        carousel.innerHTML = containerSets[currentSlide];
+
+        // Force reflow to ensure content is rendered
+        carousel.offsetHeight;
+
+        // Remove transitioning class quickly
         setTimeout(() => {
-            carousel.innerHTML = containerSets[currentSlide];
-
-            // Force reflow to ensure content is rendered
-            carousel.offsetHeight;
-
             carousel.classList.remove('transitioning');
+        }, 50);
 
-            // Re-enable scroll after transition
-            setTimeout(() => {
-                window.removeEventListener('scroll', preventScroll);
-            }, 50);
-        }, 150);
+        // Re-enable scroll after transition
+        setTimeout(() => {
+            window.removeEventListener('scroll', preventScroll);
+        }, 100);
 
         // Update dots with animation
         dots.forEach((dot, index) => {
@@ -227,8 +228,32 @@ function toggleLanguage() {
     }
 }
 
+// Preload carousel images for faster transitions
+function preloadImages() {
+    const imageUrls = [
+        'https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg',
+        'https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg',
+        'https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg',
+        'https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg',
+        'https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg',
+        'https://images.pexels.com/photos/33559313/pexels-photo-33559313.jpeg',
+        'https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg',
+        'https://images.pexels.com/photos/9550574/pexels-photo-9550574.jpeg',
+        'https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg',
+        'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg'
+    ];
+
+    imageUrls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+}
+
 // Main initialization
 document.addEventListener('DOMContentLoaded', function() {
+    // Preload images first
+    preloadImages();
+
     // Initialize carousel
     updateCarousel();
 
@@ -454,30 +479,49 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Add CSS for smooth transitions
+// Add CSS for smooth transitions and hover effects
 const carouselCSS = `
     #heroCarousel.transitioning {
-        opacity: 0.7;
-        transform: scale(0.98);
-        transition: all 0.3s ease-in-out;
+        opacity: 0.9;
+        transition: opacity 0.15s ease-in-out;
     }
-    
+
     .carousel-dot {
         transition: all 0.3s ease;
         cursor: pointer;
     }
-    
+
     .carousel-dot:hover {
         transform: scale(1.1) !important;
         opacity: 0.8;
     }
-    
+
+    /* Hover effects for carousel images */
+    #heroCarousel > div {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    #heroCarousel > div:hover {
+        transform: scale(1.03);
+        z-index: 10;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    #heroCarousel > div img {
+        transition: all 0.3s ease;
+    }
+
+    #heroCarousel > div:hover img {
+        transform: scale(1.02);
+    }
+
     .animate-on-scroll {
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.6s ease;
     }
-    
+
     .animate-on-scroll.visible {
         opacity: 1;
         transform: translateY(0);
