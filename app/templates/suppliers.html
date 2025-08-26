@@ -7,7 +7,7 @@
     <title>Member Companies — CIA Innovation Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
 <body class="bg-white">
   <!-- Navbar -->
@@ -117,84 +117,137 @@
   <section class="py-16">
     <div class="container mx-auto px-4">
       <!-- Move filter section outside the grid -->
-      <div class="flex flex-col">
+        <div class="flex flex-col">
         <div class="flex justify-between items-center mb-4">
           <h2 class="text-lg font-bold">Filter by Category</h2>
           <form method="GET" action="{% url 'suppliers' %}">
+            {% if request.GET.search %}
+              <input type="hidden" name="search" value="{{ request.GET.search }}">
+            {% endif %}
             <select name="category" class="border rounded p-2">
               <option value="">All Categories</option>
               {% for category in categories %}
-                <option value="{{ category }}">{{ category }}</option>
+                <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category }}</option>
               {% endfor %}
             </select>
             <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Filter</button>
           </form>
         </div>
       </div>
-      <!-- Supplier cards grid only contains supplier cards -->
-     <div class="grid grid-cols-3 gap-8">
-
-        {% for supplier in suppliers %}
-        <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 mb-6">
-          <div class="relative">
-            <div class="relative">
-              {% if supplier.image %}
-                <img src="{{ supplier.image.url }}" alt="{{ supplier.name }}" class="w-full h-48 object-cover" />
-              {% elif supplier.logo %}
-                <img src="{{ supplier.logo.url }}" alt="{{ supplier.name }}" class="w-full h-48 object-contain bg-gray-50 p-4" />
-              {% else %}
-                <img src="{% static 'images/default_supplier.png' %}" alt="{{ supplier.name }}" class="w-full h-48 object-cover" />
-              {% endif %}
-            </div>
-           
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">
-                {{ supplier.name|slice:":2"|upper }}
+      <!-- Suppliers Grid - n x 3 Matrix Layout -->
+      {% if suppliers %}
+        <!-- Grid container with responsive columns: 1 on mobile, 2 on tablet, 3 on desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
+          {% for supplier in suppliers %}
+            <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+              <!-- Image Section -->
+              <div class="relative h-48 flex-shrink-0">
+                {% if supplier.image %}
+                  <img src="{{ supplier.image.url }}" alt="{{ supplier.name }}" class="w-full h-full object-cover"
+                       onerror="this.style.display='none'; this.parentNode.querySelector('.fallback-image').style.display='flex';" />
+                  <div class="fallback-image w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 items-center justify-center" style="display: none;">
+                    <span class="text-white text-4xl font-bold">{{ supplier.name|slice:":2"|upper }}</span>
+                  </div>
+                {% elif supplier.logo %}
+                  <img src="{{ supplier.logo.url }}" alt="{{ supplier.name }}" class="w-full h-full object-contain bg-gray-50 p-4"
+                       onerror="this.style.display='none'; this.parentNode.querySelector('.fallback-image').style.display='flex';" />
+                  <div class="fallback-image w-full h-full bg-gradient-to-br from-green-500 to-green-700 items-center justify-center" style="display: none;">
+                    <span class="text-white text-4xl font-bold">{{ supplier.name|slice:":2"|upper }}</span>
+                  </div>
+                {% else %}
+                  <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center">
+                    <div class="text-center">
+                      <i class="fas fa-building text-white text-3xl mb-2"></i>
+                      <span class="text-white text-2xl font-bold block">{{ supplier.name|slice:":2"|upper }}</span>
+                    </div>
+                  </div>
+                {% endif %}
+                <!-- Category Badge -->
+                <div class="absolute top-3 right-3">
+                  <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                    {{ supplier.category|default:"General" }}
+                  </span>
+                </div>
               </div>
-              <div class="ml-4">
-                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">{{ supplier.name }}</h3>
-                <p class="text-sm text-gray-500 font-medium">Contact: {{ supplier.contact_person_name }}</p>
-                <div class="flex items-center mt-1">
-                  <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs font-semibold">{{ supplier.category }}</span>
+
+              <!-- Content Section -->
+              <div class="p-6 flex-grow flex flex-col">
+                <!-- Header -->
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                    {{ supplier.name|slice:":2"|upper }}
+                  </div>
+                  <div class="ml-4 min-w-0 flex-grow">
+                    <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition truncate">
+                      {{ supplier.name }}
+                    </h3>
+                    <p class="text-sm text-gray-500 font-medium truncate">
+                      Contact: {{ supplier.contact_person_name|default:"Available on request" }}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-600 mb-4 text-sm line-clamp-3 flex-grow">
+                  {{ supplier.business_description|default:"Innovative company providing quality solutions in the industrial sector." }}
+                </p>
+
+                <!-- Contact Info -->
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-start text-gray-500">
+                    <i class="fas fa-map-marker-alt mr-2 text-blue-500 mt-1 flex-shrink-0"></i>
+                    <span class="text-sm">
+                      {{ supplier.door_number }} {{ supplier.street }}, {{ supplier.area }},
+                      {{ supplier.city }}, {{ supplier.state }} - {{ supplier.pin_code }}
+                    </span>
+                  </div>
+                  {% if supplier.email %}
+                  <div class="flex items-center text-gray-500">
+                    <i class="fas fa-envelope mr-2 text-blue-500 flex-shrink-0"></i>
+                    <span class="text-sm truncate">{{ supplier.email }}</span>
+                  </div>
+                  {% endif %}
+                </div>
+
+                <!-- Footer -->
+                <div class="flex justify-between items-center pt-4 border-t border-gray-200 mt-auto">
+                  <div class="flex items-center text-blue-600 font-medium text-sm">
+                    <i class="fas fa-phone-alt mr-2"></i>
+                    <span>{{ supplier.phone_number }}</span>
+                  </div>
+                  {% if supplier.website_url %}
+                    <a href="{{ supplier.website_url }}" target="_blank"
+                       class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                      Learn More
+                    </a>
+                  {% else %}
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
+                      Learn More
+                    </button>
+                  {% endif %}
                 </div>
               </div>
             </div>
-            <p class="text-gray-600 mb-4 text-sm">{{ supplier.business_description }}</p>
-            <div class="flex items-center text-gray-500 mb-2">
-              <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
-              <span class="text-sm">
-                {{ supplier.door_number }} {{ supplier.street }}, {{ supplier.area }}, 
-                {{ supplier.city }}, {{ supplier.state }} - {{ supplier.pin_code }}
-              </span>
-            </div>
-            {% if supplier.email %}
-            <div class="flex items-center text-gray-500 mb-2">
-              <i class="fas fa-envelope mr-2 text-blue-500"></i>
-              <span class="text-sm">{{ supplier.email }}</span>
-            </div>
-            {% endif %}
-            <div class="flex justify-between items-center pt-4 border-t border-gray-200">
-              <div class="flex items-center text-blue-600 font-medium text-sm">
-                <i class="fas fa-phone-alt mr-2"></i>
-                <span>{{ supplier.phone_number }}</span>
-              </div>
-              {% if supplier.website_url %}
-              <a href="{{ supplier.website_url }}" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                Learn More
-              </a>
-              {% else %}
-              <a href="{% url 'supplier_detail' supplier.id %}" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                Learn More
-              </a>
-              {% endif %}
-            </div>
-          </div>
+          {% endfor %}
         </div>
-        {% empty %}
-          <p class="text-gray-600">No suppliers available.</p>
-        {% endfor %}
-      </div>
+
+        <!-- Pagination Info -->
+        <div class="mt-8 text-center">
+          <p class="text-gray-600">
+            Showing {{ suppliers|length }} of {{ count }} member companies
+            {% if suppliers|length != count %}
+              <!-- Add pagination controls here if needed -->
+            {% endif %}
+          </p>
+        </div>
+      {% else %}
+        <!-- Empty State -->
+        <div class="text-center py-16">
+          <i class="fas fa-building text-6xl text-gray-300 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-600 mb-2">No suppliers found</h3>
+          <p class="text-gray-500">Try adjusting your search or filter criteria.</p>
+        </div>
+      {% endif %}
     </div>
   </section>
 
