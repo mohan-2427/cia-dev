@@ -407,8 +407,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for anchor links (only valid anchors, not empty #)
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const href = this.getAttribute('href');
@@ -426,6 +426,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.warn('Invalid selector for smooth scroll:', href);
                 }
             }
+        });
+    });
+
+    // Prevent default behavior for empty anchor links
+    document.querySelectorAll('a[href="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
         });
     });
     
