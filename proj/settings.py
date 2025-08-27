@@ -39,7 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+
+    #contiune with google login 
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',  # Added for django-allauth
 ]
 
 ROOT_URLCONF = 'proj.urls'
@@ -130,3 +141,58 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Authentication backends
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
+# Google OAuth2 Configuration
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'APP': {
+            'client_id': '836832774059-n14927mt2vj1fqvegqo46i5cm84o7f70.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        }
+    }
+}
+
+LOGIN_URL = '/accounts/google/login/'
+LOGOUT_REDIRECT_URL = "/accounts/google/logout/"
+LOGIN_REDIRECT_URL = 'dashboard'  # Redirect to dashboard after login
+LOG_OUT_REDIRECT_URL = 'home'  # Redirect to home after logout
+
+# Allauth settings
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "mohanbabuscsda2023@sankara.ac.in"
+EMAIL_HOST_PASSWORD = "MohanHari2224@"  # Google App Password
+
+
+AUTH_USER_MODEL = "app.CustomUser"
+
+SOCIALACCOUNT_LOGIN_ON_GET = True  # Automatically log in users after social login

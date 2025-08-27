@@ -1,19 +1,3 @@
-"""
-URL configuration for proj project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from . import views
@@ -23,10 +7,15 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('category/', views.category, name='category'),
     path('announcement/', views.announcement, name='announcement'),
-    path('login/', views.login, name='login'),  # Changed from login to login_view
-    path('signup/', views.signup, name='signup'),  # Changed from signup to signup_view
+    path('signup/', views.signup_view, name='signup'),
     path('suppliers/', views.suppliers, name='suppliers'),
-    #path("suppliers/", views.suppliers_list, name="suppliers_list"),
-
-
+    
+    # Authentication URLs
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.user_logout, name="logout"),
+    path("password-reset/", views.request_password_reset, name="request_reset"),
+    path("verify-otp/", views.verify_otp, name="verify_otp"),
+    path("resend-otp/", views.resend_otp, name="resend_otp"),
+    path("set-new-password/", views.set_new_password, name="set_new_password"),
+    path("google-login/", views.google_login, name="google_login"),
 ]
