@@ -1,5 +1,26 @@
 from django.contrib import admin
-from .models import Supplier
+from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser, Supplier
+
+class CustomUserAdmin(UserAdmin):
+    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    search_fields = ('email', 'first_name', 'last_name')
+    ordering = ('email',)
+    
+    # These are required for UserAdmin to work properly with CustomUser
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2'),
+        }),
+    )
+    
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+    )
 
 @admin.register(Supplier)
 class SupplierAdmin(admin.ModelAdmin):
@@ -41,3 +62,4 @@ class SupplierAdmin(admin.ModelAdmin):
         
         return ", ".join(address_parts) if address_parts else "-"
     formatted_address.short_description = "Address"
+admin.site.register(CustomUser, CustomUserAdmin)

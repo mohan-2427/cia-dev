@@ -95,7 +95,15 @@
 
             <!-- Login Form -->
             <div class="form-container rounded-2xl p-8 border border-white/20">
-                <form class="space-y-6" action="#" method="POST">
+<form class="space-y-6" action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="{% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %} px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
                     <!-- Email Field -->
                     <div class="input-group">
                         <input
@@ -141,7 +149,7 @@
                                 Remember me
                             </label>
                         </div>
-                        <a href="#" class="text-sm text-yellow-600 hover:text-yellow-500 transition-colors duration-300">
+                        <a href="{% url 'request_reset' %}" class="text-sm text-yellow-600 hover:text-yellow-500 transition-colors duration-300">
                             Forgot password?
                         </a>
                     </div>
@@ -167,13 +175,10 @@
 
                     <!-- Social Login -->
                     <div class="grid grid-cols-2 gap-3">
-                        <button
-                            type="button"
-                            class="social-login w-full bg-white border border-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-50 flex items-center justify-center"
-                        >
+                        <a href="{% url 'google_login' %}" class="social-login w-full bg-white border border-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-50 flex items-center justify-center no-underline">
                             <i class="fab fa-google text-red-500 mr-2"></i>
                             Google
-                        </button>
+                        </a>
                         <button
                             type="button"
                             class="social-login w-full bg-white border border-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg hover:bg-gray-50 flex items-center justify-center"
@@ -239,22 +244,22 @@
             }
         }
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Add floating label animation
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
             
-            // Show loading state
-            const submitBtn = document.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Signing In...';
-            submitBtn.disabled = true;
-            
-            // Simulate login process
-            setTimeout(() => {
-                alert('Login functionality would be implemented here!');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+            input.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script>
+    <script src="{% static 'js/signup.js' %}"></script>
+</body>
+</html>
         });
 
         // Add floating label animation
