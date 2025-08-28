@@ -806,32 +806,53 @@ img:not([src]) {
 #mobileMenu {
   transition: all 0.3s ease;
 }
-
 #mobileMenu.show {
   display: block;
 }
-
 #mobileProductsMenu {
   transition: all 0.3s ease;
 }
-
 #mobileProductsMenu.show {
   display: block !important;
 }
-
-/* Mobile menu button animation */
-#mobileMenuBtn {
-  transition: transform 0.3s ease;
+.announcement-bar.show {
+  display: flex !important;
 }
 
-#mobileMenuBtn.active {
-  transform: rotate(90deg);
+/* Responsive hero grid and image showcase for mobile */
+@media (max-width: 768px) {
+  #heroCarousel {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 160px);
+    height: auto !important;
+    min-height: 800px !important;
+    gap: 8px;
+  }
+  #heroCarousel > div {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 140px;
+    height: 160px;
+  }
+  #heroCarousel img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 140px;
+    max-height: 160px;
+  }
+  /* Overlay caption box for mobile */
+  .absolute.bottom-8, .absolute.bottom-4 {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.75rem !important;
+    max-width: 90vw;
+  }
 }
 
-/* Smooth transitions for all interactive elements */
-* {
-  transition: all 0.3s ease;
-}
+/* ...existing code... */
 
 /* X-split triangle hero styles */
 .hero-xsplit {
@@ -959,4 +980,168 @@ img:not([src]) {
 /* Login button hover effect */
 .rounded-full.border.border-yellow-700:hover {
   box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Enhanced image loading and performance */
+img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+img:not([src]) {
+  opacity: 0;
+}
+
+/* Lazy loading images */
+img.lazy-load {
+  opacity: 0.7;
+  background-color: #f3f4f6;
+  transition: opacity 0.4s ease, background-color 0.4s ease;
+}
+
+img.lazy-load.loaded {
+  opacity: 1;
+  background-color: transparent;
+}
+
+/* Image optimization for different screen sizes */
+@media (max-width: 768px) {
+  img {
+    image-rendering: optimizeSpeed;
+  }
+}
+
+/* GPU acceleration for better performance */
+.hero-container, .card-hover, .supplier-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Z-index layering system */
+.navbar {
+  z-index: 1000;
+}
+
+.navbar .dropdown {
+  z-index: 9999;
+}
+
+.mobile-menu {
+  z-index: 9998;
+}
+
+.hero-carousel {
+  z-index: 20;
+}
+
+.showcase-section {
+  z-index: 10;
+}
+
+/* Hamburger menu animation */
+.hamburger-line {
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Mobile menu animations */
+.mobile-menu-slide {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize font loading */
+body {
+  font-display: swap;
+}
+
+/* Critical CSS for above-the-fold content */
+.navbar, .hero-section {
+  contain: layout style paint;
+}
+
+/* Touch device optimizations */
+.touch-device .card-hover:hover,
+.touch-device .supplier-card:hover,
+.touch-device .hero-container:hover {
+  transform: none;
+  box-shadow: inherit;
+}
+
+.touch-device button:hover,
+.touch-device .inline-block:hover {
+  transform: none;
+}
+
+/* Low-end device optimizations */
+.low-end-device * {
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+.low-end-device .hero-container::before,
+.low-end-device .card-hover::before,
+.low-end-device .supplier-card::after {
+  display: none;
+}
+
+/* Mobile-first responsive design improvements */
+@media (max-width: 640px) {
+  .hamburger-line {
+    width: 5px;
+    height: 0.5px;
+  }
+
+  .mobile-menu {
+    width: 100vw;
+  }
+
+  .hero-carousel {
+    height: 50vh !important;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* Profile/Logout toggle styles */
+#profileBtn, #logoutBtn {
+  transition: all 0.3s ease;
+}
+
+#profileBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#logoutBtn {
+  transition: all 0.3s ease;
+  background-color: #ef4444;
+}
+
+#logoutBtn:hover {
+  transform: scale(1.05);
+  background-color: #dc2626;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.relative.group {
+  transition: all 0.3s ease;
 }

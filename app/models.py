@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Supplier(models.Model):
-    name = models.CharField(max_length=255)  
+    name = models.CharField(max_length=255, unique=True)  # enforce unique name  
     founder_name = models.CharField(max_length=255, blank=True, null=True)
 
     website_url = models.URLField(max_length=500, blank=True, null=True)
@@ -47,10 +47,23 @@ class Supplier(models.Model):
     phone_number = models.CharField(max_length=15, blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
+    cia_id = models.PositiveIntegerField(unique=True, blank=True, null=True)  # CIA serial id
 
     def __str__(self):
         return self.name
     
+    def save(self, *args, **kwargs):
+        if not self.cia_id:
+            # Assign next available cia_id (serialized, no gaps)
+            existing_ids = Supplier.objects.exclude(pk=self.pk).order_by('cia_id').values_list('cia_id', flat=True)
+            next_id = 1
+            for eid in existing_ids:
+                if eid != next_id:
+                    break
+                next_id += 1
+            self.cia_id = next_id
+        super().save(*args, **kwargs)
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:

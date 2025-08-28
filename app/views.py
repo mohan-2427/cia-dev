@@ -228,6 +228,7 @@ def supplier_details(request, supplier_id):
                 product_images.append(image_field.url)
         
         data = {
+            "cia_id": supplier.cia_id,  # add cia_id
             "name": supplier.name,
             "founder_name": supplier.founder_name,
             "website_url": supplier.website_url,

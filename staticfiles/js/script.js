@@ -1,3 +1,4 @@
+console.log("script.js loaded successfully."); // Added for debugging
 // Hero Carousel functionality
 let currentSlide = 1;
 const totalSlides = 3;
@@ -477,7 +478,120 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.opacity = '1';
         });
     });
+
+    // Setup profile/logout functionality
+    setupProfileLogoutListeners();
+
+    // Browse Catalog button functionality
+    const browseBtn = document.getElementById('browseBtn');
+    if (browseBtn) {
+        browseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log("Browse Catalog button clicked."); // Added for debugging
+            const categoriesSection = document.getElementById('categories');
+            if (categoriesSection) {
+                categoriesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
 });
+
+
+// Profile/Logout Toggle Functionality
+let isLogoutMode = false;
+
+function toggleProfileLogout() {
+    const profileBtn = document.getElementById('profileBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    
+    if (isLogoutMode) {
+        // Switch back to profile mode
+        profileBtn.classList.remove('hidden');
+        logoutBtn.classList.add('hidden');
+        isLogoutMode = false;
+    } else {
+        // Switch to logout mode
+        profileBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+        isLogoutMode = true;
+        
+        // Auto-switch back after 3 seconds
+        setTimeout(() => {
+            if (isLogoutMode) {
+                profileBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+                isLogoutMode = false;
+            }
+        }, 3000);
+    }
+}
+
+function performLogout() {
+    // Perform logout via AJAX
+    fetch('/logout/', {
+        method: 'GET',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        } else {
+            window.location.reload();
+        }
+    })
+    .catch(error => {
+        console.error('Logout error:', error);
+        window.location.href = '/logout/';
+    });
+}
+
+// Add event listeners for profile/logout functionality
+function setupProfileLogoutListeners() {
+    const profileBtn = document.getElementById('profileBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            toggleProfileLogout();
+        });
+    }
+    
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            performLogout();
+        });
+    }
+    
+    // Close logout mode when clicking anywhere else on the page
+    document.addEventListener('click', function() {
+        if (isLogoutMode) {
+            const profileBtn = document.getElementById('profileBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (profileBtn && logoutBtn) {
+                profileBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+                isLogoutMode = false;
+            }
+        }
+    });
+    
+    // Prevent the profile button container from closing when clicking inside it
+    const profileContainer = document.querySelector('.relative.group');
+    if (profileContainer) {
+        profileContainer.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+}
+
 
 // Add CSS for smooth transitions and hover effects
 const carouselCSS = `
