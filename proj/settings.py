@@ -91,8 +91,7 @@ DATABASES = {
         'NAME': 'cia_dev',
         'USER': 'postgres',
         'PASSWORD': '2212',
-        'HOST': 'localhost',
-        'HOST': '192.168.137.89',   # ✅ your main system IP
+        'HOST': '10.86.214.51',   # ✅ host IP
         'PORT': '5432',
     }
 }
@@ -172,8 +171,8 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-LOGIN_URL = '/accounts/google/login/'
-LOGOUT_REDIRECT_URL = "/accounts/google/logout/"
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = "/logout/"
 LOGIN_REDIRECT_URL = 'dashboard'  # Redirect to dashboard after login
 LOG_OUT_REDIRECT_URL = 'home'  # Redirect to home after logout
 
