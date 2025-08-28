@@ -112,36 +112,20 @@
       </div>
 
       <!-- Advanced Filters -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-        <!-- Category Filter -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <!-- Category Filter (including subcategories) -->
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Category/Sub-Category</label>
           <form method="GET" action="{% url 'suppliers' %}" class="flex items-center">
             {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
-            {% if request.GET.sub_category %}<input type="hidden" name="sub_category" value="{{ request.GET.sub_category }}">{% endif %}
             {% if request.GET.product %}<input type="hidden" name="product" value="{{ request.GET.product }}">{% endif %}
             <select name="category" class="border rounded p-2 w-full" onchange="this.form.submit()">
-              <option value="">All Categories</option>
+              <option value="">All Categories/Sub-Categories</option>
               {% for category in categories %}
                 <option value="{{ category }}" {% if request.GET.category == category %}selected{% endif %}>{{ category }}</option>
               {% endfor %}
-            </select>
-          </form>
-        </div>
-
-        <!-- Sub-Category Filter -->
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Sub-Category</label>
-          <form method="GET" action="{% url 'suppliers' %}" class="flex items-center">
-            {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
-            {% if request.GET.category %}<input type="hidden" name="category" value="{{ request.GET.category }}">{% endif %}
-            {% if request.GET.product %}<input type="hidden" name="product" value="{{ request.GET.product }}">{% endif %}
-            <select name="sub_category" class="border rounded p-2 w-full" onchange="this.form.submit()">
-              <option value="">All Sub-Categories</option>
               {% for sub_category in sub_categories %}
-                {% if sub_category %}
-                  <option value="{{ sub_category }}" {% if request.GET.sub_category == sub_category %}selected{% endif %}>{{ sub_category }}</option>
-                {% endif %}
+                <option value="{{ sub_category }}" {% if request.GET.category == sub_category %}selected{% endif %}>{{ sub_category }}</option>
               {% endfor %}
             </select>
           </form>
@@ -153,7 +137,6 @@
           <form method="GET" action="{% url 'suppliers' %}" class="flex items-center">
             {% if request.GET.search %}<input type="hidden" name="search" value="{{ request.GET.search }}">{% endif %}
             {% if request.GET.category %}<input type="hidden" name="category" value="{{ request.GET.category }}">{% endif %}
-            {% if request.GET.sub_category %}<input type="hidden" name="sub_category" value="{{ request.GET.sub_category }}">{% endif %}
             <select name="product" class="border rounded p-2 w-full" onchange="this.form.submit()">
               <option value="">All Products</option>
               {% for product in products %}
@@ -167,7 +150,7 @@
       </div>
 
       <!-- Clear Filters Button -->
-      {% if request.GET.category or request.GET.sub_category or request.GET.product or request.GET.search %}
+      {% if request.GET.category or request.GET.product or request.GET.search %}
       <div class="text-center">
         <a href="{% url 'suppliers' %}" class="text-blue-600 hover:text-blue-800 text-sm">
           Clear all filters
@@ -302,10 +285,14 @@
 
   <!-- Modal Structure -->
   <div id="supplierModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2">
-      <h2 class="text-xl font-bold mb-4">Supplier Details</h2>
+    <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">Supplier Details</h2>
+        <button onclick="closeSupplierModal()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
       <div id="modalContent"></div>
-      <button onclick="closeSupplierModal()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">Close</button>
     </div>
   </div>
 
@@ -323,18 +310,82 @@
         .then(response => response.json())
         .then(data => {
           const modalContent = document.getElementById('modalContent');
+          
+          // Create HTML for product images
+          let productImagesHtml = '';
+          if (data.product_images && data.product_images.length > 0) {
+            productImagesHtml = '<div class="mb-4"><h4 class="font-semibold mb-2">Product Images:</h4><div class="grid grid-cols-2 gap-2">';
+            data.product_images.forEach(imageUrl => {
+              productImagesHtml += `<img src="${imageUrl}" class="w-full h-32 object-cover rounded" />`;
+            });
+            productImagesHtml += '</div></div>';
+          }
+          
+          // Create HTML for subcategories
+          let subCategoriesHtml = '';
+          if (data.sub_categories && data.sub_categories.length > 0) {
+            subCategoriesHtml = '<div class="mb-4"><h4 class="font-semibold mb-2">Sub-Categories:</h4><div class="flex flex-wrap gap-2">';
+            data.sub_categories.forEach(subCategory => {
+              subCategoriesHtml += `<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">${subCategory}</span>`;
+            });
+            subCategoriesHtml += '</div></div>';
+          }
+          
           modalContent.innerHTML = `
-            <h3>${data.name}</h3>
-            <p>${data.business_description}</p>
-            <p>Contact: ${data.contact_person_name}</p>
-            <p>Email: ${data.email}</p>
-            <p>Phone: ${data.phone_number}</p>
-            <p>Address: ${data.door_number} ${data.street}, ${data.area}, ${data.city}, ${data.state} - ${data.pin_code}</p>
+            <div class="flex flex-col md:flex-row gap-6">
+              <div class="md:w-1/3">
+                ${data.image ? `<img src="${data.image}" class="w-full h-48 object-cover rounded mb-4" />` : ''}
+                ${data.logo ? `<img src="${data.logo}" class="w-full h-32 object-contain rounded mb-4" />` : ''}
+                ${data.person_image ? `<img src="${data.person_image}" class="w-full h-32 object-cover rounded" />` : ''}
+              </div>
+              <div class="md:w-2/3">
+                <h3 class="text-xl font-bold mb-2">${data.name}</h3>
+                <p class="mb-4">${data.business_description || 'No description available'}</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <h4 class="font-semibold">Company Information</h4>
+                    <p><strong>Founder:</strong> ${data.founder_name || 'N/A'}</p>
+                    <p><strong>Website:</strong> ${data.website_url ? `<a href="${data.website_url}" target="_blank" class="text-blue-600">${data.website_url}</a>` : 'N/A'}</p>
+                    <p><strong>Category:</strong> ${data.category || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${data.email || 'N/A'}</p>
+                    <p><strong>Phone:</strong> ${data.phone_number || 'N/A'}</p>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">Contact Person</h4>
+                    <p><strong>Name:</strong> ${data.contact_person_name || 'N/A'}</p>
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <h4 class="font-semibold mb-2">Address</h4>
+                  <p>${data.door_number || ''} ${data.street || ''}</p>
+                  <p>${data.area || ''}, ${data.city || ''}, ${data.state || ''} - ${data.pin_code || ''}</p>
+                </div>
+                
+                ${subCategoriesHtml}
+                
+                <div class="mb-4">
+                  <h4 class="font-semibold mb-2">Products</h4>
+                  <ul class="list-disc pl-5">
+                    ${data.product1 ? `<li>${data.product1}</li>` : ''}
+                    ${data.product2 ? `<li>${data.product2}</li>` : ''}
+                    ${data.product3 ? `<li>${data.product3}</li>` : ''}
+                  </ul>
+                </div>
+                
+                ${productImagesHtml}
+              </div>
+            </div>
           `;
           document.getElementById('supplierModal').classList.remove('hidden');
         })
-        .catch(error => console.error('Error fetching supplier details:', error));
-      document.getElementById('supplierModal').classList.remove('hidden');
+        .catch(error => {
+          console.error('Error fetching supplier details:', error);
+          const modalContent = document.getElementById('modalContent');
+          modalContent.innerHTML = `<p class="text-red-500">Error loading supplier details. Please try again.</p>`;
+          document.getElementById('supplierModal').classList.remove('hidden');
+        });
     }
 
     function closeSupplierModal() {

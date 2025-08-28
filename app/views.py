@@ -46,17 +46,21 @@ def signup_view(request):
 
 def suppliers(request):
     category = request.GET.get('category', '')
-    sub_category = request.GET.get('sub_category', '')
     product_filter = request.GET.get('product', '')
     search_query = request.GET.get('search', '')
 
     suppliers = Supplier.objects.all()
 
     if category:
-        suppliers = suppliers.filter(category=category)
-    
-    if sub_category:
-        suppliers = suppliers.filter(sub_category=sub_category)
+        suppliers = suppliers.filter(
+            models.Q(category__icontains=category) |
+            models.Q(sub_category1__icontains=category) |
+            models.Q(sub_category2__icontains=category) |
+            models.Q(sub_category3__icontains=category) |
+            models.Q(sub_category4__icontains=category) |
+            models.Q(sub_category5__icontains=category) |
+            models.Q(sub_category6__icontains=category)
+        )
     
     if product_filter:
         suppliers = suppliers.filter(
@@ -66,19 +70,41 @@ def suppliers(request):
         )
 
     if search_query:
-        suppliers = suppliers.filter(name__icontains=search_query)
+        suppliers = suppliers.filter(
+            models.Q(name__icontains=search_query) |
+            models.Q(product1__icontains=search_query) |
+            models.Q(product2__icontains=search_query) |
+            models.Q(product3__icontains=search_query) |
+            models.Q(category__icontains=search_query) |
+            models.Q(sub_category1__icontains=search_query) |
+            models.Q(sub_category2__icontains=search_query) |
+            models.Q(sub_category3__icontains=search_query) |
+            models.Q(sub_category4__icontains=search_query) |
+            models.Q(sub_category5__icontains=search_query) |
+            models.Q(sub_category6__icontains=search_query)
+        )
 
     count = suppliers.count()
 
+    # Get all categories and subcategories for the filter dropdowns
+    categories = Supplier.objects.values_list('category', flat=True).distinct()
+    sub_categories = set()
+    for i in range(1, 7):
+        sub_categories.update(Supplier.objects.values_list(f'sub_category{i}', flat=True).distinct())
+    sub_categories.discard(None)  # Remove None values
+    
+    products = list(set(
+        list(Supplier.objects.values_list('product1', flat=True).distinct()) +
+        list(Supplier.objects.values_list('product2', flat=True).distinct()) +
+        list(Supplier.objects.values_list('product3', flat=True).distinct())
+    ))
+    products = [p for p in products if p]  # Remove empty strings
+
     return render(request, "suppliers.html", {
         "suppliers": suppliers,
-        "categories": Supplier.objects.values_list('category', flat=True).distinct(),
-        "sub_categories": Supplier.objects.values_list('sub_category', flat=True).distinct(),
-        "products": list(set(
-            list(Supplier.objects.values_list('product1', flat=True).distinct()) +
-            list(Supplier.objects.values_list('product2', flat=True).distinct()) +
-            list(Supplier.objects.values_list('product3', flat=True).distinct())
-        )),
+        "categories": categories,
+        "sub_categories": sub_categories,
+        "products": products,
         "count": count,
     })
 
@@ -186,18 +212,44 @@ def resend_otp(request):
 def supplier_details(request, supplier_id):
     try:
         supplier = Supplier.objects.get(id=supplier_id)
+        
+        # Collect all non-empty subcategories
+        sub_categories = []
+        for i in range(1, 7):
+            sub_category = getattr(supplier, f'sub_category{i}')
+            if sub_category:
+                sub_categories.append(sub_category)
+        
+        # Prepare product images URLs if they exist
+        product_images = []
+        for i in range(1, 5):
+            image_field = getattr(supplier, f'product_image{i}')
+            if image_field:
+                product_images.append(image_field.url)
+        
         data = {
             "name": supplier.name,
-            "business_description": supplier.business_description,
-            "contact_person_name": supplier.contact_person_name,
+            "founder_name": supplier.founder_name,
+            "website_url": supplier.website_url,
+            "logo": supplier.logo.url if supplier.logo else None,
+            "image": supplier.image.url if supplier.image else None,
+            "category": supplier.category,
+            "sub_categories": sub_categories,
             "email": supplier.email,
-            "phone_number": supplier.phone_number,
+            "contact_person_name": supplier.contact_person_name,
+            "person_image": supplier.person_image.url if supplier.person_image else None,
+            "product1": supplier.product1,
+            "product2": supplier.product2,
+            "product3": supplier.product3,
+            "product_images": product_images,
             "door_number": supplier.door_number,
             "street": supplier.street,
             "area": supplier.area,
             "city": supplier.city,
             "state": supplier.state,
             "pin_code": supplier.pin_code,
+            "business_description": supplier.business_description,
+            "phone_number": supplier.phone_number,
         }
         return JsonResponse(data)
     except Supplier.DoesNotExist:
