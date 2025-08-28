@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.db import models
 import random
 from .models import Supplier, CustomUser, PasswordResetOTP
+from django.http import JsonResponse
 from .forms import SupplierForm
 
 def index(request):
@@ -44,12 +46,24 @@ def signup_view(request):
 
 def suppliers(request):
     category = request.GET.get('category', '')
+    sub_category = request.GET.get('sub_category', '')
+    product_filter = request.GET.get('product', '')
     search_query = request.GET.get('search', '')
 
     suppliers = Supplier.objects.all()
 
     if category:
         suppliers = suppliers.filter(category=category)
+    
+    if sub_category:
+        suppliers = suppliers.filter(sub_category=sub_category)
+    
+    if product_filter:
+        suppliers = suppliers.filter(
+            models.Q(product1__icontains=product_filter) |
+            models.Q(product2__icontains=product_filter) |
+            models.Q(product3__icontains=product_filter)
+        )
 
     if search_query:
         suppliers = suppliers.filter(name__icontains=search_query)
@@ -59,6 +73,12 @@ def suppliers(request):
     return render(request, "suppliers.html", {
         "suppliers": suppliers,
         "categories": Supplier.objects.values_list('category', flat=True).distinct(),
+        "sub_categories": Supplier.objects.values_list('sub_category', flat=True).distinct(),
+        "products": list(set(
+            list(Supplier.objects.values_list('product1', flat=True).distinct()) +
+            list(Supplier.objects.values_list('product2', flat=True).distinct()) +
+            list(Supplier.objects.values_list('product3', flat=True).distinct())
+        )),
         "count": count,
     })
 

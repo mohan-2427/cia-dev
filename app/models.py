@@ -14,8 +14,15 @@ class Supplier(models.Model):
     logo = models.ImageField(upload_to="suppliers/logos/", blank=True, null=True)
     image = models.ImageField(upload_to="suppliers/images/", blank=True, null=True)
     category = models.CharField(max_length=255, blank=True, null=True)
+    sub_category = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
     contact_person_name = models.CharField(max_length=255, blank=True, null=True)
+    person_image = models.ImageField(upload_to="suppliers/person_images/", blank=True, null=True)
+
+    # Product fields
+    product1 = models.CharField(max_length=255, blank=True, null=True)
+    product2 = models.CharField(max_length=255, blank=True, null=True)
+    product3 = models.CharField(max_length=255, blank=True, null=True)
 
     # Split address fields
     door_number = models.CharField(max_length=50, blank=True, null=True)
