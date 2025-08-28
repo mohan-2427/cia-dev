@@ -182,3 +182,23 @@ def resend_otp(request):
             return render(request, "request_reset.html", {"error": "Email not found"})
     
     return redirect('request_reset')
+
+def supplier_details(request, supplier_id):
+    try:
+        supplier = Supplier.objects.get(id=supplier_id)
+        data = {
+            "name": supplier.name,
+            "business_description": supplier.business_description,
+            "contact_person_name": supplier.contact_person_name,
+            "email": supplier.email,
+            "phone_number": supplier.phone_number,
+            "door_number": supplier.door_number,
+            "street": supplier.street,
+            "area": supplier.area,
+            "city": supplier.city,
+            "state": supplier.state,
+            "pin_code": supplier.pin_code,
+        }
+        return JsonResponse(data)
+    except Supplier.DoesNotExist:
+        return JsonResponse({"error": "Supplier not found"}, status=404)

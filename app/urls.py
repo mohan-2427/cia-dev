@@ -18,4 +18,5 @@ urlpatterns = [
     path("resend-otp/", views.resend_otp, name="resend_otp"),
     path("set-new-password/", views.set_new_password, name="set_new_password"),
     path("google-login/", views.google_login, name="google_login"),
+    path("supplier/<int:supplier_id>/", views.supplier_details, name="supplier_details"),
 ]

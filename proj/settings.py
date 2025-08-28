@@ -92,6 +92,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '2212',
         'HOST': 'localhost',
+        'HOST': '192.168.137.89',   # ✅ your main system IP
         'PORT': '5432',
     }
 }
