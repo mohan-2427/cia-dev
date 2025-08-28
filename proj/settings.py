@@ -164,8 +164,8 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         },
         'APP': {
-            'client_id': '836832774059-n14927mt2vj1fqvegqo46i5cm84o7f70.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': '',
+            'secret': '',
             'key': ''
         }
     }
