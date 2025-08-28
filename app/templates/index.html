@@ -19,37 +19,17 @@
       <div class="flex items-center justify-between py-4">
         <!-- Left Side: Login + Search -->
         <div class="flex items-center space-x-4 order-1">
-          <!-- Login Button -->
+         <!-- Login Button -->
           {% if user.is_authenticated %}
             <!-- Profile Icon with Initials -->
             <div class="relative group">
               <button id="profileBtn" class="w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold text-lg focus:outline-none">
                 {{ user.get_full_name|default:user.email|slice:":1"|upper }}
               </button>
-              <!-- Dropdown Menu -->
-              <div id="profileDropdown" class="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden group-focus:block group-hover:block">
-                <div class="px-4 py-2 text-gray-800 font-semibold border-b">{{ user.get_full_name|default:user.email }}</div>
-                <a href="{% url 'logout' %}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100 transition rounded-b-lg">
-                  <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                </a>
-              </div>
+              <button id="logoutBtn" class="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg focus:outline-none transition-all duration-300 hover:bg-red-700 hidden">
+                <i class="fas fa-sign-out-alt text-sm"></i>
+              </button>
             </div>
-            <script>
-              // Show/hide dropdown on click
-              document.addEventListener('DOMContentLoaded', function() {
-                const btn = document.getElementById('profileBtn');
-                const dropdown = document.getElementById('profileDropdown');
-                btn.addEventListener('click', function(e) {
-                  e.stopPropagation();
-                  dropdown.classList.toggle('hidden');
-                });
-                document.addEventListener('click', function(e) {
-                  if (!btn.contains(e.target)) {
-                    dropdown.classList.add('hidden');
-                  }
-                });
-              });
-            </script>
           {% else %}
             <a
               href="{% url 'login' %}"
@@ -108,51 +88,13 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <div class="lg:hidden order-3 flex items-center space-x-4">
-          <!-- Mobile Profile/Login -->
-          {% if user.is_authenticated %}
-            <div class="relative group">
-              <button id="mobileProfileBtn" class="w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold text-lg focus:outline-none">
-                {{ user.get_full_name|default:user.email|slice:":1"|upper }}
-              </button>
-              <div id="mobileProfileDropdown" class="absolute left-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden group-focus:block group-hover:block">
-                <div class="px-4 py-2 text-gray-800 font-semibold border-b">{{ user.get_full_name|default:user.email }}</div>
-                <a href="{% url 'logout' %}" class="block px-4 py-2 text-gray-700 hover:bg-yellow-100 transition rounded-b-lg">
-                  <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                </a>
-              </div>
+        <div class="lg:hidden order-3 flex items-center space-x-2">
+          <button id="mobileMenuBtn" class="relative p-2 text-[#3d2d29] hover:text-yellow-700 transition-all duration-300 focus:outline-none">
+            <div class="space-y-1">
+              <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+              <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
+              <span class="hamburger-line block w-6 h-0.5 bg-current transition-all duration-300"></span>
             </div>
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const btn = document.getElementById('mobileProfileBtn');
-                const dropdown = document.getElementById('mobileProfileDropdown');
-                btn.addEventListener('click', function(e) {
-                  e.stopPropagation();
-                  dropdown.classList.toggle('hidden');
-                });
-                document.addEventListener('click', function(e) {
-                  if (!btn.contains(e.target)) {
-                    dropdown.classList.add('hidden');
-                  }
-                });
-              });
-            </script>
-          {% else %}
-            <a
-              href="{% url 'login' %}"
-              class="flex items-center space-x-2 text-[#3d2d29] hover:text-yellow-700 px-4 py-2 transition font-medium"
-            >
-              <i class="fas fa-user"></i>
-              <span>Login</span>
-            </a>
-          {% endif %}
-          <!-- Mobile Language Switch -->
-          <button id="mobileLanguageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 transition px-2 py-1 rounded border border-gray-300">
-            <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
-            <span id="mobileLang" class="text-sm font-semibold">EN</span>
-          </button>
-          <button id="mobileMenuBtn" class="text-[#3d2d29] hover:text-yellow-700 transition">
-            <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
       </div>
@@ -160,44 +102,126 @@
 
     <!-- Mobile Navigation Menu -->
     <div id="mobileMenu" class="lg:hidden hidden bg-white border-t border-[#bba99a] shadow-lg">
-      <div class="container mx-auto px-4 py-4">
-        <div class="flex flex-col space-y-4">
-          <!-- Mobile Search Bar -->
-          <div class="relative">
-            <input
-              type="text"
-              placeholder="Search..!!"
-              class="w-[70%] mx-auto py-2 px-4 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md focus:outline-none pr-10 search-box"
-            />
-            <button
-              class="absolute right-0 top-0 mt-2 mr-4 text-black hover:text-gray-800"
-              title="Search"
-            >
-              <i class="fas fa-search"></i>
-            </button>
+      <div class="absolute right-0 top-0 h-full w-80 max-w-sm bg-white shadow-xl">
+        <!-- Mobile Menu Header -->
+        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+          <div class="flex items-center space-x-2">
+            <img src="{% static 'images/CIA logo.png' %}" alt="CIA MachineryHub logo" class="h-8 rounded-lg">
+            <span class="text-lg font-bold text-black">CIA<span class="text-yellow-700">mezo</span></span>
           </div>
-          <a href="{% url 'index' %}" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition py-2 border-b border-gray-200">Home</a>
-          <a href="{% url 'about' %}" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition py-2 border-b border-gray-200">About Us</a>
-          <a href="{% url 'category' %}" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition py-2 border-b border-gray-200">Category</a>
-          <!-- Products Dropdown (same as desktop) -->
-          <div class="py-2">
-            <button id="mobileProductsBtn" class="text-[#3d2d29] hover:text-yellow-700 font-medium transition flex items-center justify-between w-full">
-              Products
-              <i class="fas fa-chevron-down text-sm"></i>
-            </button>
-            <div id="mobileProductsMenu" class="hidden mt-2 ml-4 space-y-2">
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Engineering</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Metal</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Production</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Packing</a>
+          <button id="mobileMenuClose" class="p-2 text-gray-500 hover:text-gray-700 transition">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div class="flex flex-col h-full">
+          <div class="flex-1 overflow-y-auto p-4">
+            <!-- User Profile Section -->
+            <div class="mb-6">
+              {% if user.is_authenticated %}
+                <div class="flex items-center space-x-3 p-3 bg-yellow-50 rounded-lg">
+                  <div class="w-12 h-12 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    {{ user.get_full_name|default:user.email|slice:":1"|upper }}
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-gray-800">{{ user.get_full_name|default:user.email }}</p>
+                    <p class="text-sm text-gray-600">{{ user.email }}</p>
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <a href="{% url 'logout' %}" class="flex items-center space-x-2 w-full px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              {% else %}
+                <a href="{% url 'login' %}" class="flex items-center space-x-2 w-full px-3 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition">
+                  <i class="fas fa-user"></i>
+                  <span>Login / Sign Up</span>
+                </a>
+              {% endif %}
             </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="relative mb-6">
+              <input
+                type="text"
+                placeholder="Search products, suppliers..."
+                class="w-full py-3 px-4 pr-12 rounded-lg text-[#000000] bg-[#FFF9E5] border border-[#bba99a] focus:outline-none focus:ring-2 focus:ring-yellow-500 search-box"
+              />
+              <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="space-y-1">
+              <a href="{% url 'index' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                <i class="fas fa-home w-5"></i>
+                <span class="font-medium">Home</span>
+              </a>
+              <a href="{% url 'about' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                <i class="fas fa-info-circle w-5"></i>
+                <span class="font-medium">About Us</span>
+              </a>
+              <a href="{% url 'category' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                <i class="fas fa-th-large w-5"></i>
+                <span class="font-medium">Categories</span>
+              </a>
+              <a href="{% url 'suppliers' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                <i class="fas fa-building w-5"></i>
+                <span class="font-medium">Suppliers</span>
+              </a>
+              <a href="{% url 'announcement' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                <i class="fas fa-bullhorn w-5"></i>
+                <span class="font-medium">Announcements</span>
+              </a>
+
+              <!-- Products Dropdown -->
+              <div class="border-t border-gray-200 pt-4 mt-4">
+                <button id="mobileProductsBtn" class="flex items-center justify-between w-full px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+                  <div class="flex items-center space-x-3">
+                    <i class="fas fa-cog w-5"></i>
+                    <span class="font-medium">Products</span>
+                  </div>
+                  <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="productsChevron"></i>
+                </button>
+                <div id="mobileProductsMenu" class="hidden mt-2 ml-8 space-y-1">
+                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
+                    <i class="fas fa-wrench mr-2"></i>Engineering
+                  </a>
+                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
+                    <i class="fas fa-industry mr-2"></i>Metal Working
+                  </a>
+                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
+                    <i class="fas fa-cogs mr-2"></i>Production
+                  </a>
+                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
+                    <i class="fas fa-box mr-2"></i>Packaging
+                  </a>
+                </div>
+              </div>
+            </nav>
           </div>
-          <!-- Mobile Language Options -->
-          <div class="py-2 border-t border-gray-200">
-            <p class="text-[#3d2d29] font-medium py-2">Language</p>
-            <div class="ml-4 space-y-2">
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">English</a>
-              <a href="#" class="block text-gray-600 hover:text-yellow-700 transition py-1">Tamil</a>
+
+          <!-- Mobile Menu Footer -->
+          <div class="border-t border-gray-200 p-4">
+            <!-- Language Selector -->
+            <div class="mb-4">
+              <button id="mobileLanguageToggle" class="flex items-center justify-between w-full px-3 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <div class="flex items-center space-x-2">
+                  <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language" class="w-5 h-5">
+                  <span class="font-medium">Language</span>
+                </div>
+                <span id="mobileLang" class="text-sm font-semibold text-yellow-600">English</span>
+              </button>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="text-center text-sm text-gray-500">
+              <p>&copy; 2025 CIA MachineryHub</p>
+              <p>All rights reserved</p>
             </div>
           </div>
         </div>
@@ -217,8 +241,20 @@
         </button>
       </div>
     </div>
+<!-- Industrial Images Showcase Section -->
+  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/30" style="height: calc(100vh - 3cm);">
+    <!-- Dimming Overlay with Caption -->
+    <div class="absolute inset-0 z-20 rounded-xl flex items-center justify-center pointer-events-none" style="background-color: rgba(136, 178, 233, 0.2);">
+      <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
+        <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-100">Discover Industrial Excellence</h2>
+        <p class="text-sm md:text-base opacity-90 mb-3">Explore our diverse industrial sectors</p>
+        <button id="browseBtn" class="bg-yellow-400 hover:bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 pointer-events-auto text-sm">
+          Browse Catalog
+        </button>
+      </div>
+    </div>
 
-    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-2.5 h-full w-full transition-all duration-400 ease-in-out relative z-10">
+    <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-2.5 h-full w-full transition-all duration-200 ease-in-out relative z-10">
       <!-- Container 1 - Large hero (spans 3x2) -->
       <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Excellence" class="w-full h-full object-cover" />
@@ -415,7 +451,8 @@
             <img
               src="{% static 'images/resized_image_600x300 01.png' %}"
               alt="Large industrial warehouse filled with various construction machinery including excavators and bulldozers"
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="w-full h-48 object-cover rounded-t-lg lazy-load"
+              loading="lazy"
             />
           </div>
           <div class="p-6">
@@ -423,7 +460,8 @@
               <img
                 src="{% static 'images/resized_image_1920x1080.png' %}"
                 alt="CAT Equipment Solutions logo with yellow and black branding"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
+                loading="lazy"
               />
               <div class="ml-4">
                 <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
@@ -463,7 +501,8 @@
             <img
               src="{% static 'images/resized_image3_600x300 02.png' %}"
               alt="Komatsu heavy equipment service center with technicians working on machinery"
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="w-full h-48 object-cover rounded-t-lg lazy-load"
+              loading="lazy"
             />
           </div>
           <div class="p-6">
@@ -471,7 +510,8 @@
               <img
                 src="{% static 'images/Company logo 2.png' %}"
                 alt="Komatsu Parts India logo in white and red colors"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
+                loading="lazy"
               />
               <div class="ml-4">
                 <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
@@ -511,7 +551,8 @@
             <img
               src="{% static 'images/resized_image4_600x300 03.png' %}"
               alt="JCB equipment yard with multiple machines lined up ready for sale"
-              class="w-full h-48 object-cover rounded-t-lg"
+              class="w-full h-48 object-cover rounded-t-lg lazy-load"
+              loading="lazy"
             />
           </div>
           <div class="p-6">
@@ -519,7 +560,8 @@
               <img
                 src="{% static 'images/Companuy logo 3.png' %}"
                 alt="JCB Machinery Ltd. logo with yellow and black colors"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
+                loading="lazy"
               />
               <div class="ml-4">
                 <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
@@ -649,12 +691,12 @@
           <div class="relative">
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-4">
-                <img src="{% static 'images/resized_image_600x300 01.png' %}" alt="Heavy machinery warehouse" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <img src="{% static 'images/resized_image3_600x300 02.png' %}" alt="Construction equipment" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="{% static 'images/resized_image_600x300 01.png' %}" alt="Heavy machinery warehouse" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer lazy-load" loading="lazy">
+                <img src="{% static 'images/resized_image3_600x300 02.png' %}" alt="Construction equipment" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer lazy-load" loading="lazy">
               </div>
               <div class="space-y-4 pt-8">
-                <img src="{% static 'images/resized_image4_600x300 03.png' %}" alt="Industrial equipment yard" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
-                <img src="{% static 'images/resized_image_1920x1080.png' %}" alt="Machinery operations" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer">
+                <img src="{% static 'images/resized_image4_600x300 03.png' %}" alt="Industrial equipment yard" class="rounded-xl shadow-lg w-full h-32 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer lazy-load" loading="lazy">
+                <img src="{% static 'images/resized_image_1920x1080.png' %}" alt="Machinery operations" class="rounded-xl shadow-lg w-full h-48 object-cover hover:transform hover:scale-105 transition-transform duration-300 cursor-pointer lazy-load" loading="lazy">
               </div>
             </div>
             <!-- Floating Stats -->
@@ -817,17 +859,7 @@
     </div>
   </div>
 
-  <script src="{% static 'js/script.js' %}"></script>
-  <script>
-    // Scroll to categories section when Browse Catalog button is clicked
-    document.getElementById('browseBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      const categoriesSection = document.getElementById('categories');
-      categoriesSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    });
-  </script>
+ 
+   <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
