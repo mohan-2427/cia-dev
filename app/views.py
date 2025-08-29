@@ -4,13 +4,47 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.db import models
 import random
-from .models import Supplier, CustomUser, PasswordResetOTP
+from .models import Supplier, CustomUser, PasswordResetOTP, Announcement
 from django.http import JsonResponse
+from django.views.decorators.http import require_GET
+from .models import Supplier
+import json
 from .forms import SupplierForm
 
 def index(request):
+    # Fetch 3 random suppliers
+    all_suppliers = list(Supplier.objects.all())
+    if len(all_suppliers) > 3:
+        random_suppliers = random.sample(all_suppliers, 3)
+    else:
+        random_suppliers = all_suppliers
+    
+    # Fetch all unique categories from Supplier model (like in category view)
+    categories = Supplier.objects.values_list('category', flat=True).distinct()
+    categories = [cat for cat in categories if cat]  # Remove None/empty values
+    
+    # Count suppliers for each category
+    category_counts = {}
+    for category_name in categories:
+        count = Supplier.objects.filter(category=category_name).count()
+        category_counts[category_name] = count
+    
+    # Build a dictionary mapping category to its subcategories
+    category_subcategories = {}
+    for category_name in categories:
+        sub_cats = set()
+        suppliers_in_cat = Supplier.objects.filter(category=category_name)
+        for i in range(1, 7):
+            sub_cats.update(suppliers_in_cat.values_list(f'sub_category{i}', flat=True).distinct())
+        sub_cats.discard(None)
+        category_subcategories[category_name] = sorted(sub_cats)
+    
     context = {
-        'user': request.user
+        'user': request.user,
+        'featured_suppliers': random_suppliers,
+        'categories': categories,
+        'category_counts': category_counts,
+        'category_subcategories': category_subcategories,
     }
     return render(request, "index.html", context)
 
@@ -18,10 +52,76 @@ def about(request):
     return render(request, "about.html")
 
 def announcement(request):
-    return render(request, "announcement.html")
+    # Get filter parameters from request
+    show_inactive = request.GET.get('show_inactive', 'false').lower() == 'true'
+    filter_type = request.GET.get('filter', 'all')
+    
+    # Base queryset
+    if show_inactive:
+        announcements = Announcement.objects.all().order_by('-date')
+    else:
+        announcements = Announcement.objects.filter(is_active=True).order_by('-date')
+    
+    # Apply additional filters
+    if filter_type == 'critical':
+        announcements = announcements.filter(is_critical=True)
+    elif filter_type == 'latest':
+        announcements = announcements[:10]  # Show only latest 10
+    
+    critical_announcement = announcements.filter(is_critical=True).first()
+    
+    # Get latest 3 announcements for the sidebar
+    latest_announcements = Announcement.objects.filter(is_active=True).order_by('-date')[:3]
+    
+    context = {
+        'announcements': announcements,
+        'critical_announcement': critical_announcement,
+        'latest_announcements': latest_announcements,
+        'show_inactive': show_inactive,
+        'current_filter': filter_type
+    }
+    return render(request, "announcement.html", context)
+
+def announcement_detail(request, announcement_id):
+    try:
+        announcement = Announcement.objects.get(id=announcement_id)
+        latest_announcements = Announcement.objects.filter(is_active=True).order_by('-date')[:3]
+        
+        context = {
+            'announcement': announcement,
+            'latest_announcements': latest_announcements
+        }
+        return render(request, "announcement_detail.html", context)
+    except Announcement.DoesNotExist:
+        return redirect('announcement')
 
 def category(request):
-    return render(request, "category.html")
+    # Fetch all unique categories from Supplier model
+    categories = Supplier.objects.values_list('category', flat=True).distinct()
+    categories = [cat for cat in categories if cat]  # Remove None/empty values
+    
+    # Count suppliers for each category
+    category_counts = {}
+    for category_name in categories:
+        count = Supplier.objects.filter(category=category_name).count()
+        category_counts[category_name] = count
+    
+    # Build a dictionary mapping category to its subcategories
+    category_subcategories = {}
+    for category_name in categories:
+        sub_cats = set()
+        suppliers_in_cat = Supplier.objects.filter(category=category_name)
+        for i in range(1, 7):
+            sub_cats.update(suppliers_in_cat.values_list(f'sub_category{i}', flat=True).distinct())
+        sub_cats.discard(None)
+        category_subcategories[category_name] = sorted(sub_cats)
+    
+    context = {
+        'categories': categories,
+        'category_counts': category_counts,
+        'category_subcategories': category_subcategories,
+    }
+    return render(request, "category.html", context)
 
 def login_view(request):
     if request.method == "POST":
@@ -255,3 +355,114 @@ def supplier_details(request, supplier_id):
         return JsonResponse(data)
     except Supplier.DoesNotExist:
         return JsonResponse({"error": "Supplier not found"}, status=404)
+
+@require_GET
+def companies_by_category(request):
+    category = request.GET.get('category', '')
+    if not category:
+        return JsonResponse({"error": "Category parameter is required"}, status=400)
+    
+    suppliers = Supplier.objects.filter(
+        models.Q(category__iexact=category) |
+        models.Q(sub_category1__iexact=category) |
+        models.Q(sub_category2__iexact=category) |
+        models.Q(sub_category3__iexact=category) |
+        models.Q(sub_category4__iexact=category) |
+        models.Q(sub_category5__iexact=category) |
+        models.Q(sub_category6__iexact=category)
+    )
+    
+    data = []
+    for supplier in suppliers:
+        data.append({
+            "id": supplier.id,
+            "name": supplier.name,
+            "logo": supplier.logo.url if supplier.logo else None,
+            "category": supplier.category,
+            "sub_categories": [getattr(supplier, f'sub_category{i}') for i in range(1,7) if getattr(supplier, f'sub_category{i}')],
+            "email": supplier.email,
+            "phone_number": supplier.phone_number,
+        })
+    return JsonResponse({"companies": data})
+
+@require_GET
+def search_suggestions(request):
+    query = request.GET.get('q', '').strip().lower()
+    
+    if not query or len(query) < 2:
+        return JsonResponse({"suggestions": []})
+    
+    # Search in suppliers
+    supplier_results = Supplier.objects.filter(
+        models.Q(name__icontains=query) |
+        models.Q(category__icontains=query) |
+        models.Q(sub_category1__icontains=query) |
+        models.Q(sub_category2__icontains=query) |
+        models.Q(sub_category3__icontains=query) |
+        models.Q(sub_category4__icontains=query) |
+        models.Q(sub_category5__icontains=query) |
+        models.Q(sub_category6__icontains=query) |
+        models.Q(product1__icontains=query) |
+        models.Q(product2__icontains=query) |
+        models.Q(product3__icontains=query) |
+        models.Q(business_description__icontains=query)
+    )[:10]  # Limit to 10 results
+    
+    suggestions = []
+    
+    # Add supplier suggestions
+    for supplier in supplier_results:
+        suggestions.append({
+            "type": "supplier",
+            "name": supplier.name,
+            "category": supplier.category,
+            "url": f"/suppliers/?search={query}",
+            "icon": "fas fa-building"
+        })
+    
+    # Add category suggestions
+    categories = Supplier.objects.filter(
+        models.Q(category__icontains=query) |
+        models.Q(sub_category1__icontains=query) |
+        models.Q(sub_category2__icontains=query) |
+        models.Q(sub_category3__icontains=query) |
+        models.Q(sub_category4__icontains=query) |
+        models.Q(sub_category5__icontains=query) |
+        models.Q(sub_category6__icontains=query)
+    ).values_list('category', flat=True).distinct()[:5]
+    
+    for category in categories:
+        if category:
+            suggestions.append({
+                "type": "category",
+                "name": category,
+                "url": f"/suppliers/?category={category}",
+                "icon": "fas fa-tag"
+            })
+    
+    # Add product suggestions
+    products = Supplier.objects.filter(
+        models.Q(product1__icontains=query) |
+        models.Q(product2__icontains=query) |
+        models.Q(product3__icontains=query)
+    ).values_list('product1', 'product2', 'product3').distinct()[:5]
+    
+    for product_tuple in products:
+        for product in product_tuple:
+            if product and query.lower() in product.lower():
+                suggestions.append({
+                    "type": "product",
+                    "name": product,
+                    "url": f"/suppliers/?product={product}",
+                    "icon": "fas fa-box"
+                })
+    
+    # Remove duplicates by name
+    seen = set()
+    unique_suggestions = []
+    for suggestion in suggestions:
+        if suggestion['name'] not in seen:
+            seen.add(suggestion['name'])
+            unique_suggestions.append(suggestion)
+    
+    return JsonResponse({"suggestions": unique_suggestions[:10]})

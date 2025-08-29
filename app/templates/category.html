@@ -1,4 +1,5 @@
-{% load static %}
+. {% load static %}
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -265,13 +266,13 @@
                     <p class="text-gray-600">Showing all machinery categories</p>
                 </div>
                 <div class="flex space-x-4">
-                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option>Sort by: Popular</option>
                         <option>Sort by: Name A-Z</option>
                         <option>Sort by: Name Z-A</option>
                         <option>Sort by: Most Products</option>
                     </select>
-                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg transition-colors duration-300">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300">
                         <i class="fas fa-filter mr-2"></i>
                         Filter
                     </button>
@@ -280,118 +281,65 @@
         </div>
     </section>
 
-    <!-- Categories Grid -->
+    <!-- Categories & Subcategories Grid -->
     <section class="py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-
-                <!-- Electrical -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-bolt text-3xl text-white"></i>
+                {% for category in categories %}
+                    <!-- Category Card -->
+                    <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
+                        <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                            <span class="text-3xl font-bold text-white">{{ category|slice:":1"|upper }}</span>
+                        </div>
+                        <h3 class="font-semibold text-xl mb-2 text-gray-800">{{ category }}</h3>
+                        <p class="text-gray-500 text-sm mb-3">{{ category_counts|get_item:category }}+ Companies</p>
+                        <button class="view-companies-btn bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full" 
+                                data-category="{{ category }}">
+                            <i class="fas fa-building mr-2"></i>
+                            View Companies
+                        </button>
                     </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Electrical</h3>
-                    <p class="text-gray-500 text-sm mb-3">120+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Power systems, control panels, and electrical equipment</p>
-                    <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Plastic -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-recycle text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Plastic</h3>
-                    <p class="text-gray-500 text-sm mb-3">85+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Injection molding, extrusion, and plastic manufacturing</p>
-                    <button class="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Textile -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-cut text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Textile</h3>
-                    <p class="text-gray-500 text-sm mb-3">95+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Fabric production, garment manufacturing, and textile processing</p>
-                    <button class="bg-gradient-to-r from-purple-400 to-purple-500 hover:from-purple-500 hover:to-purple-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Automation -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-robot text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Automation</h3>
-                    <p class="text-gray-500 text-sm mb-3">65+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Industrial automation, robotics, and smart manufacturing</p>
-                    <button class="bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Kitchen -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-utensils text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Kitchen</h3>
-                    <p class="text-gray-500 text-sm mb-3">75+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Commercial kitchen equipment and food processing machinery</p>
-                    <button class="bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Packing -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-red-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-box text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Packing</h3>
-                    <p class="text-gray-500 text-sm mb-3">55+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Packaging solutions, corrugated boxes, and packing machinery</p>
-                    <button class="bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Production -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-industry text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Production</h3>
-                    <p class="text-gray-500 text-sm mb-3">110+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Manufacturing systems, production lines, and industrial equipment</p>
-                    <button class="bg-gradient-to-r from-indigo-400 to-indigo-500 hover:from-indigo-500 hover:to-indigo-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
-                <!-- Engineering -->
-                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
-                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-                        <i class="fas fa-cogs text-3xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-xl mb-2 text-gray-800">Engineering</h3>
-                    <p class="text-gray-500 text-sm mb-3">90+ Companies</p>
-                    <p class="text-gray-600 text-sm mb-4">Technical solutions, precision machining, and engineering services</p>
-                    <button class="bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-white px-4 py-2 rounded-lg transition-colors duration-300 w-full">
-                        View Companies
-                    </button>
-                </div>
-
+                    {% with subcategories=category_subcategories|get_subcategories:category %}
+                        {% if subcategories %}
+                            {% for sub_category in subcategories %}
+                                <!-- Subcategory Card -->
+                                <div class="bg-white rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300">
+                                    <div class="category-icon-circle w-20 h-20 bg-gradient-to-br from-blue-200 to-blue-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+                                        <i class="fas fa-tag text-blue-500 text-3xl"></i>
+                                    </div>
+                                    <h3 class="font-semibold text-xl mb-2 text-gray-800">{{ sub_category }}</h3>
+                                    <p class="text-gray-500 text-sm mb-3">Subcategory of {{ category }}</p>
+                                    <button class="view-subcategory-companies-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg transition-colors duration-300 w-full"
+                                            data-category="{{ category }}"
+                                            data-subcategory="{{ sub_category }}">
+                                        <i class="fas fa-building mr-2"></i>
+                                        View Companies
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
             </div>
         </div>
     </section>
+
+    <!-- Companies Modal -->
+    <div id="companiesModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg w-full max-w-4xl max-h-96 overflow-hidden flex flex-col">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 id="modalTitle" class="text-xl font-semibold">Companies in <span id="modalCategory"></span></h3>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="companiesList" class="p-4 overflow-y-auto flex-1">
+                    <!-- Companies will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Call to Action -->
     <section class="py-12 bg-yellow-500 text-white">
@@ -486,27 +434,152 @@
         <p class="text-center ml-2 text-gray-500 text-sm">© 2025 CIA MachineryHub. All rights reserved.</p>
     </footer>
 
-    <!-- Announcement Button & Bar -->
-    <div class="announcement-popup-container">
-        <button class="announcement-btn" id="announcementBtn" title="Show Announcement">
-            <span class="announcement-btn-icon">📢</span>
-            <span class="announcement-btn-label">Announcement</span>
-        </button>
-        <div class="announcement-bar" id="announcementBar">
-            <span class="announcement-text">
-                <ul class="announcement-list">
-                    <li>🏢 CIA MachineryHub now offers verified supplier badges</li>
-                    <li>🎉 Exclusive deals available for registered users</li>
-                    <li>🤝 Contact us for partnership opportunities</li>
-                </ul>
-            </span>
-            <div class="announcement-footer">
-                <span>Learn more at <a href="{% url 'announcement' %}">View All Announcements</a></span>
+
+
+    <!-- Company Details Modal -->
+    <div id="companyModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-11/12 md:w-2/3 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Company Details</h2>
+                <button onclick="closeCompanyModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <button class="announcement-close" id="announcementClose" title="Close">&times;</button>
+            <div id="companyModalContent"></div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="{% static 'js/category.js' %}"></script>
+    
+    <script>
+    function openCompanyModal(companyId) {
+        // Fetch company details using AJAX
+        fetch(`/supplier/${companyId}/details/`)
+            .then(response => response.json())
+            .then(data => {
+                const modalContent = document.getElementById('companyModalContent');
+                
+                // Create HTML for product images
+                let productImagesHtml = '';
+                if (data.product_images && data.product_images.length > 0) {
+                    productImagesHtml = '<div class="mb-4"><h4 class="font-semibold mb-2">Product Images:</h4><div class="grid grid-cols-2 gap-2">';
+                    data.product_images.forEach(imageUrl => {
+                        productImagesHtml += `<img src="${imageUrl}" class="w-full h-32 object-cover rounded" />`;
+                    });
+                    productImagesHtml += '</div></div>';
+                }
+                
+                // Create HTML for subcategories
+                let subCategoriesHtml = '';
+                if (data.sub_categories && data.sub_categories.length > 0) {
+                    subCategoriesHtml = '<div class="mb-4"><h4 class="font-semibold mb-2">Sub-Categories:</h4><div class="flex flex-wrap gap-2">';
+                    data.sub_categories.forEach(subCategory => {
+                        subCategoriesHtml += `<span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">${subCategory}</span>`;
+                    });
+                    subCategoriesHtml += '</div></div>';
+                }
+                
+                // Modal layout: logo and images left, details right
+                modalContent.innerHTML = `
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3 flex flex-col items-center justify-start gap-4">
+                            ${data.logo ? `<img src="${data.logo}" class="w-24 h-24 object-contain rounded mb-2 border" />` : ''}
+                            ${data.image ? `<img src="${data.image}" class="w-full h-40 object-cover rounded mb-2 border" />` : ''}
+                            ${data.person_image ? `<img src="${data.person_image}" class="w-20 h-20 object-cover rounded mb-2 border" />` : ''}
+                        </div>
+                        <div class="md:w-2/3 flex flex-col gap-2">
+                            <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                                ${data.name}
+                                ${data.logo ? `<img src="${data.logo}" class="w-8 h-8 object-contain rounded border" />` : ''}
+                            </h3>
+                            <p class="mb-2 text-gray-700 font-semibold">CIA ID: <span class="text-blue-700">${data.cia_id}</span></p>
+                            <p class="mb-4 text-gray-700">${data.business_description || 'No description available'}</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <h4 class="font-semibold">Company Information</h4>
+                                    <p><strong>Founder:</strong> ${data.founder_name || 'N/A'}</p>
+                                    <p><strong>Website:</strong> ${data.website_url ? `<a href="${data.website_url}" target="_blank" class="text-blue-600">${data.website_url}</a>` : 'N/A'}</p>
+                                    <p><strong>Category:</strong> ${data.category || 'N/A'}</p>
+                                    <p><strong>Email:</strong> ${data.email || 'N/A'}</p>
+                                    <p><strong>Phone:</strong> ${data.phone_number || 'N/A'}</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Contact Person</h4>
+                                    <p><strong>Name:</strong> ${data.contact_person_name || 'N/A'}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4 class="font-semibold mb-2">Address</h4>
+                                <p>${data.door_number || ''} ${data.street || ''}</p>
+                                <p>${data.area || ''}, ${data.city || ''}, ${data.state || ''} - ${data.pin_code || ''}</p>
+                            </div>
+                            
+                            ${subCategoriesHtml}
+                            
+                            <div class="mb-4">
+                                <h4 class="font-semibold mb-2">Products</h4>
+                                <ul class="list-disc pl-5">
+                                    ${data.product1 ? `<li>${data.product1}</li>` : ''}
+                                    ${data.product2 ? `<li>${data.product2}</li>` : ''}
+                                    ${data.product3 ? `<li>${data.product3}</li>` : ''}
+                                </ul>
+                            </div>
+                            
+                            ${productImagesHtml}
+                        </div>
+                    </div>
+                `;
+                document.getElementById('companyModal').classList.remove('hidden');
+            })
+            .catch(error => {
+                console.error('Error fetching company details:', error);
+                const modalContent = document.getElementById('companyModalContent');
+                modalContent.innerHTML = `<p class="text-red-500">Error loading company details. Please try again.</p>`;
+                document.getElementById('companyModal').classList.remove('hidden');
+            });
+    }
+
+    function closeCompanyModal() {
+        document.getElementById('companyModal').classList.add('hidden');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('companyModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeCompanyModal();
+        }
+    });
+
+    // Escape key to close modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !document.getElementById('companyModal').classList.contains('hidden')) {
+            closeCompanyModal();
+        }
+    });
+    </script>
+    
+</body>
+</html>
+    function closeCompanyModal() {
+        document.getElementById('companyModal').classList.add('hidden');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('companyModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeCompanyModal();
+        }
+    });
+
+    // Escape key to close modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !document.getElementById('companyModal').classList.contains('hidden')) {
+            closeCompanyModal();
+        }
+    });
+    </script>
+    
 </body>
 </html>

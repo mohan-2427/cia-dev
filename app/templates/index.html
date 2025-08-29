@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,7 +166,7 @@
                 <i class="fas fa-info-circle w-5"></i>
                 <span class="font-medium">About Us</span>
               </a>
-              <a href="{% url 'category' %}" class="flex items-center space-x-3 px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
+              <a href="{% url 'category' %}" class="flex items-center space-x-3 px-3 py-3 text-[
                 <i class="fas fa-th-large w-5"></i>
                 <span class="font-medium">Categories</span>
               </a>
@@ -229,20 +230,7 @@
     </div>
   </nav>
 
-  <!-- Industrial Images Showcase Section -->
-  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/30" style="height: calc(100vh - 3cm);">
-    <!-- Dimming Overlay with Caption -->
-    <div class="absolute inset-0 z-20 rounded-xl flex items-center justify-center pointer-events-none" style="background-color: rgba(136, 178, 233, 0.2);">
-      <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
-        <h2 class="text-xl md:text-2xl font-bold mb-2 text-yellow-100">Discover Industrial Excellence</h2>
-        <p class="text-sm md:text-base opacity-90 mb-3">Explore our diverse industrial sectors</p>
-        <button id="browseBtn" class="bg-yellow-400 hover:bg-yellow-400 text-black px-4 py-2 rounded-full font-semibold transition-all duration-300 pointer-events-auto text-sm">
-          Browse Catalog
-        </button>
-      </div>
-    </div>
-<!-- Industrial Images Showcase Section -->
-  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/30" style="height: calc(100vh - 3cm);">
+  <section class="w-full relative px-0 py-0 shadow-lg shadow-black/30" style="height: calc(70vh - 2cm);">
     <!-- Dimming Overlay with Caption -->
     <div class="absolute inset-0 z-20 rounded-xl flex items-center justify-center pointer-events-none" style="background-color: rgba(136, 178, 233, 0.2);">
       <div class="text-center text-white p-4 bg-black/50 rounded-lg backdrop-blur-sm max-w-sm">
@@ -256,7 +244,7 @@
 
     <div id="heroCarousel" class="grid grid-cols-7 grid-rows-2 gap-2.5 h-full w-full transition-all duration-200 ease-in-out relative z-10">
       <!-- Container 1 - Large hero (spans 3x2) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Excellence" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
@@ -266,7 +254,7 @@
       </div>
 
       <!-- Container 2 - Medium (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Power Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -276,7 +264,7 @@
       </div>
 
       <!-- Container 3 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -286,7 +274,7 @@
       </div>
 
       <!-- Container 4 - Medium tall (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -296,7 +284,7 @@
       </div>
 
       <!-- Container 5 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Automation Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -314,124 +302,42 @@
     </div>
   </section>
 
-  <!-- Categories Section -->
-  <section class="py-12 max-w-[1081px] mx-auto px-4">
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold mb-4 text-gray-800">
-        Browse Industrial Categories
-      </h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Explore our diverse manufacturing and industrial sectors in Coimbatore
-      </p>
-    </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="categories">
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
+    <!-- Categories Section -->
+    <section class="py-12 max-w-[1081px] mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold mb-4 text-gray-800">
+          Browse Industrial Categories
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Explore our diverse manufacturing and industrial sectors in Coimbatore
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="categories">
+        {% for category in categories %}
+          <a
+            href="{% url 'suppliers' %}?category={{ category|urlencode }}"
+            class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="category-icon-circle w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
+            >
+              <span class="text-2xl font-bold text-white">{{ category|slice:":1"|upper }}</span>
+            </div>
+            <h3 class="font-semibold text-lg mb-1 text-gray-800">{{ category }}</h3>
+            <p class="text-gray-600 text-sm">{{ category_counts|get_item:category }}+ Companies</p>
+          </a>
+        {% endfor %}
+      </div>
+      <!-- View More Button -->
+      <div class="text-center mt-8">
+        <a
+          href="{% url 'category' %}"
+          class="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold px-8 py-3 rounded-full hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
-          <i class="fas fa-bolt text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Electrical</h3>
-        <p class="text-gray-600 text-sm">Power & Control Systems</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-recycle text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Plastic</h3>
-        <p class="text-gray-600 text-sm">Manufacturing & Molding</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-cut text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Textile</h3>
-        <p class="text-gray-600 text-sm">Fabric & Garment Industry</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-robot text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Automation</h3>
-        <p class="text-gray-600 text-sm">Smart Manufacturing</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-utensils text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Kitchen</h3>
-        <p class="text-gray-600 text-sm">Commercial Equipment</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-red-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-box text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Packing</h3>
-        <p class="text-gray-600 text-sm">Packaging Solutions</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-industry text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Production</h3>
-        <p class="text-gray-600 text-sm">Manufacturing Systems</p>
-      </a>
-      <a
-        href="{% url 'category' %}"
-        class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-md p-6 text-center card-hover group hover:shadow-xl transition-all duration-300"
-      >
-        <div
-          class="category-icon-circle w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300"
-        >
-          <i class="fas fa-cogs text-2xl text-white"></i>
-        </div>
-        <h3 class="font-semibold text-lg mb-1 text-gray-800">Engineering</h3>
-        <p class="text-gray-600 text-sm">Technical Solutions</p>
-      </a>
-    </div>
-    <!-- View More Button -->
-    <div class="text-center mt-8">
-      <a
-        href="{% url 'category' %}"
-        class="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold px-8 py-3 rounded-full hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-      >
-        View All Categories <i class="fas fa-arrow-right ml-2"></i>
-      </a>
-    </div>
-  </section>
+          View All Categories <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </section>
 
   <!-- Featured Suppliers -->
   <section class="py-12 bg-gray-50">
@@ -840,26 +746,58 @@
 
   <!-- Announcement Button & Bar -->
   <div class="announcement-popup-container">
-    <button class="announcement-btn" id="announcementBtn" title="Show Announcement">
-      <span class="announcement-btn-icon">📢</span>
-      <span class="announcement-btn-label">Announcement</span>
-    </button>
-    <div class="announcement-bar" id="announcementBar">
-      <span class="announcement-text">
-        <ul class="announcement-list">
-          <li>🏢 CIA MachineryHub now offers verified supplier badges</li>
-          <li>🎉 Exclusive deals available for registered users</li>
-          <li>🤝 Contact us for partnership opportunities</li>
-        </ul>
-      </span>
-      <div class="announcement-footer">
-        <span>Learn more at <a href="{% url 'announcement' %}">View All Announcements</a></span>
-      </div>
-      <button class="announcement-close" id="announcementClose" title="Close">&times;</button>
-    </div>
+    <a href="{% url 'announcement' %}">
+      <button class="announcement-btn" id="announcementBtn" title="Show Announcement">
+        <span class="announcement-btn-icon">📢</span>
+        <span class="announcement-btn-label">Announcement</span>
+      </button>
+    </a>
   </div>
 
- 
-   <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <script>
+  // --- Carousel Auto Slide ---
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('heroCarousel');
+    const slides = Array.from(carousel.children);
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    let totalSlides = slides.length;
+    let interval = 4000; // 4 seconds
+
+    function showSlide(idx) {
+      slides.forEach((slide, i) => {
+        slide.style.display = (i === idx) ? 'block' : 'none';
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+        dot.style.backgroundColor = i === idx ? '#facc15' : '#d1d5db';
+        dot.style.transform = i === idx ? 'scale(1.25)' : 'scale(1)';
+      });
+    }
+
+    // Initial setup: hide all except current
+    slides.forEach((slide, i) => { slide.style.display = i === current ? 'block' : 'none'; });
+
+    // Auto slide
+    setInterval(function() {
+      current = (current + 1) % totalSlides;
+      showSlide(current);
+    }, interval);
+
+    // Dot click
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', function() {
+        current = i;
+        showSlide(current);
+      });
+    });
+  });
+  </script>
 </body>
 </html>
+
+
+
+

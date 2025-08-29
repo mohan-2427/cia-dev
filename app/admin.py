@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, Supplier
+from .models import CustomUser, Supplier, Announcement
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('email', 'first_name', 'last_name', 'is_staff')
@@ -62,4 +62,13 @@ class SupplierAdmin(admin.ModelAdmin):
         
         return ", ".join(address_parts) if address_parts else "-"
     formatted_address.short_description = "Address"
+
+@admin.register(Announcement)
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date', 'is_critical', 'is_active')
+    list_filter = ('is_critical', 'is_active', 'date')
+    search_fields = ('title', 'content')
+    ordering = ('-date',)
+    date_hierarchy = 'date'
+
 admin.site.register(CustomUser, CustomUserAdmin)

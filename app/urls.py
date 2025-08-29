@@ -7,6 +7,7 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('category/', views.category, name='category'),
     path('announcement/', views.announcement, name='announcement'),
+    path('announcement/<int:announcement_id>/', views.announcement_detail, name='announcement_detail'),
     path('signup/', views.signup_view, name='signup'),
     path('suppliers/', views.suppliers, name='suppliers'),
     
@@ -19,4 +20,5 @@ urlpatterns = [
     path("set-new-password/", views.set_new_password, name="set_new_password"),
     path("supplier/<int:supplier_id>/", views.supplier_details, name="supplier_details"),
     path('supplier/<int:supplier_id>/details/', views.supplier_details, name='supplier_details'),
+    path('api/companies_by_category/', views.companies_by_category, name='companies_by_category'),
 ]

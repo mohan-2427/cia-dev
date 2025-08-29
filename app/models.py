@@ -6,6 +6,23 @@ import datetime
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
+class Announcement(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+    is_critical = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    referral_url = models.URLField(max_length=500, blank=True, null=True)
+    image1 = models.ImageField(upload_to="announcements/images/", blank=True, null=True)
+    image2 = models.ImageField(upload_to="announcements/images/", blank=True, null=True)
+    image3 = models.ImageField(upload_to="announcements/images/", blank=True, null=True)
+    
+    class Meta:
+        ordering = ['-date']
+    
+    def __str__(self):
+        return f"{self.title} - {self.date.strftime('%Y-%m-%d')}"
+
 class Supplier(models.Model):
     name = models.CharField(max_length=255, unique=True)  # enforce unique name  
     founder_name = models.CharField(max_length=255, blank=True, null=True)
