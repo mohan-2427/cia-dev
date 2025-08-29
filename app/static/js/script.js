@@ -734,10 +734,10 @@ function setupSearchFunctionality() {
 }
 
 function fetchSearchSuggestions(query) {
-    fetch(`/search-suggestions/?q=${encodeURIComponent(query)}`)
+    fetch(`/api/search/?q=${encodeURIComponent(query)}`)
         .then(response => response.json())
         .then(data => {
-            displaySearchResults(data.suggestions, query);
+            displaySearchResults(data.results, query);
         })
         .catch(error => {
             console.error('Search error:', error);
@@ -746,10 +746,10 @@ function fetchSearchSuggestions(query) {
         });
 }
 
-function displaySearchResults(suggestions, query) {
+function displaySearchResults(results, query) {
     const searchResults = document.getElementById('searchResults');
     
-    if (!suggestions || suggestions.length === 0) {
+    if (!results || results.length === 0) {
         searchResults.innerHTML = `
             <div class="p-4 text-center text-gray-500">
                 No results found for "${query}"
@@ -759,14 +759,29 @@ function displaySearchResults(suggestions, query) {
     }
 
     let html = '';
-    suggestions.forEach(suggestion => {
+    results.forEach(result => {
+        let iconClass = 'fas fa-building';
+        let typeText = 'Supplier';
+        
+        if (result.type === 'category') {
+            iconClass = 'fas fa-th-large';
+            typeText = 'Category';
+        } else if (result.type === 'product') {
+            iconClass = 'fas fa-cog';
+            typeText = 'Product';
+        } else if (result.type === 'html') {
+            iconClass = 'fas fa-file-alt';
+            typeText = 'Page Content';
+        }
+
         html += `
-            <a href="${suggestion.url}" class="block p-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors">
+            <a href="${result.url}" class="block p-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors">
                 <div class="flex items-center">
-                    <i class="${suggestion.icon} text-blue-600 mr-3"></i>
+                    <i class="${iconClass} text-blue-600 mr-3"></i>
                     <div>
-                        <div class="font-medium text-gray-900">${suggestion.name}</div>
-                        <div class="text-sm text-gray-500 capitalize">${suggestion.type}</div>
+                        <div class="font-medium text-gray-900">${result.title}</div>
+                        <div class="text-sm text-gray-500 capitalize">${typeText}</div>
+                        ${result.description ? `<div class="text-xs text-gray-400 mt-1">${result.description}</div>` : ''}
                     </div>
                 </div>
             </a>
@@ -775,7 +790,7 @@ function displaySearchResults(suggestions, query) {
 
     // Add a "View all results" link
     html += `
-        <a href="/suppliers/?search=${encodeURIComponent(query)}" class="block p-3 bg-gray-50 hover:bg-gray-100 text-center text-blue-600 font-medium transition-colors">
+        <a href="/search/?q=${encodeURIComponent(query)}" class="block p-3 bg-gray-50 hover:bg-gray-100 text-center text-blue-600 font-medium transition-colors">
             View all results for "${query}"
         </a>
     `;
@@ -785,6 +800,6 @@ function displaySearchResults(suggestions, query) {
 
 function performSearch(query) {
     if (query.trim()) {
-        window.location.href = `/suppliers/?search=${encodeURIComponent(query)}`;
+        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
     }
 }

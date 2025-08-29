@@ -466,3 +466,225 @@ def search_suggestions(request):
             unique_suggestions.append(suggestion)
     
     return JsonResponse({"suggestions": unique_suggestions[:10]})
+
+@require_GET
+def search_api(request):
+    """Search API endpoint that searches both database and HTML content"""
+    query = request.GET.get('q', '').strip()
+    
+    if not query:
+        return JsonResponse({"results": []})
+    
+    results = []
+    
+    # Search in database (suppliers and announcements)
+    supplier_results = Supplier.objects.filter(
+        models.Q(name__icontains=query) |
+        models.Q(category__icontains=query) |
+        models.Q(sub_category1__icontains=query) |
+        models.Q(sub_category2__icontains=query) |
+        models.Q(sub_category3__icontains=query) |
+        models.Q(sub_category4__icontains=query) |
+        models.Q(sub_category5__icontains=query) |
+        models.Q(sub_category6__icontains=query) |
+        models.Q(product1__icontains=query) |
+        models.Q(product2__icontains=query) |
+        models.Q(product3__icontains=query) |
+        models.Q(business_description__icontains=query) |
+        models.Q(founder_name__icontains=query) |
+        models.Q(contact_person_name__icontains=query) |
+        models.Q(city__icontains=query) |
+        models.Q(state__icontains=query)
+    )[:20]
+    
+    for supplier in supplier_results:
+        results.append({
+            "type": "supplier",
+            "title": supplier.name,
+            "description": supplier.business_description or f"{supplier.category} supplier",
+            "url": f"/suppliers/?search={query}",
+            "category": supplier.category,
+            "score": 1.0
+        })
+    
+    # Search in announcements
+    announcement_results = Announcement.objects.filter(
+        models.Q(title__icontains=query) |
+        models.Q(content__icontains=query)
+    )[:10]
+    
+    for announcement in announcement_results:
+        results.append({
+            "type": "announcement",
+            "title": announcement.title,
+            "description": announcement.content[:200] + "..." if len(announcement.content) > 200 else announcement.content,
+            "url": f"/announcement/{announcement.id}/",
+            "category": "Announcement",
+            "score": 0.8
+        })
+    
+    # Search in HTML content (headings and paragraphs)
+    # This is a simplified approach - in production, you might want to use a proper search engine
+    # or pre-index the content
+    html_results = search_html_content(query)
+    results.extend(html_results)
+    
+    # Sort by relevance score (highest first)
+    results.sort(key=lambda x: x['score'], reverse=True)
+    
+    return JsonResponse({"results": results[:20]})
+
+def search_html_content(query):
+    """Search for query in HTML content (headings and paragraphs)"""
+    import os
+    from django.conf import settings
+    import re
+    
+    results = []
+    query_lower = query.lower()
+    
+    # List of HTML templates to search
+    templates_to_search = [
+        'index.html',
+        'about.html',
+        'category.html',
+        'announcement.html',
+        'announcement_detail.html',
+        'suppliers.html',
+        'login.html',
+        'signup.html'
+    ]
+    
+    for template_name in templates_to_search:
+        template_path = os.path.join(settings.BASE_DIR, 'app', 'templates', template_name)
+        
+        try:
+            with open(template_path, 'r', encoding='utf-8') as file:
+                content = file.read()
+                
+                # Remove Django template tags for cleaner search
+                content_clean = re.sub(r'{%[^%]*%}|{{[^}]*}}', '', content)
+                
+                # Search for headings (h1-h6)
+                heading_matches = re.findall(r'<h[1-6][^>]*>(.*?)</h[1-6]>', content_clean, re.IGNORECASE | re.DOTALL)
+                for heading in heading_matches:
+                    # Clean HTML tags from heading
+                    heading_clean = re.sub(r'<[^>]*>', '', heading).strip()
+                    if heading_clean and query_lower in heading_clean.lower():
+                        results.append({
+                            "type": "page_content",
+                            "title": f"Page: {template_name.replace('.html', '')} - Heading",
+                            "description": heading_clean,
+                            "url": get_url_from_template(template_name),
+                            "category": "Content",
+                            "score": 0.6
+                        })
+                
+                # Search for paragraphs
+                paragraph_matches = re.findall(r'<p[^>]*>(.*?)</p>', content_clean, re.IGNORECASE | re.DOTALL)
+                for paragraph in paragraph_matches:
+                    # Clean HTML tags from paragraph
+                    paragraph_clean = re.sub(r'<[^>]*>', '', paragraph).strip()
+                    if paragraph_clean and query_lower in paragraph_clean.lower():
+                        results.append({
+                            "type": "page_content",
+                            "title": f"Page: {template_name.replace('.html', '')} - Content",
+                            "description": paragraph_clean[:150] + "..." if len(paragraph_clean) > 150 else paragraph_clean,
+                            "url": get_url_from_template(template_name),
+                            "category": "Content",
+                            "score": 0.5
+                        })
+                        
+        except FileNotFoundError:
+            continue
+        except Exception as e:
+            print(f"Error searching {template_name}: {e}")
+            continue
+    
+    return results
+
+def get_url_from_template(template_name):
+    """Get URL from template name"""
+    url_map = {
+        'index.html': '/',
+        'about.html': '/about/',
+        'category.html': '/category/',
+        'announcement.html': '/announcement/',
+        'announcement_detail.html': '/announcement/',  # Generic announcement page
+        'suppliers.html': '/suppliers/',
+        'login.html': '/login/',
+        'signup.html': '/signup/'
+    }
+    return url_map.get(template_name, '/')
+
+def search_results(request):
+    """Search results page view"""
+    query = request.GET.get('q', '').strip()
+    
+    if not query:
+        return redirect('index')
+    
+    # Use the same search logic as the API but return the results directly
+    results = []
+    
+    # Search in database (suppliers and announcements)
+    supplier_results = Supplier.objects.filter(
+        models.Q(name__icontains=query) |
+        models.Q(category__icontains=query) |
+        models.Q(sub_category1__icontains=query) |
+        models.Q(sub_category2__icontains=query) |
+        models.Q(sub_category3__icontains=query) |
+        models.Q(sub_category4__icontains=query) |
+        models.Q(sub_category5__icontains=query) |
+        models.Q(sub_category6__icontains=query) |
+        models.Q(product1__icontains=query) |
+        models.Q(product2__icontains=query) |
+        models.Q(product3__icontains=query) |
+        models.Q(business_description__icontains=query) |
+        models.Q(founder_name__icontains=query) |
+        models.Q(contact_person_name__icontains=query) |
+        models.Q(city__icontains=query) |
+        models.Q(state__icontains=query)
+    )[:20]
+    
+    for supplier in supplier_results:
+        results.append({
+            "type": "supplier",
+            "title": supplier.name,
+            "description": supplier.business_description or f"{supplier.category} supplier",
+            "url": f"/suppliers/?search={query}",
+            "phone_number": supplier.phone_number,
+            "category": supplier.category,
+            "score": 1.0
+        })
+    
+    # Search in announcements
+    announcement_results = Announcement.objects.filter(
+        models.Q(title__icontains=query) |
+        models.Q(content__icontains=query)
+    )[:10]
+    
+    for announcement in announcement_results:
+        results.append({
+            "type": "announcement",
+            "title": announcement.title,
+            "description": announcement.content[:200] + "..." if len(announcement.content) > 200 else announcement.content,
+            "url": f"/announcement/{announcement.id}/",
+            "category": "Announcement",
+            "score": 0.8
+        })
+    
+    # Search in HTML content (headings and paragraphs)
+    html_results = search_html_content(query)
+    results.extend(html_results)
+    
+    # Sort by relevance score (highest first)
+    results.sort(key=lambda x: x['score'], reverse=True)
+    
+    context = {
+        'query': query,
+        'results': results,
+        'total_results': len(results),
+    }
+    
+    return render(request, "search_results.html", context)

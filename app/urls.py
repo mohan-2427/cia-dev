@@ -21,4 +21,10 @@ urlpatterns = [
     path("supplier/<int:supplier_id>/", views.supplier_details, name="supplier_details"),
     path('supplier/<int:supplier_id>/details/', views.supplier_details, name='supplier_details'),
     path('api/companies_by_category/', views.companies_by_category, name='companies_by_category'),
+
+    # New search API endpoint
+    path('api/search/', views.search_api, name='search_api'),
+
+    # Search results page
+    path('search/', views.search_results, name='search_results'),
 ]

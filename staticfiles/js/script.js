@@ -8,7 +8,7 @@ const containerSets = [
     // Slide 1 - Industrial Excellence (5 containers)
     `
       <!-- Container 1 - Large hero (spans 3x2) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Excellence" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
@@ -17,7 +17,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 2 - Medium (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Power Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -26,7 +26,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 3 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -35,7 +35,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 4 - Medium tall (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -44,7 +44,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Automation Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -56,7 +56,7 @@ const containerSets = [
     // Slide 2 - Metal Working & Production (5 containers)
     `
       <!-- Container 1 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/33559313/pexels-photo-33559313.jpeg" alt="Engineering Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -65,7 +65,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 2 - Large metal working hero (spans 3x2) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg" alt="Metal Working Operations" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
@@ -74,7 +74,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 3 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/9550574/pexels-photo-9550574.jpeg" alt="Kitchen Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -83,7 +83,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 4 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg" alt="Production Systems" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -92,7 +92,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg" alt="Packaging Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -104,7 +104,7 @@ const containerSets = [
     // Slide 3 - Advanced Manufacturing (5 containers)
     `
       <!-- Container 1 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31115985/pexels-photo-31115985.jpeg" alt="Plastic Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -113,7 +113,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 2 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/31199566/pexels-photo-31199566.jpeg" alt="Textile Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -122,7 +122,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 3 - Large hero (spans 3x2) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
+      <div class="col-span-3 row-span-2 rounded-xl overflow-hidden shadow-lg bg-black relative hero-container cursor-pointer">
         <img src="https://images.pexels.com/photos/8982670/pexels-photo-8982670.jpeg" alt="Smart Manufacturing" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/30 w-full h-auto flex-grow"></div>
         <div class="absolute bottom-8 left-8 text-white">
@@ -131,7 +131,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 4 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg" alt="Electrical Systems" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -140,7 +140,7 @@ const containerSets = [
         </div>
       </div>
       <!-- Container 5 - Small (spans 2x1) -->
-      <div onclick="window.open('https://www.google.com', '_blank')" class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
+      <div class="col-span-2 row-span-1 rounded-xl overflow-hidden shadow-lg bg-black relative cursor-pointer">
         <img src="https://images.pexels.com/photos/532079/pexels-photo-532079.jpeg" alt="Industrial Equipment" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20"></div>
         <div class="absolute bottom-4 left-4 text-white">
@@ -250,6 +250,41 @@ function preloadImages() {
     });
 }
 
+// Add loading animation and fallback for images
+function setupImageLoading() {
+    const images = document.querySelectorAll('#heroCarousel img');
+    images.forEach(img => {
+        img.style.opacity = '0'; // Always reset opacity before load
+        img.addEventListener('load', function() {
+            this.style.opacity = '1';
+        });
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            // Optionally, show a fallback element or message
+            if (this.parentNode) {
+                const fallback = document.createElement('div');
+                fallback.className = 'flex items-center justify-center w-full h-full bg-gray-200';
+                fallback.innerHTML = '<span class="text-gray-500 text-lg">Image not available</span>';
+                this.parentNode.appendChild(fallback);
+            }
+        });
+        // If already loaded (from cache), trigger fade-in
+        if (img.complete && img.naturalWidth !== 0) {
+            img.style.opacity = '1';
+        }
+    });
+}
+
+function setupCarouselImageRedirect() {
+    const carousel = document.getElementById('heroCarousel');
+    if (!carousel) return;
+    Array.from(carousel.children).forEach(container => {
+        container.onclick = function() {
+            window.location.href = "/category/";
+        };
+    });
+}
+
 // Main initialization
 document.addEventListener('DOMContentLoaded', function() {
     // Preload images first
@@ -257,6 +292,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize carousel
     updateCarousel();
+    setupImageLoading();
+    setupCarouselImageRedirect();
 
     // Language Toggle Event Listeners
     const languageToggle = document.getElementById('languageToggle');
@@ -288,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isPageVisible) {
                 nextSlide();
             }
-        }, 5000); // Changed to 5 seconds for better user experience
+        }, 2000); // Changed to 2 seconds
     }
 
     function stopCarousel() {
@@ -318,13 +355,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Start carousel initially
     startCarousel();
-    
+
     // Animate elements on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -332,33 +369,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
+
     // Add scroll animation class to elements
     const animateElements = document.querySelectorAll('.supplier-card, .card-hover');
     animateElements.forEach(el => {
         el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
-    
+
     // Stagger animation for category cards
     const categoryCards = document.querySelectorAll('.card-hover');
     categoryCards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
-    
+
     // Stagger animation for supplier cards
     const supplierCards = document.querySelectorAll('.supplier-card');
     supplierCards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.2}s`;
     });
-    
+
     // Navbar scroll effect
     let lastScrollTop = 0;
     const navbar = document.querySelector('.fixed-header');
-    
+
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             // Scrolling down
             navbar.style.transform = 'translateY(-100%)';
@@ -366,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scrolling up
             navbar.style.transform = 'translateY(0)';
         }
-        
+
         // Add background blur when scrolled
         if (scrollTop > 50) {
             navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
@@ -375,22 +412,22 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.backgroundColor = 'rgba(255, 255, 255, 1)';
             navbar.style.backdropFilter = 'none';
         }
-        
+
         lastScrollTop = scrollTop;
     });
-    
+
     // Smooth hover effects for buttons
     const buttons = document.querySelectorAll('button, .inline-block:not(.center-logo)');
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-2px) scale(1.02)';
         });
-        
+
         button.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
+
     // Mobile menu functionality
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -426,19 +463,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Announcement popup logic
+    // Announcement button redirect logic
     const announcementBtn = document.getElementById('announcementBtn');
-    const announcementBar = document.getElementById('announcementBar');
-    const announcementClose = document.getElementById('announcementClose');
-
-    if (announcementBtn && announcementBar && announcementClose) {
+    if (announcementBtn) {
         announcementBtn.addEventListener('click', function() {
-            announcementBar.classList.add('active');
-            announcementBtn.style.display = 'none';
-        });
-        announcementClose.addEventListener('click', function() {
-            announcementBar.classList.remove('active');
-            announcementBtn.style.display = 'flex';
+            window.location.href = "/announcement/";
         });
     }
 
@@ -470,14 +499,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         });
     });
-    
-    // Add loading animation for images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-    });
 
     // Setup profile/logout functionality
     setupProfileLogoutListeners();
@@ -497,6 +518,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Initialize search functionality
+    setupSearchFunctionality();
 });
 
 
@@ -506,7 +530,7 @@ let isLogoutMode = false;
 function toggleProfileLogout() {
     const profileBtn = document.getElementById('profileBtn');
     const logoutBtn = document.getElementById('logoutBtn');
-    
+
     if (isLogoutMode) {
         // Switch back to profile mode
         profileBtn.classList.remove('hidden');
@@ -517,7 +541,7 @@ function toggleProfileLogout() {
         profileBtn.classList.add('hidden');
         logoutBtn.classList.remove('hidden');
         isLogoutMode = true;
-        
+
         // Auto-switch back after 3 seconds
         setTimeout(() => {
             if (isLogoutMode) {
@@ -555,21 +579,21 @@ function performLogout() {
 function setupProfileLogoutListeners() {
     const profileBtn = document.getElementById('profileBtn');
     const logoutBtn = document.getElementById('logoutBtn');
-    
+
     if (profileBtn) {
         profileBtn.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent event bubbling
             toggleProfileLogout();
         });
     }
-    
+
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
             e.stopPropagation(); // Prevent event bubbling
             performLogout();
         });
     }
-    
+
     // Close logout mode when clicking anywhere else on the page
     document.addEventListener('click', function() {
         if (isLogoutMode) {
@@ -582,7 +606,7 @@ function setupProfileLogoutListeners() {
             }
         }
     });
-    
+
     // Prevent the profile button container from closing when clicking inside it
     const profileContainer = document.querySelector('.relative.group');
     if (profileContainer) {
@@ -645,3 +669,137 @@ const carouselCSS = `
 const style = document.createElement('style');
 style.textContent = carouselCSS;
 document.head.appendChild(style);
+
+// Search functionality
+function setupSearchFunctionality() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!searchInput || !searchResults) return;
+
+    let searchTimeout;
+    let currentSearchQuery = '';
+
+    searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.trim();
+        currentSearchQuery = query;
+        
+        // Clear previous timeout
+        clearTimeout(searchTimeout);
+        
+        // Hide results if query is empty
+        if (!query) {
+            searchResults.classList.add('hidden');
+            return;
+        }
+
+        // Show loading state
+        searchResults.classList.remove('hidden');
+        searchResults.innerHTML = '<div class="p-4 text-center text-gray-500">Searching...</div>';
+
+        // Debounce search requests
+        searchTimeout = setTimeout(() => {
+            fetchSearchSuggestions(query);
+        }, 300);
+    });
+
+    searchInput.addEventListener('focus', function() {
+        if (currentSearchQuery && searchResults.children.length > 0) {
+            searchResults.classList.remove('hidden');
+        }
+    });
+
+    searchInput.addEventListener('blur', function() {
+        // Hide results after a short delay to allow clicking on them
+        setTimeout(() => {
+            searchResults.classList.add('hidden');
+        }, 200);
+    });
+
+    // Prevent hiding results when clicking inside them
+    searchResults.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+    });
+
+    // Handle keyboard navigation
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch(currentSearchQuery);
+        } else if (e.key === 'Escape') {
+            searchResults.classList.add('hidden');
+            searchInput.blur();
+        }
+    });
+}
+
+function fetchSearchSuggestions(query) {
+    fetch(`/api/search/?q=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+            displaySearchResults(data.results, query);
+        })
+        .catch(error => {
+            console.error('Search error:', error);
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '<div class="p-4 text-center text-red-500">Search failed. Please try again.</div>';
+        });
+}
+
+function displaySearchResults(results, query) {
+    const searchResults = document.getElementById('searchResults');
+    
+    if (!results || results.length === 0) {
+        searchResults.innerHTML = `
+            <div class="p-4 text-center text-gray-500">
+                No results found for "${query}"
+            </div>
+        `;
+        return;
+    }
+
+    let html = '';
+    results.forEach(result => {
+        let iconClass = 'fas fa-building';
+        let typeText = 'Supplier';
+        
+        if (result.type === 'category') {
+            iconClass = 'fas fa-th-large';
+            typeText = 'Category';
+        } else if (result.type === 'product') {
+            iconClass = 'fas fa-cog';
+            typeText = 'Product';
+        } else if (result.type === 'html') {
+            iconClass = 'fas fa-file-alt';
+            typeText = 'Page Content';
+        }
+
+        html += `
+            <a href="${result.url}" class="block p-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 transition-colors">
+                <div class="flex items-center">
+                    <i class="${iconClass} text-blue-600 mr-3"></i>
+                    <div>
+                        <div class="font-medium text-gray-900">${result.title}</div>
+                        <div class="text-sm text-gray-500 capitalize">${typeText}</div>
+                        ${result.description ? `<div class="text-xs text-gray-400 mt-1">${result.description}</div>` : ''}
+                    </div>
+                </div>
+            </a>
+        `;
+    });
+
+    // Add a "View all results" link
+    html += `
+        <a href="/search/?q=${encodeURIComponent(query)}" class="block p-3 bg-gray-50 hover:bg-gray-100 text-center text-blue-600 font-medium transition-colors">
+            View all results for "${query}"
+        </a>
+    `;
+
+    searchResults.innerHTML = html;
+}
+
+function performSearch(query) {
+    if (query.trim()) {
+        window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+    }
+}

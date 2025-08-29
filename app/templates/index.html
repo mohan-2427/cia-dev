@@ -44,6 +44,7 @@
           <div class="relative hidden md:block">
             <input
               type="text"
+              id="searchInput"
               placeholder="Search..!!"
               class="w-40 py-1 px-2 rounded-full text-[#000000] bg-[#FFF9E5] border border-[#000000] shadow-md rounded-full focus:outline-none pr-10 shadow-md search-box"
             />
@@ -53,6 +54,7 @@
             >
               <i class="fas fa-search"></i>
             </button>
+            <div id="searchResults" class="absolute top-full left-0 right-0 mt-1 bg-white rounded-md shadow-lg border border-gray-300 z-50 max-h-80 overflow-y-auto hidden"></div>
           </div>
         </div>
 
@@ -81,6 +83,10 @@
             href="{% url 'category' %}"
             class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
             >Category</a>
+            <a
+            href="{% url 'suppliers' %}"
+            class="text-[#3d2d29] hover:text-yellow-700 font-medium transition"
+            >suppliers</a>
           <!-- Language Toggle -->
           <button id="languageToggle" class="flex items-center space-x-1 text-[#3d2d29] hover:text-yellow-700 font-medium transition px-2 py-1 rounded-lg border border-gray-300 hover:border-yellow-500">
             <img src="https://cdn.builder.io/api/v1/image/assets%2F8b4537dd3fc94785bf1c6169a3c80769%2Fe2eef99b80e945699b2f2503b5a83ffa?format=webp&width=800" alt="Language Toggle" class="w-4 h-4">
@@ -179,33 +185,7 @@
                 <span class="font-medium">Announcements</span>
               </a>
 
-              <!-- Products Dropdown -->
-              <div class="border-t border-gray-200 pt-4 mt-4">
-                <button id="mobileProductsBtn" class="flex items-center justify-between w-full px-3 py-3 text-[#3d2d29] hover:text-yellow-700 hover:bg-yellow-50 rounded-lg transition">
-                  <div class="flex items-center space-x-3">
-                    <i class="fas fa-cog w-5"></i>
-                    <span class="font-medium">Products</span>
-                  </div>
-                  <i class="fas fa-chevron-down text-sm transition-transform duration-200" id="productsChevron"></i>
-                </button>
-                <div id="mobileProductsMenu" class="hidden mt-2 ml-8 space-y-1">
-                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
-                    <i class="fas fa-wrench mr-2"></i>Engineering
-                  </a>
-                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
-                    <i class="fas fa-industry mr-2"></i>Metal Working
-                  </a>
-                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
-                    <i class="fas fa-cogs mr-2"></i>Production
-                  </a>
-                  <a href="#" class="block px-3 py-2 text-gray-600 hover:text-yellow-700 hover:bg-yellow-50 rounded transition">
-                    <i class="fas fa-box mr-2"></i>Packaging
-                  </a>
-                </div>
-              </div>
-            </nav>
-          </div>
-
+              
           <!-- Mobile Menu Footer -->
           <div class="border-t border-gray-200 p-4">
             <!-- Language Selector -->
@@ -351,27 +331,56 @@
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Supplier 1 -->
-        <div class="supplier-card bg-white p-0 rounded-20g shadow-md">
-          <div class="relative">
-            <img
-              src="{% static 'images/resized_image_600x300 01.png' %}"
-              alt="Large industrial warehouse filled with various construction machinery including excavators and bulldozers"
-              class="w-full h-48 object-cover rounded-t-lg lazy-load"
-              loading="lazy"
-            />
+        {% for supplier in featured_suppliers %}
+        <div class="supplier-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+          <!-- Image Section -->
+          <div class="relative h-48 flex-shrink-0">
+            {% if supplier.image %}
+              <img src="{{ supplier.image.url }}" alt="{{ supplier.name }}" class="w-full h-full object-cover"
+                   onerror="this.style.display='none'; this.parentNode.querySelector('.fallback-image').style.display='flex';" />
+              <div class="fallback-image w-full h-full bg-gradient-to-br from-blue-500 to-blue-700 items-center justify-center" style="display: none;">
+                <span class="text-white text-4xl font-bold">{{ supplier.name|slice:":2"|upper }}</span>
+              </div>
+            {% elif supplier.logo %}
+              <img src="{{ supplier.logo.url }}" alt="{{ supplier.name }}" class="w-full h-full object-contain bg-gray-50 p-4"
+                   onerror="this.style.display='none'; this.parentNode.querySelector('.fallback-image').style.display='flex';" />
+              <div class="fallback-image w-full h-full bg-gradient-to-br from-green-500 to-green-700 items-center justify-center" style="display: none;">
+                <span class="text-white text-4xl font-bold">{{ supplier.name|slice:":2"|upper }}</span>
+              </div>
+            {% else %}
+              <div class="w-full h-full bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center">
+                <div class="text-center">
+                  <i class="fas fa-building text-white text-3xl mb-2"></i>
+                  <span class="text-white text-2xl font-bold block">{{ supplier.name|slice:":2"|upper }}</span>
+                </div>
+              </div>
+            {% endif %}
+            <!-- Category Badge -->
+            <div class="absolute top-3 right-3">
+              <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                {{ supplier.category|default:"General" }}
+              </span>
+            </div>
           </div>
-          <div class="p-6">
+
+          <!-- Content Section -->
+          <div class="p-6 flex-grow flex flex-col">
+            <!-- Header -->
             <div class="flex items-center mb-4">
-              <img
-                src="{% static 'images/resized_image_1920x1080.png' %}"
-                alt="CAT Equipment Solutions logo with yellow and black branding"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
-                loading="lazy"
-              />
-              <div class="ml-4">
-                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
-                  <a href="cat-equipment-solutions.html">CAT Equipment Solutions</a>
+              {% if supplier.logo %}
+                <img src="{{ supplier.logo.url }}" alt="{{ supplier.name }}" class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm"
+                     onerror="this.style.display='none'; this.parentNode.querySelector('.logo-fallback').style.display='flex';" />
+                <div class="logo-fallback w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0" style="display: none;">
+                  {{ supplier.name|slice:":2"|upper }}
+                </div>
+              {% else %}
+                <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                  {{ supplier.name|slice:":2"|upper }}
+                </div>
+              {% endif %}
+              <div class="ml-4 min-w-0 flex-grow">
+                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition truncate">
+                  {{ supplier.name }}
                 </h3>
                 <div class="flex items-center mt-1">
                   <div class="flex text-yellow-400">
@@ -381,138 +390,69 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                   </div>
-                  <span class="text-gray-500 text-sm ml-2">4.8 (76 reviews)</span>
+                  <span class="text-gray-500 text-sm ml-2">4.5 (Reviews)</span>
                 </div>
               </div>
             </div>
-            <p class="text-gray-600 mb-4">
-              Authorized dealer for Caterpillar construction and mining equipment
-              with 25+ years of experience
-            </p>
-            <div class="flex items-center text-gray-500 mb-4">
-              <i class="fas fa-map-marker-alt mr-2"></i>
-              <span>124 Industrial Park, Mumbai, India</span>
-            </div>
-            <div
-              class="flex justify-between items-center pt-4 border-t border-gray-200"
-            >
-  
-            </div>
-          </div>
-        </div>
 
-        <!-- Supplier 2 -->
-        <div class="supplier-card bg-white p-0 rounded-20g shadow-md">
-          <div class="relative">
-            <img
-              src="{% static 'images/resized_image3_600x300 02.png' %}"
-              alt="Komatsu heavy equipment service center with technicians working on machinery"
-              class="w-full h-48 object-cover rounded-t-lg lazy-load"
-              loading="lazy"
-            />
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <img
-                src="{% static 'images/Company logo 2.png' %}"
-                alt="Komatsu Parts India logo in white and red colors"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
-                loading="lazy"
-              />
-              <div class="ml-4">
-                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
-                  <a href="komatsu-parts-india.html">Komatsu Parts India</a>
-                </h3>
-                <div class="flex items-center mt-1">
-                  <div class="flex text-yellow-400">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                  </div>
-                  <span class="text-gray-500 text-sm ml-2">4.2 (54 reviews)</span>
-                </div>
-              </div>
-            </div>
-            <p class="text-gray-600 mb-4">
-              Specialized in Komatsu excavators, dozers and genuine spare parts
-              with nationwide support
+            <!-- Description -->
+            <p class="text-gray-600 mb-4 text-sm line-clamp-3 flex-grow">
+              {{ supplier.business_description|default:"Innovative company providing quality solutions in the industrial sector." }}
             </p>
-            <div class="flex items-center text-gray-500 mb-4">
-              <i class="fas fa-map-marker-alt mr-2"></i>
-              <span>78 Service Road, Delhi, India</span>
-            </div>
-            <div
-              class="flex justify-between items-center pt-4 border-t border-gray-200"
-            >
-  
-            </div>
-          </div>
-        </div>
 
-        <!-- Supplier 3 -->
-        <div class="supplier-card bg-white p-0 rounded-20g shadow-md">
-          <div class="relative">
-            <img
-              src="{% static 'images/resized_image4_600x300 03.png' %}"
-              alt="JCB equipment yard with multiple machines lined up ready for sale"
-              class="w-full h-48 object-cover rounded-t-lg lazy-load"
-              loading="lazy"
-            />
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-4">
-              <img
-                src="{% static 'images/Companuy logo 3.png' %}"
-                alt="JCB Machinery Ltd. logo with yellow and black colors"
-                class="w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm lazy-load"
-                loading="lazy"
-              />
-              <div class="ml-4">
-                <h3 class="font-bold text-lg text-blue-600 hover:text-blue-800 cursor-pointer transition">
-                  <a href="jcb-machinery-ltd.html">JCB Machinery Ltd.</a>
-                </h3>
-                <div class="flex items-center mt-1">
-                  <div class="flex text-yellow-400">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <span class="text-gray-500 text-sm ml-2">5.0 (128 reviews)</span>
-                </div>
+            <!-- Contact Info -->
+            <div class="space-y-2 mb-4">
+              <div class="flex items-start text-gray-500">
+                <i class="fas fa-map-marker-alt mr-2 text-blue-500 mt-1 flex-shrink-0"></i>
+                <span class="text-sm">
+                  {% if supplier.city and supplier.state %}
+                    {{ supplier.city }}, {{ supplier.state }}
+                  {% else %}
+                    Location information available
+                  {% endif %}
+                </span>
               </div>
+              {% if supplier.email %}
+              <div class="flex items-center text-gray-500">
+                <i class="fas fa-envelope mr-2 text-blue-500 flex-shrink-0"></i>
+                <span class="text-sm truncate">{{ supplier.email }}</span>
+              </div>
+              {% endif %}
             </div>
-            <p class="text-gray-600 mb-4">
-              Leading distributor of JCB backhoe loaders, telehandlers and
-              compactors since 1992
-            </p>
-            <div class="flex items-center text-gray-500 mb-4">
-              <i class="fas fa-map-marker-alt mr-2"></i>
-              <span>32 Heavy Industrial Area, Bengaluru, India</span>
+
+            <!-- Product Badge -->
+            {% if supplier.product1 %}
+            <div class="mb-4">
+              <span class="bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                {{ supplier.product1 }}
+              </span>
             </div>
-            <div
-              class="flex justify-between items-center pt-4 border-t border-gray-200"
-            >
-  
+            {% endif %}
+
+            <!-- Footer -->
+            <div class="flex justify-between items-center pt-4 border-t border-gray-200 mt-auto">
+              <div class="flex items-center text-blue-600 font-medium text-sm">
+                <i class="fas fa-phone-alt mr-2"></i>
+                <span>{{ supplier.phone_number|default:"Contact for details" }}</span>
+              </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
       <div class="text-center mt-10">
-        <div class="relative inline-block group"></div>
-        <a
-          href="{% url 'suppliers' %}"
-          class="inline-block bg-white text-black-600 font-semibold px-6 py-3 rounded-lg border border-blue-600 hover:bg-blue-50 transition shadow-lg group-hover:shadow-2xl"
-        >
-          View All Suppliers <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-        <div
-          class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white text-gray-800 text-sm rounded-lg shadow-xl border border-blue-200 px-4 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50"
-        >
-          Click to see the complete list of trusted machinery suppliers.
+        <div class="relative inline-block group">
+          <a
+            href="{% url 'suppliers' %}"
+            class="inline-block bg-white text-black-600 font-semibold px-6 py-3 rounded-lg border border-blue-600 hover:bg-blue-50 transition shadow-lg group-hover:shadow-2xl"
+          >
+            View All Suppliers <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-56 bg-white text-gray-800 text-sm rounded-lg shadow-xl border border-blue-200 px-4 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50"
+          >
+            Click to see the complete list of trusted machinery suppliers.
+          </div>
         </div>
       </div>
     </div>
@@ -695,39 +635,24 @@
           </div>
         </div>
 
-        <!-- Contact Info with Map -->
-        <div class="text-center md:text-right">
-          <h4 class="text-sm font-bold mb-2 text-gray-800">Contact Info</h4>
-          <div class="flex flex-col md:flex-row md:justify-end items-center gap-2">
-            <div class="space-y-1">
-              <div class="flex items-center justify-center md:justify-end text-xs">
-                <i class="fas fa-map-marker-alt text-yellow-600 mr-1"></i>
-                <span class="text-gray-600">Mumbai, India</span>
-              </div>
-              <div class="flex items-center justify-center md:justify-end text-xs">
-                <i class="fas fa-phone-alt text-yellow-600 mr-1"></i>
-                <a href="tel:+911234567890" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">+91 12345 67890</a>
-              </div>
-              <div class="flex items-center justify-center md:justify-end text-xs">
-                <i class="fas fa-envelope text-yellow-600 mr-1"></i>
-                <a href="mailto:contact@machineryhub.com" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">contact@cia.com</a>
+            <!-- Contact Info -->
+            <div class="text-center md:text-right">
+              <h4 class="text-sm font-bold mb-2 text-gray-800">Contact Info</h4>
+              <div class="space-y-1">
+                <div class="flex items-start justify-center md:justify-end text-xs">
+                  <i class="fas fa-map-marker-alt text-yellow-600 mr-2 mt-0.5"></i>
+                  <span class="text-gray-600 text-left">CIA - Chinnavedampatti Industrial Association<br>No.10, OmSakthi Nagar, Chinnavedampatti,<br>Coimbatore - 641049, Tamil Nadu, India.</span>
+                </div>
+                <div class="flex items-center justify-center md:justify-end text-xs">
+                  <i class="fas fa-phone-alt text-yellow-600 mr-2"></i>
+                  <a href="tel:+919087133005" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">+91 9087133005</a>
+                </div>
+                <div class="flex items-center justify-center md:justify-end text-xs">
+                  <i class="fas fa-envelope text-yellow-600 mr-2"></i>
+                  <a href="mailto:contact@machineryhub.com" class="text-gray-600 hover:text-yellow-600 transition-colors duration-300">contact@machineryhub.com</a>
+                </div>
               </div>
             </div>
-            <!-- Google Map -->
-            <div class="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995709657!3d19.082502007781283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
-                width="80"
-                height="60"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="rounded border border-gray-300"
-              ></iframe>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Bottom Section -->
